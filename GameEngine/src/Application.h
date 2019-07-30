@@ -9,6 +9,10 @@ namespace GameEngine {
 	class Object;
 	class GameObject;
 
+	namespace Rendering
+	{
+		class Renderer;
+	}
 
 	//! The central class of the engine. Manages Initialization, Updating and Quitting. Also stores a list of all game objects currently loaded.
 	class Application {
@@ -26,6 +30,8 @@ namespace GameEngine {
 		static int rdt;
 		//!Real Delta Time in Seconds 
 		static float rdts;
+
+		static std::shared_ptr<Rendering::Renderer> renderer;
 
 		//! Processes any SDL events that have occured since the last update. This includes user input such as keyboard, mouse, gamepad, window resizing etc.
 		static void ProcessEvents();
@@ -61,9 +67,12 @@ namespace GameEngine {
 
 		//!Returns the time since last update in seconds
 		static float Rdts() { return rdts; }
+		
+		static std::weak_ptr<Rendering::Renderer> GetRenderer() { return renderer; }
 
 		//!Stops the program
 		static void Stop() { run = false; }
+
 	};
 
 }//namespace GameEngine

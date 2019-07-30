@@ -15,6 +15,8 @@ namespace GameEngine
 	unsigned int Application::lastTicks;
 	int Application::rdt;
 	float Application::rdts;
+	std::shared_ptr<Rendering::Renderer> Application::renderer;
+	std::shared_ptr<Rendering::Renderer> Rendering::CreateRenderer();
 
 	//==============================================================================
 
@@ -28,10 +30,13 @@ namespace GameEngine
 
 		run = true;
 
-		if (!Rendering::Renderer::Init(argc, argv))
-		{
-			return false;
-		}
+		renderer = Rendering::CreateRenderer();
+
+
+		//if (!Rendering::Renderer::Init(argc, argv))
+		//{
+		//	return false;
+		//}
 
 		CollisionControl::colliders.clear();
 
@@ -53,7 +58,7 @@ namespace GameEngine
 
 			Update();
 
-			Rendering::Renderer::Draw(gameObjects);
+			renderer->Draw(gameObjects);
 		}
 
 		Quit();
@@ -117,7 +122,7 @@ namespace GameEngine
 				Input::RemoveController(event.cdevice.which);
 				break;
 			case SDL_WINDOWEVENT:
-				Rendering::Renderer::ProcessWindowEvent(event);
+				renderer->ProcessWindowEvent(event);
 				break;
 			}
 		}
@@ -150,7 +155,7 @@ namespace GameEngine
 			gameObjects[i]->Destroy();
 		}
 
-		Rendering::Renderer::Destroy();
+		renderer->Destroy();
 
 		// Close SDL
 		SDL_Quit();

@@ -5,64 +5,66 @@
 #define GL3_PROTOTYPES 1
 
 #include "GL/glew.h"
-#include "SDL/SDL.h"
 #include <vector>
 #include <memory>
+#include "SDL/SDL.h"
 
 namespace GameEngine {
 
 	class GameObject;
-
+	class Application;
+	
 	namespace Rendering
 	{
 		//!Handles GL context and SDL window
 		class Renderer {
 
 			friend class Application;
+			
+		protected:
+
+			friend std::shared_ptr<Renderer> CreateRenderer();
+
+			float screenWidth;
+			float screenHeight;
+
+			//!Initializes GL context and uniforms.
+			bool InitGL();
+
+			//!Creates the shaders for the program
+			void CreateProgram();
+
+			//!Processes a window event sent from the application (e.g. window resize)
+			void ProcessWindowEvent(SDL_Event &event);
+
+			//!Initializes SDL_Window and any other renderer specific functions
+			virtual bool Init() = 0;
+
+			//!Destroys the SDL Window and GL context.
+			virtual void Destroy() = 0;
+
+			//!Replaces the buffer with the buffer drawn this frame.
+			virtual void Update();
+
+			//!Redraws the GL scene. Calls Draw on all GameObjects
+			virtual void Draw(std::vector<std::shared_ptr<GameObject>>& _objects);
 
 		private:
 
-			static SDL_Window* mainWindow;
-			static SDL_GLContext mainContext;
-
-			//!Initializes GL context and uniforms.
-			static bool InitGL();
-
-			//!Initializes SDL_Window and any other renderer specific functions
-			static bool Init(int argc, char* argv[]);
-			//!Destroys the SDL Window and GL context.
-			static void Destroy();
-			//!Replaces the buffer with the buffer drawn this frame.
-			static void Update();
-			//!Redraws the GL scene. Calls Draw on all GameObjects
-			static void Draw(std::vector<std::shared_ptr<GameObject>>& _objects);
-			//!Processes a window event sent from the application (e.g. window resize)
-			static void ProcessWindowEvent(SDL_Event &event);
-			//!Sets the dimensions of the window to match newly resized window.
-			static void SetWindowDimensions();
-
-			static float screenWidth;
-			static float screenHeight;
-
-			static GLuint programId;
-			static GLuint vertexShaderId;
-			static GLuint fragmentShaderId;
-			static GLuint projLoc;
-			static GLuint viewLoc;
-
-			//!Creates the shaders for the program
-			static void CreateProgram();
+			GLuint programId;
+			GLuint vertexShaderId;
+			GLuint fragmentShaderId;
+			GLuint projLoc;
+			GLuint viewLoc;
 
 		public:
-			static void GetWindowSize(int *w, int *h);
-			static GLuint GetProgramId() { return programId; }
+			virtual GLuint GetProgramId() { return programId; }
+			virtual float ScreenWidth() = 0;
+			virtual float ScreenHeight() = 0;
+			virtual void GetWindowSize(int *w, int *h) = 0;
 
 			//!Clears the GL background to entered color.
 			static void ClearToColour(float r, float g, float b, float a);
-
-			static float GetScreenWidth() { return screenWidth; }
-			static float GetScreenHeight() { return screenHeight; }
-
 		};
 	}
 }//namespace GameEngine
