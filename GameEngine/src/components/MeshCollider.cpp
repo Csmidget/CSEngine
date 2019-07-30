@@ -18,7 +18,7 @@ namespace GameEngine
 			return; //If no meshrenderer, just return with empty bound box
 		}
 
-		std::weak_ptr<Mesh> rmesh = gameObject.lock()->GetComponent<MeshRenderer>().lock()->GetMesh();
+		std::weak_ptr<Rendering::Mesh> rmesh = gameObject.lock()->GetComponent<MeshRenderer>().lock()->GetMesh();
 
 		if (rmesh.expired())
 		{

@@ -1,12 +1,12 @@
-#include <DebugComponent.h>
-#include <Input.h>
-#include <GameObject.h>
-#include <Transform.h>
-#include <RigidBody.h>
-#include <Camera.h>
-#include <SnookerCam.h>
-#include <TableConstrainer.h>
-#include <MeshRenderer.h>
+#include "DebugComponent.h"
+#include "input/Input.h"
+#include "GameObject.h"
+#include "Transform.h"
+#include "interaction/RigidBody.h"
+#include "components/Camera.h"
+#include "SnookerCam.h"
+#include "TableConstrainer.h"
+#include "components/MeshRenderer.h"
 
 using namespace GameEngine;
 //==============================================================================

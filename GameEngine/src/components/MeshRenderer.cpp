@@ -12,6 +12,8 @@
 
 namespace GameEngine
 {
+	using namespace Rendering;
+
 	//==============================================================================
 	void MeshRenderer::Draw()
 	{
@@ -96,7 +98,7 @@ namespace GameEngine
 			glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, 0);
 			glEnableVertexAttribArray(2);
 
-			modelLoc = glGetUniformLocation(Renderer::GetProgramId(), "modelMat");
+			modelLoc = glGetUniformLocation(Rendering::Renderer::GetProgramId(), "modelMat");
 		}
 	}//MeshRenderer::CreateVao
 	 //==============================================================================

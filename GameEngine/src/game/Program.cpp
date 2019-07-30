@@ -37,7 +37,7 @@ void Program::Init()
 	std::shared_ptr<GameObject> go2 = GameObject::Create();
 	go2->GetTransform().lock()->SetLocalPosition(glm::vec3(0, 0, 1));
 	go2->GetTransform().lock()->SetParent(go->GetTransform());
-	Light::SetParent(go2->GetTransform());
+	Rendering::Light::SetParent(go2->GetTransform());
 
 	//!Create other objects
 	GameObject::CreateSphere((glm::vec3(0, 0, -19.5))).lock()->AddComponent<TableConstrainer>();

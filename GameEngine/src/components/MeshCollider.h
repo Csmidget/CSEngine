@@ -6,12 +6,14 @@
 
 namespace GameEngine {
 
-	class Mesh;
+	namespace Rendering {
+		class Mesh;
+	}
 	//!UNFINISHED A Collider that uses the mesh for collision detection
 	class MeshCollider : public Collider {
 
 	private:
-		std::weak_ptr<Mesh> mesh;
+		std::weak_ptr<Rendering::Mesh> mesh;
 		void UpdateBounds();
 
 	public:

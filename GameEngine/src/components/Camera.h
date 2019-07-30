@@ -2,14 +2,17 @@
 #define GAME_ENGINE_CAMERA_H
 
 #include "Component.h"
-#include <glm\glm.hpp>
-
+#include "glm\glm.hpp"
 namespace GameEngine {
 
+	namespace Rendering {
+		class Renderer;
+	}
+	
 	//! Component that works with the renderer to present an image of the game.
 	class Camera : public Component {
 
-		friend class Renderer;
+	friend class Rendering::Renderer;
 
 	private:
 		//!The Camera that is currently presenting the main window

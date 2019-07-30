@@ -1,15 +1,14 @@
-#include <Camera.h>
+#include "Camera.h"
 
 #include <iostream>
-#include <glm/gtx/transform.hpp>
+#include "glm/gtx/transform.hpp"
 
-#include <Input.h>
-#include <Transform.h>
-#include <Renderer.h>
+#include "input/Input.h"
+#include "Transform.h"
+#include "rendering/Renderer.h"
 
 namespace GameEngine
 {
-
 	std::weak_ptr<Camera> Camera::mainCamera;
 	//==============================================================================
 	glm::mat4 Camera::ViewMatrix()
@@ -32,10 +31,10 @@ namespace GameEngine
 		far = 1000.0f;
 		fovY = 45.0f;
 
-		float width = Renderer::GetScreenWidth();
-		float height = Renderer::GetScreenHeight();
+		float width = Rendering::Renderer::GetScreenWidth();
+		float height = Rendering::Renderer::GetScreenHeight();
 
-		Renderer::ClearToColour(100.0f / 256.0f, 104.0f / 256.0f, 130.0f / 256.0f, 0.5f);
+		Rendering::Renderer::ClearToColour(100.0f / 256.0f, 104.0f / 256.0f, 130.0f / 256.0f, 0.5f);
 
 		projMat = glm::perspective(fovY, width / height, near, far);
 	}//Camera::OnAwake

@@ -9,7 +9,6 @@
 
 namespace GameEngine
 {
-
 	std::vector<std::shared_ptr<GameObject>> Application::gameObjects;
 	bool Application::run;
 	unsigned int Application::currentTicks;
@@ -29,7 +28,7 @@ namespace GameEngine
 
 		run = true;
 
-		if (!Renderer::Init(argc, argv))
+		if (!Rendering::Renderer::Init(argc, argv))
 		{
 			return false;
 		}
@@ -54,7 +53,7 @@ namespace GameEngine
 
 			Update();
 
-			Renderer::Draw(gameObjects);
+			Rendering::Renderer::Draw(gameObjects);
 		}
 
 		Quit();
@@ -118,7 +117,7 @@ namespace GameEngine
 				Input::RemoveController(event.cdevice.which);
 				break;
 			case SDL_WINDOWEVENT:
-				Renderer::ProcessWindowEvent(event);
+				Rendering::Renderer::ProcessWindowEvent(event);
 				break;
 			}
 		}
@@ -151,7 +150,7 @@ namespace GameEngine
 			gameObjects[i]->Destroy();
 		}
 
-		Renderer::Destroy();
+		Rendering::Renderer::Destroy();
 
 		// Close SDL
 		SDL_Quit();
