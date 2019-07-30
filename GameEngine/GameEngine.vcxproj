@@ -182,6 +182,7 @@
     <ClInclude Include="src\Rendering\Mesh.h" />
     <ClInclude Include="src\Rendering\MeshLoader.h" />
     <ClInclude Include="src\Rendering\Renderer.h" />
+    <ClInclude Include="src\rendering\SDL_Renderer.h" />
     <ClInclude Include="src\Transform.h" />
     <ClInclude Include="src\util\mathutil.h" />
   </ItemGroup>
@@ -215,6 +216,7 @@
     <ClCompile Include="src\Rendering\Mesh.cpp" />
     <ClCompile Include="src\Rendering\MeshLoader.cpp" />
     <ClCompile Include="src\Rendering\Renderer.cpp" />
+    <ClCompile Include="src\rendering\SDL_Renderer.cpp" />
     <ClCompile Include="src\Transform.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -53,9 +53,6 @@ namespace GameEngine {
 		*/
 		static void Destroy(std::shared_ptr<Object> _o);
 
-		//!Runs the Draw function of all active GameObject's
-		static void Draw();
-
 		//! Adds a GameObject to the list of active GameObject's
 		static void AddGameObject(std::shared_ptr<GameObject> _go);
 

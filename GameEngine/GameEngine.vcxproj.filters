@@ -101,6 +101,9 @@
     <ClCompile Include="src\Rendering\Renderer.cpp">
       <Filter>src\rendering</Filter>
     </ClCompile>
+    <ClCompile Include="src\rendering\SDL_Renderer.cpp">
+      <Filter>src\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -180,6 +183,9 @@
       <Filter>src\rendering</Filter>
     </ClInclude>
     <ClInclude Include="src\Rendering\Renderer.h">
+      <Filter>src\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\SDL_Renderer.h">
       <Filter>src\rendering</Filter>
     </ClInclude>
   </ItemGroup>

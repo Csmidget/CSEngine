@@ -16,6 +16,7 @@ namespace GameEngine {
 	class GameObject :public Object, public std::enable_shared_from_this<GameObject> {
 
 		friend class Application;
+		friend class Renderer;
 		friend class CollisionControl;
 
 	private:

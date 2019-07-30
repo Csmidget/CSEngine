@@ -4,11 +4,15 @@
 // OpenGL / glew Headers
 #define GL3_PROTOTYPES 1
 
-#include <GL/glew.h>
-#include <SDL/SDL.h>
+#include "GL/glew.h"
+#include "SDL/SDL.h"
+#include <vector>
+#include <memory>
 
 
 namespace GameEngine {
+
+	class GameObject;
 
 	//!Handles GL context and SDL window
 	class Renderer {
@@ -30,7 +34,7 @@ namespace GameEngine {
 		//!Replaces the buffer with the buffer drawn this frame.
 		static void Update();
 		//!Redraws the GL scene. Calls Draw on all GameObjects
-		static void Draw();
+		static void Draw(std::vector<std::shared_ptr<GameObject>>& _objects);
 		//!Processes a window event sent from the application (e.g. window resize)
 		static void ProcessWindowEvent(SDL_Event &event);
 		//!Sets the dimensions of the window to match newly resized window.

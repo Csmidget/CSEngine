@@ -54,7 +54,7 @@ namespace GameEngine
 
 			Update();
 
-			Renderer::Draw();
+			Renderer::Draw(gameObjects);
 		}
 
 		Quit();
@@ -163,14 +163,6 @@ namespace GameEngine
 	{
 		gameObjects.push_back(_go);
 	}//Application::AddGameObject
-	//==============================================================================
-	void Application::Draw()
-	{
-		for (int i = gameObjects.size() - 1; i >= 0; i--)
-		{
-			gameObjects[i]->Draw();
-		}
-	}//Application::Draw
 	//==============================================================================
 	void PrintSDL_GL_Attributes()
 	{

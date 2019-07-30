@@ -8,9 +8,10 @@
 
 #include "rendering/Light.h"
 #include "Transform.h"
-#include "Application.h"
+//#include "Application.h"
 #include "rendering/Light.h"
 #include "components/Camera.h"
+#include "GameObject.h"
 
 
 namespace GameEngine
@@ -117,7 +118,7 @@ namespace GameEngine
 
 	}//Renderer::InitGL
 	//==============================================================================
-	void Renderer::Draw()
+	void Renderer::Draw(std::vector<std::shared_ptr<GameObject>>& _objects)
 	{
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -126,8 +127,12 @@ namespace GameEngine
 
 		glUniformMatrix4fv(projLoc, 1, 0, glm::value_ptr(Camera::GetMainCamera().lock()->ProjectionMatrix()));
 		glUniformMatrix4fv(viewLoc, 1, 0, glm::value_ptr(Camera::GetMainCamera().lock()->ViewMatrix()));
-		Application::Draw();
 
+		for (auto gameObject : _objects)
+		{
+			gameObject->Draw();
+		}
+		
 		SDL_GL_SwapWindow(mainWindow);
 
 	}//Renderer::Draw
