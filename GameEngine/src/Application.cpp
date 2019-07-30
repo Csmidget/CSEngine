@@ -1,11 +1,11 @@
-#include <Application.h>
+#include "Application.h"
 
 #include <iostream>
-#include <GameObject.h>
-#include <Renderer.h>
-#include <Input.h>
-#include <CollisionControl.h>
-#include <RigidBody.h>
+#include "GameObject.h"
+#include "rendering/Renderer.h"
+#include "input/Input.h"
+#include "interaction/CollisionControl.h"
+#include "interaction/RigidBody.h"
 
 namespace GameEngine
 {

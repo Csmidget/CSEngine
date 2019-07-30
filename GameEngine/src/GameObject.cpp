@@ -1,13 +1,13 @@
 #include <GameObject.h>
 #include <Application.h>
 #include <Transform.h>
-#include <Collision.h>
+#include "interaction/Collision.h"
 
-#include <Camera.h>
-#include <MeshRenderer.h>
-#include <SphereCollider.h>
-#include <BoxCollider.h>
-#include <RigidBody.h>
+#include "components/Camera.h"
+#include "components/MeshRenderer.h"
+#include "components/SphereCollider.h"
+#include "components/BoxCollider.h"
+#include "interaction/RigidBody.h"
 
 namespace GameEngine {
 
