@@ -86,9 +86,6 @@
     <ClCompile Include="src\Interaction\CollisionControl.cpp">
       <Filter>src\interaction</Filter>
     </ClCompile>
-    <ClCompile Include="src\Interaction\RigidBody.cpp">
-      <Filter>src\interaction</Filter>
-    </ClCompile>
     <ClCompile Include="src\Rendering\Light.cpp">
       <Filter>src\rendering</Filter>
     </ClCompile>
@@ -103,6 +100,9 @@
     </ClCompile>
     <ClCompile Include="src\rendering\SDL_Renderer.cpp">
       <Filter>src\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\RigidBody.cpp">
+      <Filter>src\components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -170,9 +170,6 @@
     <ClInclude Include="src\Interaction\CollisionControl.h">
       <Filter>src\interaction</Filter>
     </ClInclude>
-    <ClInclude Include="src\Interaction\RigidBody.h">
-      <Filter>src\interaction</Filter>
-    </ClInclude>
     <ClInclude Include="src\Rendering\Light.h">
       <Filter>src\rendering</Filter>
     </ClInclude>
@@ -187,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="src\rendering\SDL_Renderer.h">
       <Filter>src\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\RigidBody.h">
+      <Filter>src\components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

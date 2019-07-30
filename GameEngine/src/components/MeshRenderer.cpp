@@ -4,11 +4,11 @@
 #include "glm\gtc\type_ptr.hpp"
 
 #include "rendering/MeshLoader.h"
-#include "rendering/Renderer.h"
 #include "rendering/Mesh.h"
 #include "GameObject.h"
 #include "Transform.h"
-
+#include "Application.h"
+#include "rendering/Renderer.h"
 
 namespace GameEngine
 {
@@ -98,7 +98,7 @@ namespace GameEngine
 			glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, 0);
 			glEnableVertexAttribArray(2);
 
-			modelLoc = glGetUniformLocation(Rendering::Renderer::GetProgramId(), "modelMat");
+			modelLoc = glGetUniformLocation(Application::GetRenderer().lock()->GetProgramId(), "modelMat");
 		}
 	}//MeshRenderer::CreateVao
 	 //==============================================================================
