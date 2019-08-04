@@ -32,8 +32,8 @@ namespace GameEngine
 		far = 1000.0f;
 		fovY = 45.0f;
 
-		float width = Application::GetRenderer().lock()->ScreenWidth();
-		float height = Application::GetRenderer().lock()->ScreenHeight();
+		float width = Application::Renderer().lock()->ScreenWidth();
+		float height = Application::Renderer().lock()->ScreenHeight();
 
 		Rendering::Renderer::ClearToColour(100.0f / 256.0f, 104.0f / 256.0f, 130.0f / 256.0f, 0.5f);
 

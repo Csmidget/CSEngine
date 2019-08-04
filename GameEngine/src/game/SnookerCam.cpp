@@ -3,7 +3,7 @@
 #include "GameObject.h"
 #include "Transform.h"
 #include "components/Camera.h"
-
+#include "Application.h"
 namespace GameEngine
 {
 
@@ -14,21 +14,23 @@ namespace GameEngine
 
 	void SnookerCam::OnUpdate()
 	{
+		std::shared_ptr<Input> input = Application::Input().lock();
+
 		if (!freeRoam)
 		{
-			if (Input::KeyDown(KeyCode::KEY1))
+			if (input->KeyDown(KeyCode::KEY1))
 			{
 				std::shared_ptr<Transform> camTransform = GetTransform().lock();
 				camTransform->SetPosition(glm::vec3(0, 0, 0));
 				camTransform->SetLocalRotation(glm::vec3(0, 0, 0));
 			}
-			else if (Input::KeyDown(KeyCode::KEY2))
+			else if (input->KeyDown(KeyCode::KEY2))
 			{
 				std::shared_ptr<Transform> camTransform = GetTransform().lock();
 				camTransform->SetPosition(glm::vec3(-13, -8, -15));
 				camTransform->SetLocalRotation(glm::vec3(1, 0, -0.785398));
 			}
-			else if (Input::KeyDown(KeyCode::KEY3))
+			else if (input->KeyDown(KeyCode::KEY3))
 			{
 				freeRoam = true;
 			}

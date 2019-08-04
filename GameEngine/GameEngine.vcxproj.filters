@@ -98,11 +98,20 @@
     <ClCompile Include="src\Rendering\Renderer.cpp">
       <Filter>src\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="src\rendering\SDL_Renderer.cpp">
-      <Filter>src\rendering</Filter>
-    </ClCompile>
     <ClCompile Include="src\Interaction\RigidBody.cpp">
       <Filter>src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rendering\Renderer_SDL.cpp">
+      <Filter>src\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\Input_SDL.cpp">
+      <Filter>src\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\InputEvent.cpp">
+      <Filter>src\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\InputEvent_SDL.cpp">
+      <Filter>src\input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -182,11 +191,20 @@
     <ClInclude Include="src\Rendering\Renderer.h">
       <Filter>src\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="src\rendering\SDL_Renderer.h">
-      <Filter>src\rendering</Filter>
-    </ClInclude>
     <ClInclude Include="src\Interaction\RigidBody.h">
       <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\Renderer_SDL.h">
+      <Filter>src\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\Input_SDL.h">
+      <Filter>src\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\InputEvent.h">
+      <Filter>src\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\InputEvent_SDL.h">
+      <Filter>src\input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -172,6 +172,9 @@
     <ClInclude Include="src\game\SnookerCam.h" />
     <ClInclude Include="src\game\TableConstrainer.h" />
     <ClInclude Include="src\Input\Input.h" />
+    <ClInclude Include="src\input\InputEvent.h" />
+    <ClInclude Include="src\input\InputEvent_SDL.h" />
+    <ClInclude Include="src\input\Input_SDL.h" />
     <ClInclude Include="src\Input\KeyCode.h" />
     <ClInclude Include="src\Interaction\BoundBox.h" />
     <ClInclude Include="src\Interaction\Collision.h" />
@@ -182,7 +185,7 @@
     <ClInclude Include="src\Rendering\Mesh.h" />
     <ClInclude Include="src\Rendering\MeshLoader.h" />
     <ClInclude Include="src\Rendering\Renderer.h" />
-    <ClInclude Include="src\rendering\SDL_Renderer.h" />
+    <ClInclude Include="src\rendering\Renderer_SDL.h" />
     <ClInclude Include="src\Transform.h" />
     <ClInclude Include="src\util\mathutil.h" />
   </ItemGroup>
@@ -207,6 +210,9 @@
     <ClCompile Include="src\game\SnookerCam.cpp" />
     <ClCompile Include="src\game\TableConstrainer.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
+    <ClCompile Include="src\input\InputEvent.cpp" />
+    <ClCompile Include="src\input\InputEvent_SDL.cpp" />
+    <ClCompile Include="src\input\Input_SDL.cpp" />
     <ClCompile Include="src\Interaction\BoundBox.cpp" />
     <ClCompile Include="src\Interaction\CollisionControl.cpp" />
     <ClCompile Include="src\Interaction\RigidBody.cpp" />
@@ -216,7 +222,7 @@
     <ClCompile Include="src\Rendering\Mesh.cpp" />
     <ClCompile Include="src\Rendering\MeshLoader.cpp" />
     <ClCompile Include="src\Rendering\Renderer.cpp" />
-    <ClCompile Include="src\rendering\SDL_Renderer.cpp" />
+    <ClCompile Include="src\rendering\Renderer_SDL.cpp" />
     <ClCompile Include="src\Transform.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

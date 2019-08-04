@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "rendering/Renderer.h"
 #include "input/Input.h"
+#include "input/InputEvent.h"
 #include "interaction/CollisionControl.h"
 #include "interaction/RigidBody.h"
 
@@ -16,6 +17,8 @@ namespace GameEngine
 	int Application::rdt;
 	float Application::rdts;
 	std::shared_ptr<Rendering::Renderer> Application::renderer;
+	std::shared_ptr<Input> Application::input;
+
 	std::shared_ptr<Rendering::Renderer> Rendering::CreateRenderer();
 
 	//==============================================================================
@@ -31,7 +34,7 @@ namespace GameEngine
 		run = true;
 
 		renderer = Rendering::CreateRenderer();
-
+		input = CreateInput();
 
 		//if (!Rendering::Renderer::Init(argc, argv))
 		//{
@@ -84,7 +87,7 @@ namespace GameEngine
 
 		SDL_Event event = { 0 };
 
-		Input::RefreshEvents();
+		input->RefreshEvents();
 
 		while (SDL_PollEvent(&event))
 		{
@@ -96,30 +99,30 @@ namespace GameEngine
 				break;
 			case SDL_KEYDOWN:
 			case SDL_KEYUP:
-				Input::ProcessKeyEvent(event.key);
+				input->ProcessKeyEvent(event.key);
 				break;
 			case SDL_MOUSEBUTTONUP:
 			case SDL_MOUSEBUTTONDOWN:
-				Input::ProcessMouseButtonEvent(event.button);
+				input->ProcessMouseButtonEvent(event.button);
 				break;
 			case SDL_MOUSEWHEEL:
-				Input::ProcessMouseWheelEvent(event.wheel);
+				input->ProcessMouseWheelEvent(event.wheel);
 				break;
 			case SDL_MOUSEMOTION:
-				Input::ProcessMouseMotionEvent(event.motion);
+				input->ProcessMouseMotionEvent(event.motion);
 				break;
 			case SDL_CONTROLLERBUTTONUP:
 			case SDL_CONTROLLERBUTTONDOWN:
-				Input::ProcessControllerButtonEvent(event.cbutton);
+				input->ProcessControllerButtonEvent(event.cbutton);
 				break;
 			case SDL_CONTROLLERAXISMOTION:
-				Input::ProcessControllerAxisEvent(event.caxis);
+				input->ProcessControllerAxisEvent(event.caxis);
 				break;
 			case SDL_CONTROLLERDEVICEADDED:
-				Input::AddController(event.cdevice.which);
+				input->AddController(event.cdevice.which);
 				break;
 			case SDL_CONTROLLERDEVICEREMOVED:
-				Input::RemoveController(event.cdevice.which);
+				input->RemoveController(event.cdevice.which);
 				break;
 			case SDL_WINDOWEVENT:
 				renderer->ProcessWindowEvent(event);

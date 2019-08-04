@@ -8,6 +8,7 @@ namespace GameEngine {
 
 	class Object;
 	class GameObject;
+	class Input;
 
 	namespace Rendering
 	{
@@ -32,6 +33,7 @@ namespace GameEngine {
 		static float rdts;
 
 		static std::shared_ptr<Rendering::Renderer> renderer;
+		static std::shared_ptr<Input> input;
 
 		//! Processes any SDL events that have occured since the last update. This includes user input such as keyboard, mouse, gamepad, window resizing etc.
 		static void ProcessEvents();
@@ -68,7 +70,9 @@ namespace GameEngine {
 		//!Returns the time since last update in seconds
 		static float Rdts() { return rdts; }
 		
-		static std::weak_ptr<Rendering::Renderer> GetRenderer() { return renderer; }
+		static std::weak_ptr<Rendering::Renderer> Renderer() { return renderer; }
+
+		static std::weak_ptr<Input> Input() { return input; }
 
 		//!Stops the program
 		static void Stop() { run = false; }

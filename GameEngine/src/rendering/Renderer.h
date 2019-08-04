@@ -16,6 +16,7 @@ namespace GameEngine {
 	
 	namespace Rendering
 	{
+
 		//!Handles GL context and SDL window
 		class Renderer {
 

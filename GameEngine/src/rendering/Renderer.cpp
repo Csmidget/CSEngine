@@ -5,13 +5,13 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
-#include "rendering/Light.h"
+#include "Light.h"
 #include "Transform.h"
 //#include "Application.h"
-#include "rendering/Light.h"
+#include "Light.h"
 #include "components/Camera.h"
 #include "GameObject.h"
-#include "rendering/SDL_Renderer.h"
+#include "Renderer_SDL.h"
 
 namespace GameEngine
 {
@@ -19,7 +19,7 @@ namespace GameEngine
 	{
 		std::shared_ptr<Renderer> CreateRenderer()
 		{
-			std::shared_ptr<Renderer> renderer{ std::make_shared<SDL_Renderer>() };
+			std::shared_ptr<Renderer> renderer{ std::make_shared<Renderer_SDL>() };
 			renderer->Init();
 			return renderer;
 		}

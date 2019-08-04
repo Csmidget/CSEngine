@@ -7,16 +7,18 @@
 #include "SnookerCam.h"
 #include "TableConstrainer.h"
 #include "components/MeshRenderer.h"
+#include "Application.h"
 
 using namespace GameEngine;
 //==============================================================================
 void DebugComponent::OnUpdate()
 {
+	std::shared_ptr<Input> input = Application::Input().lock();
 
 	std::shared_ptr<RigidBody> rb = gameObject.lock()->GetComponent<RigidBody>().lock();
 
-	float x = Input::GetContAnalogueAxis(0, 0, 0);
-	float y = Input::GetContAnalogueAxis(0, 0, 1);
+	float x = input->GetContAnalogueAxis(0, 0, 0);
+	float y = input->GetContAnalogueAxis(0, 0, 1);
 
 	if (!freeroam)
 	{
@@ -30,41 +32,41 @@ void DebugComponent::OnUpdate()
 
 		rb->ApplyForce(Transform::RotateVector(glm::vec3(-y * 100, -x * 100, 0), rot));
 
-		x = Input::GetContAnalogueAxis(0, 1, 0);
-		y = Input::GetContAnalogueAxis(0, 1, 1);
+		x = input->GetContAnalogueAxis(0, 1, 0);
+		y = input->GetContAnalogueAxis(0, 1, 1);
 
 		rb->GetTransform().lock()->Rotate(glm::vec3(0, y / 100, -x / 100));
 
-		if (Input::KeyHeld(KeyCode::RIGHT))
+		if (input->KeyHeld(KeyCode::RIGHT))
 		{
 			GetTransform().lock()->Rotate(glm::vec3(0, 0, -0.01));
 		}
-		if (Input::KeyHeld(KeyCode::LEFT))
+		if (input->KeyHeld(KeyCode::LEFT))
 		{
 			GetTransform().lock()->Rotate(glm::vec3(0, 0, 0.01));
 		}
-		if (Input::KeyHeld(KeyCode::UP))
+		if (input->KeyHeld(KeyCode::UP))
 		{
 			GetTransform().lock()->Rotate(glm::vec3(0, -0.01, 0));
 		}
-		if (Input::KeyHeld(KeyCode::DOWN))
+		if (input->KeyHeld(KeyCode::DOWN))
 		{
 			GetTransform().lock()->Rotate(glm::vec3(0, 0.01, 0));
 		}
 
-		if (Input::KeyHeld(KeyCode::W))
+		if (input->KeyHeld(KeyCode::W))
 		{
 			rb->ApplyForce(Transform::RotateVector(glm::vec3(25, 0, 0), GetTransform().lock()->GetRotation()));
 		}
-		if (Input::KeyHeld(KeyCode::S))
+		if (input->KeyHeld(KeyCode::S))
 		{
 			rb->ApplyForce(Transform::RotateVector(glm::vec3(-25, 0, 0), GetTransform().lock()->GetRotation()));
 		}
-		if (Input::KeyHeld(KeyCode::D))
+		if (input->KeyHeld(KeyCode::D))
 		{
 			rb->ApplyForce(Transform::RotateVector(glm::vec3(0, -25, 0), GetTransform().lock()->GetRotation()));
 		}
-		if (Input::KeyHeld(KeyCode::A))
+		if (input->KeyHeld(KeyCode::A))
 		{
 			rb->ApplyForce(Transform::RotateVector(glm::vec3(0, 25, 0), GetTransform().lock()->GetRotation()));
 		}
@@ -76,7 +78,7 @@ void DebugComponent::OnUpdate()
 			GetTransform().lock()->SetPosition(glm::vec3(t->GetPosition().x, t->GetPosition().y, -19.59f));
 		}
 
-		if (Input::MouseButtonDown(MouseCode::MBLEFT) || Input::ContButtonDown(0, ControllerCode::CONTA))
+		if (input->MouseButtonDown(MouseCode::MBLEFT) || input->ContButtonDown(0, ControllerCode::CONTA))
 		{
 			std::shared_ptr<GameObject> go = GameObject::Create();
 			go->AddComponent<MeshRenderer>().lock()->SetMesh("capsule.obj");
@@ -85,7 +87,7 @@ void DebugComponent::OnUpdate()
 		}
 	}
 
-	if (Input::KeyDown(KeyCode::KEY3))
+	if (input->KeyDown(KeyCode::KEY3))
 	{
 		freeroam = true;
 		std::shared_ptr<SnookerCam> camComponent = Camera::GetMainCamera().lock()->GetGameObject().lock()->GetComponent<SnookerCam>().lock();

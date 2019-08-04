@@ -1,11 +1,11 @@
-#include "SDL_Renderer.h"
+#include "Renderer_SDL.h"
 
 namespace GameEngine
 {
 	namespace Rendering
 	{
 
-		bool SDL_Renderer::Init()
+		bool Renderer_SDL::Init()
 		{
 			//Initialization
 
@@ -52,7 +52,7 @@ namespace GameEngine
 		}//Renderer::Init
 
 		//==============================================================================
-		void SDL_Renderer::Destroy()
+		void Renderer_SDL::Destroy()
 		{
 			// Delete our OpengL context
 			SDL_GL_DeleteContext(mainContext);
@@ -62,7 +62,7 @@ namespace GameEngine
 		}//Renderer::Destroy
 
 		//==============================================================================
-		void SDL_Renderer::Update()
+		void Renderer_SDL::Update()
 		{
 			Renderer::Update();
 
@@ -71,7 +71,7 @@ namespace GameEngine
 		}//Renderer::Update
 
 		//==============================================================================
-		void SDL_Renderer::Draw(std::vector<std::shared_ptr<GameObject>>& _objects)
+		void Renderer_SDL::Draw(std::vector<std::shared_ptr<GameObject>>& _objects)
 		{
 			Renderer::Draw(_objects);
 
@@ -80,7 +80,7 @@ namespace GameEngine
 		}//Renderer::Draw
 
 				//==============================================================================
-		void SDL_Renderer::GetWindowSize(int *w, int *h)
+		void Renderer_SDL::GetWindowSize(int *w, int *h)
 		{
 			SDL_GetWindowSize(mainWindow, w, h);
 		}//Renderer::GetWindowSize

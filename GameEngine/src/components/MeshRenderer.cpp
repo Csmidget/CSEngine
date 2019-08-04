@@ -98,7 +98,7 @@ namespace GameEngine
 			glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, 0);
 			glEnableVertexAttribArray(2);
 
-			modelLoc = glGetUniformLocation(Application::GetRenderer().lock()->GetProgramId(), "modelMat");
+			modelLoc = glGetUniformLocation(Application::Renderer().lock()->GetProgramId(), "modelMat");
 		}
 	}//MeshRenderer::CreateVao
 	 //==============================================================================

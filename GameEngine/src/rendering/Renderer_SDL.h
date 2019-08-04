@@ -7,7 +7,7 @@
 namespace GameEngine {
 	namespace Rendering {
 
-		class SDL_Renderer : public Renderer{
+		class Renderer_SDL : public Renderer{
 
 		private:
 
@@ -29,8 +29,8 @@ namespace GameEngine {
 			//!Clears the GL background to entered color.
 			void ClearToColour(float r, float g, float b, float a);
 
-			float ScreenWidth() { return screenWidth; }
-			float ScreenHeight() { return screenHeight; }
+			float ScreenWidth() override { return screenWidth; }
+			float ScreenHeight() override { return screenHeight; }
 
 		};
 	}

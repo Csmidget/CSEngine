@@ -3,22 +3,27 @@
 #include "Application.h"
 namespace GameEngine
 {
+	//std::vector<std::shared_ptr<Controller>> Input::controllers;
+	//DeviceInstanceMap Input::controllerInstances;
+	//
+	//std::vector<int> Input::heldKeys;
+	//std::vector<int> Input::downKeys;
+	//std::vector<int> Input::upKeys;
+	//std::vector<int> Input::heldMouseButtons;
+	//std::vector<int> Input::downMouseButtons;
+	//std::vector<int> Input::upMouseButtons;
+	//
+	//bool Input::mouseMoved;
+	//int  Input::mouseWheel;
+	//
+	//int Input::mousePosX;
+	//int Input::mousePosY;
 
-	std::vector<std::shared_ptr<Controller>> Input::controllers;
-	DeviceInstanceMap Input::controllerInstances;
+	std::shared_ptr<Input> CreateInput()
+	{
+		return std::make_shared<Input>();
+	}
 
-	std::vector<int> Input::heldKeys;
-	std::vector<int> Input::downKeys;
-	std::vector<int> Input::upKeys;
-	std::vector<int> Input::heldMouseButtons;
-	std::vector<int> Input::downMouseButtons;
-	std::vector<int> Input::upMouseButtons;
-
-	bool Input::mouseMoved;
-	int  Input::mouseWheel;
-
-	int Input::mousePosX;
-	int Input::mousePosY;
 	//==============================================================================
 	void Input::AddController(int _deviceNumber)
 	{
