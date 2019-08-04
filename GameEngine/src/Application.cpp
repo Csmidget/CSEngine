@@ -18,9 +18,7 @@ namespace GameEngine
 	float Application::rdts;
 	std::shared_ptr<Rendering::Renderer> Application::renderer;
 	std::shared_ptr<Input> Application::input;
-
-	std::shared_ptr<Rendering::Renderer> Rendering::CreateRenderer();
-
+	
 	//==============================================================================
 
 	bool Application::Init(int argc, char* argv[])
@@ -57,7 +55,7 @@ namespace GameEngine
 		{
 			RefreshDeltaTime();
 
-			ProcessEvents();
+			input->ProcessEvents();
 
 			Update();
 
@@ -80,57 +78,6 @@ namespace GameEngine
 			SDL_Delay((unsigned int)(1000 / 60 - rdts));
 		}
 	}//Application::RefreshDeltaTime
-	//==============================================================================
-
-	void Application::ProcessEvents()
-	{
-
-		SDL_Event event = { 0 };
-
-		input->RefreshEvents();
-
-		while (SDL_PollEvent(&event))
-		{
-
-			switch (event.type)
-			{
-			case SDL_QUIT:
-				run = false;
-				break;
-			case SDL_KEYDOWN:
-			case SDL_KEYUP:
-				input->ProcessKeyEvent(event.key);
-				break;
-			case SDL_MOUSEBUTTONUP:
-			case SDL_MOUSEBUTTONDOWN:
-				input->ProcessMouseButtonEvent(event.button);
-				break;
-			case SDL_MOUSEWHEEL:
-				input->ProcessMouseWheelEvent(event.wheel);
-				break;
-			case SDL_MOUSEMOTION:
-				input->ProcessMouseMotionEvent(event.motion);
-				break;
-			case SDL_CONTROLLERBUTTONUP:
-			case SDL_CONTROLLERBUTTONDOWN:
-				input->ProcessControllerButtonEvent(event.cbutton);
-				break;
-			case SDL_CONTROLLERAXISMOTION:
-				input->ProcessControllerAxisEvent(event.caxis);
-				break;
-			case SDL_CONTROLLERDEVICEADDED:
-				input->AddController(event.cdevice.which);
-				break;
-			case SDL_CONTROLLERDEVICEREMOVED:
-				input->RemoveController(event.cdevice.which);
-				break;
-			case SDL_WINDOWEVENT:
-				renderer->ProcessWindowEvent(event);
-				break;
-			}
-		}
-
-	}//Application::ProcessInput
 	//==============================================================================
 
 	void Application::Update()

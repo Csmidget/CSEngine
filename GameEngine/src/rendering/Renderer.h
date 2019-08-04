@@ -12,11 +12,11 @@
 namespace GameEngine {
 
 	class GameObject;
+	class Input_SDL;
 	class Application;
 	
 	namespace Rendering
 	{
-
 		//!Handles GL context and SDL window
 		class Renderer {
 
@@ -34,9 +34,6 @@ namespace GameEngine {
 
 			//!Creates the shaders for the program
 			void CreateProgram();
-
-			//!Processes a window event sent from the application (e.g. window resize)
-			void ProcessWindowEvent(SDL_Event &event);
 
 			//!Initializes SDL_Window and any other renderer specific functions
 			virtual bool Init() = 0;
@@ -66,7 +63,12 @@ namespace GameEngine {
 
 			//!Clears the GL background to entered color.
 			static void ClearToColour(float r, float g, float b, float a);
+
+			//!Processes a window event sent from input (e.g. window resize)
+			void ProcessWindowEvent(SDL_Event &event);
 		};
+
+		std::shared_ptr<Renderer> CreateRenderer();
 	}
 }//namespace GameEngine
 

@@ -35,9 +35,6 @@ namespace GameEngine {
 		static std::shared_ptr<Rendering::Renderer> renderer;
 		static std::shared_ptr<Input> input;
 
-		//! Processes any SDL events that have occured since the last update. This includes user input such as keyboard, mouse, gamepad, window resizing etc.
-		static void ProcessEvents();
-
 		//!Calls Update on all active game objects
 		static void Update();
 
