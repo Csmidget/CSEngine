@@ -7,16 +7,18 @@
 #include "GL/glew.h"
 #include <vector>
 #include <memory>
-#include "SDL/SDL.h"
 
 namespace GameEngine {
 
 	class GameObject;
 	class Input_SDL;
 	class Application;
+	struct WindowEvent;
 	
 	namespace Rendering
 	{
+		class RendererFactory;
+
 		//!Handles GL context and SDL window
 		class Renderer {
 
@@ -24,7 +26,7 @@ namespace GameEngine {
 			
 		protected:
 
-			friend std::shared_ptr<Renderer> CreateRenderer();
+			friend RendererFactory;
 
 			float screenWidth;
 			float screenHeight;
@@ -65,10 +67,8 @@ namespace GameEngine {
 			static void ClearToColour(float r, float g, float b, float a);
 
 			//!Processes a window event sent from input (e.g. window resize)
-			void ProcessWindowEvent(SDL_Event &event);
+			void ProcessWindowEvent(const WindowEvent &event);
 		};
-
-		std::shared_ptr<Renderer> CreateRenderer();
 	}
 }//namespace GameEngine
 

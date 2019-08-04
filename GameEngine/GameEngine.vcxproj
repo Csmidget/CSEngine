@@ -91,7 +91,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir);$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -172,10 +172,10 @@
     <ClInclude Include="src\game\SnookerCam.h" />
     <ClInclude Include="src\game\TableConstrainer.h" />
     <ClInclude Include="src\Input\Input.h" />
-    <ClInclude Include="src\input\InputEvent.h" />
-    <ClInclude Include="src\input\InputEvent_SDL.h" />
+    <ClInclude Include="src\input\WindowEvent.h" />
     <ClInclude Include="src\input\Input_SDL.h" />
     <ClInclude Include="src\Input\KeyCode.h" />
+    <ClInclude Include="src\input\WindowEvent_SDL.h" />
     <ClInclude Include="src\Interaction\BoundBox.h" />
     <ClInclude Include="src\Interaction\Collision.h" />
     <ClInclude Include="src\Interaction\CollisionControl.h" />
@@ -185,6 +185,7 @@
     <ClInclude Include="src\Rendering\Mesh.h" />
     <ClInclude Include="src\Rendering\MeshLoader.h" />
     <ClInclude Include="src\Rendering\Renderer.h" />
+    <ClInclude Include="src\rendering\RendererFactory.h" />
     <ClInclude Include="src\rendering\Renderer_SDL.h" />
     <ClInclude Include="src\Transform.h" />
     <ClInclude Include="src\util\mathutil.h" />
@@ -210,9 +211,8 @@
     <ClCompile Include="src\game\SnookerCam.cpp" />
     <ClCompile Include="src\game\TableConstrainer.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
-    <ClCompile Include="src\input\InputEvent.cpp" />
-    <ClCompile Include="src\input\InputEvent_SDL.cpp" />
     <ClCompile Include="src\input\Input_SDL.cpp" />
+    <ClCompile Include="src\input\WindowEvent_SDL.cpp" />
     <ClCompile Include="src\Interaction\BoundBox.cpp" />
     <ClCompile Include="src\Interaction\CollisionControl.cpp" />
     <ClCompile Include="src\Interaction\RigidBody.cpp" />
@@ -222,6 +222,7 @@
     <ClCompile Include="src\Rendering\Mesh.cpp" />
     <ClCompile Include="src\Rendering\MeshLoader.cpp" />
     <ClCompile Include="src\Rendering\Renderer.cpp" />
+    <ClCompile Include="src\rendering\RendererFactory.cpp" />
     <ClCompile Include="src\rendering\Renderer_SDL.cpp" />
     <ClCompile Include="src\Transform.cpp" />
   </ItemGroup>

@@ -7,23 +7,15 @@
 
 #include "Light.h"
 #include "Transform.h"
-//#include "Application.h"
 #include "Light.h"
 #include "components/Camera.h"
 #include "GameObject.h"
-#include "Renderer_SDL.h"
+#include "input/WindowEvent.h"
 
 namespace GameEngine
 {
 	namespace Rendering
 	{
-		std::shared_ptr<Renderer> CreateRenderer()
-		{
-			std::shared_ptr<Renderer> renderer{ std::make_shared<Renderer_SDL>() };
-			renderer->Init();
-			return renderer;
-		}
-
 		//==============================================================================
 		void Renderer::Update()
 		{
@@ -131,14 +123,13 @@ namespace GameEngine
 		}//Renderer::ClearToColour
 
 		//==============================================================================
-		void Renderer::ProcessWindowEvent(SDL_Event &event) {
+		void Renderer::ProcessWindowEvent(const WindowEvent &event) {
 
-			if (event.window.event == SDL_WINDOWEVENT_RESIZED)
+			if (event.type == WINDOWEVENT_RESIZED)
 			{
-
-				screenWidth = event.window.data1;
-				screenHeight = event.window.data2;
-
+				screenWidth = event.data1;
+				screenHeight = event.data2;
+				
 				glViewport(0, 0, screenWidth, screenHeight);
 				Camera::GetMainCamera().lock()->Resize(screenWidth, screenHeight);
 			}

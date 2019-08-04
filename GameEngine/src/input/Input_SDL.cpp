@@ -2,9 +2,12 @@
 #include <iostream>
 #include "Application.h"
 #include "rendering/Renderer.h"
+#include "WindowEvent_SDL.h"
 
 namespace GameEngine
 {
+
+
 	//==============================================================================
 	void Input_SDL::RefreshEvents()
 	{
@@ -70,7 +73,7 @@ namespace GameEngine
 				RemoveController(event.cdevice.which);
 				break;
 			case SDL_WINDOWEVENT:
-				Application::Renderer().lock()->ProcessWindowEvent(event);
+				Application::Renderer().lock()->ProcessWindowEvent(WindowEvent_SDL(event));
 				break;
 			}
 		}

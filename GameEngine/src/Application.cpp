@@ -3,8 +3,8 @@
 #include <iostream>
 #include "GameObject.h"
 #include "rendering/Renderer.h"
+#include "rendering/RendererFactory.h"
 #include "input/Input.h"
-#include "input/InputEvent.h"
 #include "interaction/CollisionControl.h"
 #include "interaction/RigidBody.h"
 
@@ -31,7 +31,7 @@ namespace GameEngine
 
 		run = true;
 
-		renderer = Rendering::CreateRenderer();
+		renderer = Rendering::RendererFactory::CreateRenderer();
 		input = CreateInput();
 
 		//if (!Rendering::Renderer::Init(argc, argv))

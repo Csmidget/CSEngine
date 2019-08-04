@@ -107,11 +107,11 @@
     <ClCompile Include="src\input\Input_SDL.cpp">
       <Filter>src\input</Filter>
     </ClCompile>
-    <ClCompile Include="src\input\InputEvent.cpp">
+    <ClCompile Include="src\input\WindowEvent_SDL.cpp">
       <Filter>src\input</Filter>
     </ClCompile>
-    <ClCompile Include="src\input\InputEvent_SDL.cpp">
-      <Filter>src\input</Filter>
+    <ClCompile Include="src\rendering\RendererFactory.cpp">
+      <Filter>src\rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -200,11 +200,14 @@
     <ClInclude Include="src\input\Input_SDL.h">
       <Filter>src\input</Filter>
     </ClInclude>
-    <ClInclude Include="src\input\InputEvent.h">
+    <ClInclude Include="src\input\WindowEvent.h">
       <Filter>src\input</Filter>
     </ClInclude>
-    <ClInclude Include="src\input\InputEvent_SDL.h">
+    <ClInclude Include="src\input\WindowEvent_SDL.h">
       <Filter>src\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rendering\RendererFactory.h">
+      <Filter>src\rendering</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
