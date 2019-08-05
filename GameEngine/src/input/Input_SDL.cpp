@@ -1,9 +1,8 @@
 #include "Input_SDL.h"
-#include <iostream>
 #include "Application.h"
 #include "rendering/Renderer.h"
 #include "WindowEvent_SDL.h"
-
+#include "Debug.h"
 namespace GameEngine
 {
 
@@ -165,7 +164,7 @@ namespace GameEngine
 		switch (_event.type)
 		{
 		case SDL_CONTROLLERBUTTONDOWN:
-			std::cout << _event.which << std::endl;
+			Debug::Log(_event.which);
 
 			for (int i = c->heldButtons.size() - 1; i >= 0; i--)
 			{
@@ -180,7 +179,7 @@ namespace GameEngine
 			break;
 
 		case SDL_CONTROLLERBUTTONUP:
-			std::cout << _event.which << std::endl;
+			Debug::Log(_event.which);
 			for (int i = c->heldButtons.size() - 1; i >= 0; i--)
 			{
 				if (c->heldButtons[i] == _event.button)
@@ -218,7 +217,7 @@ namespace GameEngine
 			cont->name = SDL_GameControllerName(cont->controller);
 			controllerInstances.insert(std::pair<int, int>(SDL_JoystickInstanceID(SDL_GameControllerGetJoystick(cont->controller)), _deviceNumber));
 			controllers.push_back(cont);
-			std::cout << "JOYSTICK ADDED: " << cont->name.c_str() << std::endl;
+			Debug::Log("JOYSTICK ADDED: ", cont->name.c_str());
 		}
 	}//Input::AddController
 	//==============================================================================

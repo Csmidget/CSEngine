@@ -1,9 +1,19 @@
 #include "Renderer_SDL.h"
-
+#include "Debug.h"
 namespace GameEngine
 {
 	namespace Rendering
 	{
+
+		void Print_SDL_GL_Attributes()
+		{
+			int value = 0;
+			SDL_GL_GetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, &value);
+			Debug::Log("SDL_GL_CONTEXT_MAJOR_VERSION: ", value);
+
+			SDL_GL_GetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, &value);
+			Debug::Log("SDL_GL_CONTEXT_MINOR_VERSION: ", value);
+		}//PrintSDL_GL_Attributes
 
 		bool Renderer_SDL::Init()
 		{
@@ -48,6 +58,8 @@ namespace GameEngine
 
 			CreateProgram();
 
+			Print_SDL_GL_Attributes();
+
 			return true;
 		}//Renderer::Init
 
@@ -79,11 +91,11 @@ namespace GameEngine
 
 		}//Renderer::Draw
 
-				//==============================================================================
+		//==============================================================================
 		void Renderer_SDL::GetWindowSize(int *w, int *h)
 		{
 			SDL_GetWindowSize(mainWindow, w, h);
 		}//Renderer::GetWindowSize
-
+		//==============================================================================
 	}
 }

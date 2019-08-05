@@ -7,7 +7,6 @@
 #include "components/BoxCollider.h"
 #include "components/SphereCollider.h"
 #include "Collision.h"
-#include <iostream>
 
 #include <glm/gtx/transform.hpp>
 

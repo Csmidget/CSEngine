@@ -209,5 +209,8 @@
     <ClInclude Include="src\rendering\RendererFactory.h">
       <Filter>src\rendering</Filter>
     </ClInclude>
+    <ClInclude Include="src\Debug.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

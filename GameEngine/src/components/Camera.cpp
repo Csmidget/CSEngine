@@ -1,6 +1,5 @@
 #include "Camera.h"
 
-#include <iostream>
 #include "glm/gtx/transform.hpp"
 
 #include "input/Input.h"

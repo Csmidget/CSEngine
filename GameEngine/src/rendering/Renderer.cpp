@@ -1,7 +1,6 @@
 #include "rendering/Renderer.h"
 
 #include <fstream>
-#include <iostream>
 #include "glm/glm.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
@@ -11,6 +10,7 @@
 #include "components/Camera.h"
 #include "GameObject.h"
 #include "input/WindowEvent.h"
+#include "Debug.h"
 
 namespace GameEngine
 {
@@ -32,15 +32,15 @@ namespace GameEngine
 			GLenum err = glewInit();
 			if (GLEW_OK != err)
 			{
-				std::cerr << "Error: GLEW failed to initialise with message: " << glewGetErrorString(err) << std::endl;
+				Debug::LogError("Error: GLEW failed to initialise with message: " , glewGetErrorString(err));
 				return false;
 			}
-			std::cout << "INFO: Using GLEW " << glewGetString(GLEW_VERSION) << std::endl;
 
-			std::cout << "INFO: OpenGL Vendor: " << glGetString(GL_VENDOR) << std::endl;
-			std::cout << "INFO: OpenGL Renderer: " << glGetString(GL_RENDERER) << std::endl;
-			std::cout << "INFO: OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
-			std::cout << "INFO: OpenGL Shading Language Version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
+			Debug::Log("INFO: Using GLEW " , glewGetString(GLEW_VERSION));
+			Debug::Log("INFO: OpenGL Vendor: " , glGetString(GL_VENDOR));
+			Debug::Log("INFO: OpenGL Renderer: " , glGetString(GL_RENDERER));
+			Debug::Log("INFO: OpenGL Version: " , glGetString(GL_VERSION));
+			Debug::Log("INFO: OpenGL Shading Language Version: " , glGetString(GL_SHADING_LANGUAGE_VERSION));
 
 			return true;
 
@@ -81,7 +81,7 @@ namespace GameEngine
 
 			if (!vertFile)
 			{
-				std::cerr << "ERROR! UNABLE TO LOCATE VERTEX SHADER" << std::endl;
+				Debug::LogError("ERROR! UNABLE TO LOCATE VERTEX SHADER");
 			}
 
 			std::string vertString((std::istreambuf_iterator<char>(vertFile)), std::istreambuf_iterator<char>());
@@ -94,7 +94,7 @@ namespace GameEngine
 			std::ifstream fragFile(filePath + "defFrag.shader");
 			if (!fragFile)
 			{
-				std::cerr << "ERROR! UNABLE TO LOCATE FRAGMENT SHADER" << std::endl;
+				Debug::LogError("ERROR! UNABLE TO LOCATE FRAGMENT SHADER");
 			}
 			std::string fragString((std::istreambuf_iterator<char>(fragFile)), std::istreambuf_iterator<char>());
 			str = fragString.c_str();

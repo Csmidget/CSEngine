@@ -1,12 +1,12 @@
 #include "Application.h"
 
-#include <iostream>
 #include "GameObject.h"
 #include "rendering/Renderer.h"
 #include "rendering/RendererFactory.h"
 #include "input/Input.h"
 #include "interaction/CollisionControl.h"
 #include "interaction/RigidBody.h"
+#include "Debug.h"
 
 namespace GameEngine
 {
@@ -25,7 +25,7 @@ namespace GameEngine
 	{
 		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER) < 0)
 		{
-			std::cout << "Failed to initialise SDL" << std::endl;
+			Debug::LogError("Failed to initialise SDL");
 			return false;
 		}
 
@@ -117,16 +117,6 @@ namespace GameEngine
 	{
 		gameObjects.push_back(_go);
 	}//Application::AddGameObject
-	//==============================================================================
-	void PrintSDL_GL_Attributes()
-	{
-		int value = 0;
-		SDL_GL_GetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, &value);
-		std::cout << "SDL_GL_CONTEXT_MAJOR_VERSION : " << value << std::endl;
-
-		SDL_GL_GetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, &value);
-		std::cout << "SDL_GL_CONTEXT_MINOR_VERSION: " << value << std::endl;
-	}//PrintSDL_GL_Attributes
 	//==============================================================================
 	void Application::Destroy(std::shared_ptr<Object> _o)
 	{

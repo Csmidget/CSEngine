@@ -1,8 +1,6 @@
 #include "MeshLoader.h"
 #include "Mesh.h"
-
-#include <iostream> //DEBUG
-
+#include "Debug.h"
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tinyobjloader/tiny_obj_loader.h"
 #define STB_IMAGE_IMPLEMENTATION
@@ -95,7 +93,7 @@ namespace GameEngine
 						int faceVertices = shapes[s].mesh.num_face_vertices[f];
 						if (faceVertices != 3)
 						{
-							std::cout << "Error - Non-triangle face loaded, this program only supports triangle meshes" << std::endl;
+							Debug::Log("Error - Non-triangle face loaded, this program only supports triangle meshes");
 						}
 
 						triangle.posIndices = glm::ivec3(
@@ -199,17 +197,17 @@ namespace GameEngine
 				texture_filename = _filePath + _fileName;
 				if (!FileExists(texture_filename))
 				{
-					std::cerr << "Unable to find file: " << _fileName << std::endl;
+					Debug::LogError("Unable to find file: ", _fileName);
 					//  exit(1);
 				}
 			}
 
 			unsigned char* image = stbi_load(texture_filename.c_str(), &w, &h, &comp, STBI_default);
 			if (!image) {
-				std::cerr << "Unable to load texture: " << texture_filename << std::endl;
+				Debug::LogError("Unable to load texture: ", texture_filename);
 				exit(1);
 			}
-			std::cout << "Loaded texture: " << texture_filename << ", w = " << w << ", h = " << h << ", comp = " << comp << std::endl;
+			Debug::Log("Loaded texture: ", texture_filename, ", w = ", w, ", h = ", h, ", comp = ", comp);
 
 			glGenTextures(1, &texture_id);
 			glBindTexture(GL_TEXTURE_2D, texture_id);

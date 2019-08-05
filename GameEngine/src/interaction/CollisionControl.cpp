@@ -1,7 +1,5 @@
 #include "CollisionControl.h"
 
-#include <iostream>
-
 #include "util/mathutil.h"
 
 #include "components/Collider.h"

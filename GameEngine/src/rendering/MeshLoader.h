@@ -2,8 +2,8 @@
 #define GAME_ENGINE_MESHLOADER_H
 
 #include <memory>
-#include <ios>
 #include "GL/glew.h"
+#include <string>
 
 namespace GameEngine {
 	namespace Rendering
