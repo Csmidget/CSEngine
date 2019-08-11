@@ -233,8 +233,11 @@ namespace GameEngine
 		//METHOD COPIED FROM: https://github.com/syoyo/tinyobjloader/blob/master/examples/viewer/viewer.cc
 		bool MeshLoader::FileExists(const std::string &abs_filename)
 		{
-			bool ret;
-			FILE *fp = fopen(abs_filename.c_str(), "rb");
+			bool ret{};
+			errno_t err{};
+			FILE *fp{};
+			err = fopen_s(&fp, abs_filename.c_str(), "rb");
+
 			if (fp)
 			{
 				ret = true;

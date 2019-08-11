@@ -59,8 +59,8 @@ namespace GameEngine
 		}
 
 		char* meshName = new char[_meshName.length() + 1];
-		strcpy(meshName, _meshName.c_str());
-
+		strcpy_s(meshName, _meshName.length() + 1, _meshName.c_str());
+		
 		mesh = MeshLoader::LoadMesh(meshName);
 		CreateVao();
 

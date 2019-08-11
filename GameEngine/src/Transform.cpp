@@ -6,7 +6,6 @@ namespace GameEngine
 	//==============================================================================
 	void Transform::SetParent(std::weak_ptr<Transform> _transform)
 	{
-
 		//Check if parent is valid
 		if (!parent.expired())
 		{
@@ -36,7 +35,6 @@ namespace GameEngine
 	 //==============================================================================
 	void Transform::DetachChildren()
 	{
-
 		for (std::weak_ptr<Transform> t : children)
 		{
 			auto tPtr = t.lock();
@@ -48,22 +46,20 @@ namespace GameEngine
 	 //==============================================================================
 	void Transform::OnAwake()
 	{
-
 		//Set parent to blank ptr, essentially a nullptr
 		parent = std::weak_ptr<Transform>();
 		localPosition = glm::vec3();
 		localRotation = glm::vec3();
 		localScale = glm::vec3(1, 1, 1);
-
 	}//Transform::Awake()
 	//==============================================================================
 
 	void Transform::OnDestroy()
 	{
 		DetachChildren();
-		if (!GetParent().expired())
+		if (!parent.expired())
 		{
-			GetParent().lock()->RemoveChild(shared_from_base<Transform>());
+			parent.lock()->RemoveChild(shared_from_base<Transform>());
 		}
 		//SetParent(std::weak_ptr<Transform>());
 	}//OnDestroy()
@@ -80,26 +76,27 @@ namespace GameEngine
   //==============================================================================
 	glm::vec3 Transform::GetPosition()
 	{
-		glm::mat4 trs = glm::mat4();
+		glm::mat4 trs{};
 
-		std::weak_ptr<Transform> par = parent;
 		trs = GetTransMatUnscaled(localPosition, localRotation);
 
-		if (!par.expired())
+		std::weak_ptr<Transform> par{ parent };
+		while (!par.expired())
 		{
 			trs = par.lock()->GetTransMatUnscaled(par.lock()->localPosition, par.lock()->localRotation) * trs;
 			par = parent.lock()->parent;
 		}
 
-		glm::vec4 test = glm::vec4();
+		glm::vec4 test{};
 		test.w = 1;
+
 		glm::vec3 test1 = trs * test;
 		return test1;
 	}//Transform::GetPosition()
   //==============================================================================
 	glm::mat3 Transform::RotationMatrix()
 	{
-		glm::mat4 rotMat = glm::mat4();
+		glm::mat4 rotMat{};
 
 		glm::vec3 rot = GetLocalRotation();
 
@@ -123,10 +120,9 @@ namespace GameEngine
   //==============================================================================
 	void Transform::SetPosition(glm::vec3 _position)
 	{
-
 		if (!parent.expired())
 		{
-			glm::mat4 trs = glm::mat4();
+			glm::mat4 trs{};
 			std::weak_ptr<Transform> par = parent;
 
 			while (!par.expired())
@@ -135,7 +131,7 @@ namespace GameEngine
 				par = par.lock()->parent;
 			}
 
-			glm::vec4 test = glm::vec4();
+			glm::vec4 test{};
 			test.w = 1;
 
 			localPosition = trs * test;
@@ -148,7 +144,7 @@ namespace GameEngine
   //==============================================================================
 	glm::vec3 Transform::RotateVector(glm::vec3 _vector, glm::vec3 _rotation)
 	{
-		glm::mat4 rotMat = glm::mat4();
+		glm::mat4 rotMat{};
 
 		rotMat = glm::rotate(rotMat, _rotation.y, glm::vec3(0, 1, 0));
 		rotMat = glm::rotate(rotMat, _rotation.z, glm::vec3(0, 0, 1));
@@ -162,7 +158,7 @@ namespace GameEngine
 	//==============================================================================
 	glm::mat4 Transform::GetTransMat(glm::vec3 _pos, glm::vec3 _rot, glm::vec3 _scale)
 	{
-		glm::mat4 trs = glm::mat4();
+		glm::mat4 trs{};
 
 		trs = glm::translate(trs, _pos);
 
@@ -177,7 +173,7 @@ namespace GameEngine
   //==============================================================================
 	glm::mat4 Transform::GetTransMatUnscaled(glm::vec3 _pos, glm::vec3 _rot)
 	{
-		glm::mat4 trs = glm::mat4();
+		glm::mat4 trs{};
 
 		trs = glm::translate(trs, _pos);
 
@@ -192,9 +188,7 @@ namespace GameEngine
   //==============================================================================
 	glm::mat4 Transform::ModelMatrix()
 	{
-		glm::mat4 mat;
-		mat = GetTransMat(GetPosition(), GetRotation(), localScale);
-		return mat;
+		return GetTransMat(GetPosition(), GetRotation(), localScale);
 	}//Transform::ModelMatrix()
 
 }
