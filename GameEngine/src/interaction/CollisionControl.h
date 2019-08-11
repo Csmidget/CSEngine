@@ -10,11 +10,13 @@ namespace GameEngine {
 	class BoxCollider;
 	class SphereCollider;
 	class MeshCollider;
+	class RigidBody;
 
 	//! Class in control of collision related functions. Also stores a list of all active Collider's in the application.
 	class CollisionControl {
 
 		friend class Application;
+		friend class RigidBody;
 
 	private:
 		//!Stores every active Collider in the scene. Used for RigidBody collision tests
@@ -25,7 +27,7 @@ namespace GameEngine {
 		static void AddCollider(std::weak_ptr<Collider> _col);
 
 		//!Tests one Collider against all other Collider's
-		static void TestColliders(std::shared_ptr<Collider> _col);
+		static void TestCollisions(std::vector<std::weak_ptr<RigidBody>>& _rbList);
 
 		//!Tests for collision between two BoxCollider's. Calls the OnCollision function for both GameObject's if Collision found.
 		static void BoxBoxCollision(std::shared_ptr<BoxCollider> _col1, std::shared_ptr<BoxCollider> _col2);

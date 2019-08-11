@@ -9,6 +9,7 @@
 #include "components/BoxCollider.h"
 #include "components/SphereCollider.h"
 #include "components/MeshCollider.h"
+#include "interaction/RigidBody.h"
 #include "Collision.h"
 
 namespace GameEngine
@@ -22,26 +23,34 @@ namespace GameEngine
 		colliders.push_back(_col);
 	}//CollisionControl::AddCollider
 	//==============================================================================
-	void CollisionControl::TestColliders(std::shared_ptr<Collider> _col)
+	void CollisionControl::TestCollisions(std::vector<std::weak_ptr<RigidBody>>& _rbList )
 	{
+		auto activeColliders = colliders;
 
-		for (int i = colliders.size() - 1; i >= 0; i--)
+
+		for (auto rbWeak : _rbList)
 		{
-			std::weak_ptr<Collider> collider = colliders.at(i);
+			if (!rbWeak.lock()->isKinematic)
+				continue;
 
-			if (!collider.expired())
+			for (int i = activeColliders.size() - 1; i >= 0; i--)
 			{
-				std::shared_ptr<Collider> lockedCol = collider.lock();
-				if (lockedCol == _col) continue;
+				auto rbCol = rbWeak.lock()->collider.lock();
+				auto targetCol = activeColliders[i].lock();
 
-				_col->CheckCollision(lockedCol);
+				if (!rbCol || !targetCol)
+					continue;
 
-			}
-			else
-			{
-				colliders.erase(colliders.begin() + i);
+				if (rbCol == targetCol)
+				{
+					activeColliders.erase(activeColliders.begin() + i);
+					continue;
+				}
+
+				rbCol->CheckCollision(targetCol);
 			}
 		}
+
 	}//CollisionControl::TestColliders
 	//==============================================================================
 	void CollisionControl::BoxBoxCollision(std::shared_ptr<BoxCollider> _col1, std::shared_ptr<BoxCollider> _col2)

@@ -145,8 +145,8 @@ namespace GameEngine
 
 			if (prevState.position != currState.position)
 			{
-				if (!collider.expired()) CollisionControl::TestColliders(collider.lock());
-
+				//if (!collider.expired()) CollisionControl::TestColliders(collider.lock());
+			
 				trans->SetPosition(currState.position);
 				if (!lockRotation)
 				{
@@ -194,6 +194,8 @@ namespace GameEngine
 					rbList.erase(rbList.begin() + i);
 				}
 			}
+
+			CollisionControl::TestCollisions(rbList);
 
 		}
 	}//RigidBody::UpdateRigidBodies

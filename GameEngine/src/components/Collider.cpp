@@ -41,6 +41,7 @@ namespace GameEngine
 	//==============================================================================
 	void Collider::OnAwake() {
 		CollisionControl::AddCollider(shared_from_base<Collider>());
+
 		UpdateBounds();
 	}//Collider::OnAwake
 	//==============================================================================

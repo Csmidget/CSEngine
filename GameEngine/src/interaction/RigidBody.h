@@ -23,6 +23,7 @@ namespace GameEngine {
 	class RigidBody : public Component {
 
 		friend class Application;
+		friend class CollisionControl;
 
 		//!List of all RigidBody's currently active in the application
 		static std::vector<std::weak_ptr<RigidBody>> rbList;
