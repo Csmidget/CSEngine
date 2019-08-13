@@ -22,12 +22,12 @@ namespace GameEngine {
 		//!Stores every active Collider in the scene. Used for RigidBody collision tests
 		static std::vector<std::weak_ptr<Collider>> colliders;
 
+		//!Takes a list of rigidbodies and tests them against all colliders in the scene.
+		static void TestCollisions(std::vector<std::weak_ptr<RigidBody>>& _rbList);
+
 	public:
 		//!Adds a Collider to the Collider list
 		static void AddCollider(std::weak_ptr<Collider> _col);
-
-		//!Tests one Collider against all other Collider's
-		static void TestCollisions(std::vector<std::weak_ptr<RigidBody>>& _rbList);
 
 		//!Tests for collision between two BoxCollider's. Calls the OnCollision function for both GameObject's if Collision found.
 		static void BoxBoxCollision(std::shared_ptr<BoxCollider> _col1, std::shared_ptr<BoxCollider> _col2);

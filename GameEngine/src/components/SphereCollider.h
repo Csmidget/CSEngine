@@ -44,7 +44,7 @@ namespace GameEngine {
 		*/
 		void TestSphereCollider(std::shared_ptr<SphereCollider> _col);
 
-		float GetRadius() { return radius; }
+		float GetRadius() const { return radius; }
 		void SetRadius(float _radius) { radius = _radius; }
 	};
 

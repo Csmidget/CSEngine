@@ -27,7 +27,6 @@ namespace GameEngine
 	{
 		auto activeColliders = colliders;
 
-
 		for (auto rbWeak : _rbList)
 		{
 			if (!rbWeak.lock()->isKinematic)

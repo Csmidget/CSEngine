@@ -38,7 +38,7 @@ namespace GameEngine {
 
 	public:
 		//!Returns the axis aligned BoundBox of this Collider
-		BoundBox GetBounds() { return bounds; }
+		BoundBox GetBounds() const { return bounds; }
 
 		//!Tests collision between this Collider and a BoxCollider
 		 /*!

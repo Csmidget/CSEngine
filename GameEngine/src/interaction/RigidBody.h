@@ -55,7 +55,7 @@ namespace GameEngine {
 		static void UpdateRigidBodies();
 
 		float CalculateImpulse(Collision _col, std::shared_ptr<RigidBody> colRB);
-		glm::mat3x3 InertiaTensor();
+		glm::mat3x3 InertiaTensor() const;
 		void OnAwake();
 		void OnUpdate();
 
@@ -74,13 +74,13 @@ namespace GameEngine {
 		//!Apply's force to the object, changing it's linear momentum.
 		void ApplyForce(glm::vec3 _force);
 		//!Returns the current state of the RigidBody physics
-		RBState GetCurrState() { return currState; }
+		RBState GetCurrState() const { return currState; }
 		//!Returns the previous state of the RigidBody physics
-		RBState GetPrevState() { return prevState; }
+		RBState GetPrevState() const { return prevState; }
 
-		glm::vec3 GetVelocity() { return currState.linearMomentum / mass; }
-		glm::vec3 GetAngularVelocity() { return currState.angularMomentum / mass; }
-		float GetMass() { return mass; }
+		glm::vec3 GetVelocity() const { return currState.linearMomentum / mass; }
+		glm::vec3 GetAngularVelocity() const { return currState.angularMomentum / mass; }
+		float GetMass() const { return mass; }
 		void SetMass(float _mass) { mass = _mass; }
 		void SetDrag(float _drag) { drag = _drag; }
 		void SetElasticity(float _elasticity) { elasticity = _elasticity; }

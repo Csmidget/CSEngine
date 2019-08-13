@@ -105,7 +105,7 @@ namespace GameEngine
 		return linearImpulse + angularImpulse;
 	}//RigidBody::CalculateImpulse
 	//==============================================================================
-	glm::mat3x3 RigidBody::InertiaTensor()
+	glm::mat3x3 RigidBody::InertiaTensor() const
 	{
 		glm::mat3x3 rotMat = GetTransform().lock()->RotationMatrix();
 		glm::mat3x3 transposeRot = glm::transpose(rotMat);

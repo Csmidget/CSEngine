@@ -102,7 +102,7 @@ namespace GameEngine
 		}
 	}//MeshRenderer::CreateVao
 	 //==============================================================================
-	BoundBox MeshRenderer::GetMeshBounds()
+	BoundBox MeshRenderer::GetMeshBounds() const
 	{
 		if (autoScale)
 			return mesh->GetScaledBounds();
@@ -110,7 +110,7 @@ namespace GameEngine
 			return mesh->GetBounds();
 	}//MeshRenderer::GetMeshBounds
 	//==============================================================================
-	float MeshRenderer::GetMeshRadius()
+	float MeshRenderer::GetMeshRadius() const
 	{
 		if (autoScale)
 			return mesh->GetScaledRadius();

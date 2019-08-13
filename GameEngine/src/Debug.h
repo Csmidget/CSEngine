@@ -15,33 +15,38 @@ namespace GameEngine
 	{
 	public:
 
-		template<class Arg, typename... Args>
+		template<typename Arg, typename... Args>
 		inline static void Log(Arg&& _logStr, Args&&... args)
 		{
 #if _DEBUG
-			std::cout << std::forward<Arg>(_logStr);
-			using expander = int[];
-			(void)expander {
-				0, (void(std::cout << std::forward<Args>(args)), 0)...
-			};
-
+			Write(std::cout, _logStr, args...);
 			std::cout << std::endl;
 #endif
 		}//Debug::Log()
 
-		template<class Arg, typename... Args>
+		template<typename Arg, typename... Args>
 		inline static void LogError(Arg&& _logStr, Args&&... args)
 		{
 #if _DEBUG
-			std::cerr << std::forward<Arg>(_logStr);
-			using expander = int[];
-			(void)expander {
-				0, (void(std::cerr << std::forward<Args>(args)), 0)...
-			};
-
+			Write(std::cerr, _logStr, args...);
 			std::cerr << std::endl;
 #endif
 		}//Debug::LogError()
+
+	private:
+
+		template<typename Arg, typename... Args>
+		inline static void Write(std::ostream& os, Arg&& _logStr, Args&&... args)
+		{
+			os << _logStr;
+			Write(os, args...);
+		}//Debug::Write(ostream, Arg, Args...)
+
+		template<typename Arg>
+		inline static void Write(std::ostream& os, Arg&& _logStr)
+		{
+			os << _logStr;
+		}//Debug::Write(ostream, Arg)
 
 	};
 }

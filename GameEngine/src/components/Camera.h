@@ -41,9 +41,9 @@ namespace GameEngine {
 		//!Return a pointer to the mainCamera
 		static std::weak_ptr<Camera> GetMainCamera() { return mainCamera; }
 		//!Returns a view matrix based on the Camera's current position
-		glm::mat4 ViewMatrix();
+		glm::mat4 ViewMatrix() const;
 		//!Returns the current projection matrix of this camera
-		glm::mat4 ProjectionMatrix() { return projMat; }
+		glm::mat4 ProjectionMatrix() const { return projMat; }
 
 		//! Sets the main camera
 		/*!

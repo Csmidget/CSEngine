@@ -44,8 +44,8 @@ namespace GameEngine {
 		std::shared_ptr<Rendering::Mesh> GetMesh() { return mesh; }
 		//!Changes the mesh attached to this MeshRenderer. This will also regenerate the GL information.
 		void SetMesh(std::string _meshName);
-		BoundBox GetMeshBounds();
-		float GetMeshRadius();
+		BoundBox GetMeshBounds() const;
+		float GetMeshRadius() const;
 	};
 
 }//namespace GameEngine

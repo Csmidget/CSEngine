@@ -44,7 +44,7 @@ namespace GameEngine {
 		//!Creates a GameObject and adds it to the Application list. Use this for GameObject creation.
 		static std::shared_ptr<GameObject> Create();
 
-		bool IsActive() { return active; }
+		bool IsActive() const { return active; }
 
 		//!Returns a pointer to the Transform component of this GameObject.
 		std::weak_ptr<Transform> GetTransform();
@@ -62,7 +62,7 @@ namespace GameEngine {
 
 		//!Gets a Component from this GameObject's list of Component list.
 		template<typename T>
-		std::weak_ptr<T> GetComponent() {
+		std::weak_ptr<T> GetComponent() const {
 			for (size_t i = 0; i < components.size(); i++)
 			{
 				std::shared_ptr<T> t = std::dynamic_pointer_cast<T>(components.at(i));

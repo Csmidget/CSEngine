@@ -75,7 +75,7 @@ namespace GameEngine {
 		void RemoveController(int _deviceNumber);
 
 	public:
-		int NumControllers() const override  { return controllers.size(); } ;
+		int NumControllers() const override { return controllers.size(); } ;
 
 		bool KeyHeld(int _keyCode) const override;
 

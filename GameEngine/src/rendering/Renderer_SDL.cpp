@@ -92,7 +92,7 @@ namespace GameEngine
 		}//Renderer::Draw
 
 		//==============================================================================
-		void Renderer_SDL::GetWindowSize(int *w, int *h)
+		void Renderer_SDL::GetWindowSize(int *w, int *h) const
 		{
 			SDL_GetWindowSize(mainWindow, w, h);
 		}//Renderer::GetWindowSize

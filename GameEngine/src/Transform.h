@@ -36,17 +36,17 @@ namespace GameEngine {
 		//!Sets the parent Transform of this Object
 		void SetParent(std::weak_ptr<Transform> _transform);
 		//!Returns the parent Transform of this Object
-		std::weak_ptr<Transform> GetParent() { return parent; }
+		std::weak_ptr<Transform> GetParent() const { return parent; }
 
 		//!Sets the position of this Object in world space
 		void SetPosition(glm::vec3 _position);
 
 		//!Returns the world space position of this object
-		glm::vec3 GetPosition();
+		glm::vec3 GetPosition() const;
 		//!Returns the rotation of this Object
-		glm::vec3 GetRotation();
+		glm::vec3 GetRotation() const;
 		//!Returns the scale of this object
-		glm::vec3 GetScale() { return localScale; }
+		glm::vec3 GetScale() const { return localScale; }
 
 		//!Sets the rotation of this Object relative to it's parents world rotation
 		void SetLocalRotation(glm::vec3 _rotation) { localRotation = _rotation; }
@@ -56,9 +56,9 @@ namespace GameEngine {
 		void SetLocalScale(glm::vec3 scale) { localScale = scale; }
 
 		//!Returns the rotation of this Object relative to it's parents world rotation
-		glm::vec3 GetLocalPosition() { return localPosition; }
+		glm::vec3 GetLocalPosition() const { return localPosition; }
 		//!Returns the rotation of this Object relative to it's parents world rotation
-		glm::vec3 GetLocalRotation() { return localRotation; }
+		glm::vec3 GetLocalRotation() const { return localRotation; }
 
 		//!Transforms the position of the object by entered vector
 		void Translate(glm::vec3 inVec);
@@ -66,9 +66,9 @@ namespace GameEngine {
 		void Rotate(glm::vec3 inVec);
 
 		//!Returns the model matrix of this Object
-		glm::mat4 ModelMatrix();
+		glm::mat4 ModelMatrix() const;
 
-		glm::mat3 RotationMatrix();
+		glm::mat3 RotationMatrix() const;
 
 
 		//!Rotates a vector by provided rotation vector

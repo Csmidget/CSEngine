@@ -63,7 +63,7 @@ namespace GameEngine
 
 	}//Component::OnDraw
 	//==============================================================================
-	std::weak_ptr<Transform> Component::GetTransform()
+	std::weak_ptr<Transform> Component::GetTransform() const
 	{
 		return gameObject.lock()->GetTransform();
 	}//Component::GetTransform

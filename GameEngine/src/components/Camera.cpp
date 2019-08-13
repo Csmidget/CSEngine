@@ -11,7 +11,7 @@ namespace GameEngine
 {
 	std::weak_ptr<Camera> Camera::mainCamera;
 	//==============================================================================
-	glm::mat4 Camera::ViewMatrix()
+	glm::mat4 Camera::ViewMatrix() const
 	{
 		std::shared_ptr<Transform> t = GetTransform().lock();
 

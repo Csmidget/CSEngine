@@ -74,7 +74,7 @@ namespace GameEngine
 		localRotation += inVec;
 	}//Rotate()
   //==============================================================================
-	glm::vec3 Transform::GetPosition()
+	glm::vec3 Transform::GetPosition() const
 	{
 		glm::mat4 trs{};
 
@@ -94,7 +94,7 @@ namespace GameEngine
 		return test1;
 	}//Transform::GetPosition()
   //==============================================================================
-	glm::mat3 Transform::RotationMatrix()
+	glm::mat3 Transform::RotationMatrix() const
 	{
 		glm::mat4 rotMat{};
 
@@ -108,7 +108,7 @@ namespace GameEngine
 	}//Transform::RotationMatrix
 
 	//==============================================================================
-	glm::vec3 Transform::GetRotation()
+	glm::vec3 Transform::GetRotation() const
 	{
 		if (!parent.expired())
 		{
@@ -186,7 +186,7 @@ namespace GameEngine
 		return trs;
 	}//Transform::GetTransMatUnscaled()
   //==============================================================================
-	glm::mat4 Transform::ModelMatrix()
+	glm::mat4 Transform::ModelMatrix() const
 	{
 		return GetTransMat(GetPosition(), GetRotation(), localScale);
 	}//Transform::ModelMatrix()

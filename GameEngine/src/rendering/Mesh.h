@@ -73,22 +73,22 @@ namespace GameEngine {
 
 			Mesh();
 			//!Returns the list of raw position vertices
-			std::vector<glm::vec4>             GetVertices() { return rawVertices; }
+			std::vector<glm::vec4>             GetVertices() const { return rawVertices; }
 			//!Returns the list of raw texture coordinate vertices
-			std::vector<glm::vec2>             GetTexCoords() { return rawTexCoords; }
+			std::vector<glm::vec2>             GetTexCoords() const { return rawTexCoords; }
 			//!Returns the list of materials for this mesh
-			std::vector<tinyobj::material_t>   GetMaterials() { return materials; }
+			std::vector<tinyobj::material_t>   GetMaterials() const { return materials; }
 			//!Returns the list of this meshes triangles
-			std::vector<Triangle>              GetTriangles() { return triangles; }
+			std::vector<Triangle>              GetTriangles() const { return triangles; }
 			//!Returns the GLuint for a texture with name _texName
 			static GLuint GetTexture(std::string _texName) { return textures.at(_texName); }
 
 			//!Returns the bounding box of this mesh
-			BoundBox GetBounds() { return bounds; }
-			BoundBox GetScaledBounds() { return scaledBounds; }
+			BoundBox GetBounds() const { return bounds; }
+			BoundBox GetScaledBounds() const { return scaledBounds; }
 			//!Returns this meshes radius
-			float GetRadius() { return radius; }
-			float GetScaledRadius() { return scaledRadius; }
+			float GetRadius() const { return radius; }
+			float GetScaledRadius() const { return scaledRadius; }
 		};
 	}
 }//namespace GameEngine

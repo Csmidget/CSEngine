@@ -55,9 +55,9 @@ namespace GameEngine {
 	public:
 		Component();
 		//!Returns a pointer to the GameObject that currently owns this component
-		virtual std::weak_ptr<GameObject> GetGameObject() { return gameObject; }
+		virtual std::weak_ptr<GameObject> GetGameObject() const { return gameObject; }
 		//!Gets the Transform Component attached to the same GameObject as this Component
-		virtual std::weak_ptr<Transform> GetTransform();
+		virtual std::weak_ptr<Transform> GetTransform() const;
 	};
 
 }//namespace GameEngine

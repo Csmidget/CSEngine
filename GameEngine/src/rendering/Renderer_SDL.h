@@ -24,11 +24,8 @@ namespace GameEngine {
 			void Draw(std::vector<std::shared_ptr<GameObject>>& _objects) override;	
 		
 		public:
-			void GetWindowSize(int *w, int *h) override;
-
-			//!Clears the GL background to entered color.
-			void ClearToColour(float r, float g, float b, float a);
-
+			void GetWindowSize(int *w, int *h) const override;
+			
 			float ScreenWidth() override { return screenWidth; }
 			float ScreenHeight() override { return screenHeight; }
 
