@@ -13,7 +13,7 @@ namespace GameEngine
 
 			SDL_GL_GetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, &value);
 			Debug::Log("SDL_GL_CONTEXT_MINOR_VERSION: ", value);
-		}//PrintSDL_GL_Attributes
+		}//Print_SDL_GL_Attributes
 
 		bool Renderer_SDL::Init()
 		{
@@ -61,7 +61,7 @@ namespace GameEngine
 			Print_SDL_GL_Attributes();
 
 			return true;
-		}//Renderer::Init
+		}//Renderer_SDL::Init
 
 		//==============================================================================
 		void Renderer_SDL::Destroy()
@@ -71,7 +71,7 @@ namespace GameEngine
 
 			// Destroy our window
 			SDL_DestroyWindow(mainWindow);
-		}//Renderer::Destroy
+		}//Renderer_SDL::Destroy
 
 		//==============================================================================
 		void Renderer_SDL::Update()
@@ -80,7 +80,7 @@ namespace GameEngine
 
 			//Presents the rendered image to the window
 			SDL_GL_SwapWindow(mainWindow);
-		}//Renderer::Update
+		}//Renderer_SDL::Update
 
 		//==============================================================================
 		void Renderer_SDL::Draw(std::vector<std::shared_ptr<GameObject>>& _objects)
@@ -89,13 +89,13 @@ namespace GameEngine
 
 			SDL_GL_SwapWindow(mainWindow);
 
-		}//Renderer::Draw
+		}//Renderer_SDL::Draw
 
 		//==============================================================================
 		void Renderer_SDL::GetWindowSize(int *w, int *h) const
 		{
 			SDL_GetWindowSize(mainWindow, w, h);
-		}//Renderer::GetWindowSize
+		}//Renderer_SDL::GetWindowSize
 		//==============================================================================
 	}
 }

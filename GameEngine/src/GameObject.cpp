@@ -48,7 +48,7 @@ namespace GameEngine {
 		{
 			components[i]->Draw();
 		}
-	}//GameObject::Render
+	}//GameObject::Draw
 	//==============================================================================
 	std::weak_ptr<Transform> GameObject::GetTransform()
 	{
@@ -85,7 +85,7 @@ namespace GameEngine {
 		go->AddComponent<RigidBody>();
 		go->GetTransform().lock()->Translate(_pos);
 		return go;
-	}//Application::CreateSphere
+	}//GameObject::CreateCube
 	//==============================================================================
 	std::weak_ptr<GameObject> GameObject::CreateSphere(glm::vec3 _pos)
 	{
@@ -95,7 +95,7 @@ namespace GameEngine {
 		go->AddComponent<RigidBody>();
 		go->GetTransform().lock()->Translate(_pos);
 		return go;
-	}//Application::CreateSphere
+	}//GameObject::CreateSphere
 	//==============================================================================
 	std::weak_ptr<GameObject> GameObject::CreateCapsule(glm::vec3 _pos)
 	{
@@ -105,7 +105,7 @@ namespace GameEngine {
 		go->AddComponent<RigidBody>();
 		go->GetTransform().lock()->Translate(_pos);
 		return go;
-	}//Application::CreateSphere
+	}//GameObject::CreateCapsule
 	//==============================================================================
 	std::weak_ptr<GameObject> GameObject::CreateCamera(glm::vec3 _pos)
 	{
