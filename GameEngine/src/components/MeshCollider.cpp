@@ -1,6 +1,6 @@
 #include "MeshCollider.h"
 
-#include "interaction/CollisionControl.h"
+#include "interaction/CollisionControl3D.h"
 #include "components/MeshRenderer.h"
 #include "GameObject.h"
 
@@ -9,7 +9,7 @@ namespace GameEngine
 	//==============================================================================
 	void MeshCollider::UpdateBounds()
 	{
-		bounds = BoundBox();
+		bounds = BoundBox3D();
 
 		std::weak_ptr<MeshRenderer> mr = gameObject.lock()->GetComponent<MeshRenderer>();
 
@@ -29,24 +29,24 @@ namespace GameEngine
 
 	}//MeshCollider::UpdateBounds
 	//==============================================================================
-	void MeshCollider::CheckCollision(std::shared_ptr<Collider> _col)
+	void MeshCollider::CheckCollision(std::shared_ptr<Collider3D> _col)
 	{
 		_col->TestMeshCollider(shared_from_base<MeshCollider>());
 	}//BoxCollider::CheckCollision
 	//==============================================================================
-	void MeshCollider::TestBoxCollider(std::shared_ptr<BoxCollider> _col)
+	void MeshCollider::TestBoxCollider(std::shared_ptr<BoxCollider3D> _col)
 	{
-		CollisionControl::BoxMeshCollision(_col, shared_from_base<MeshCollider>());
+		CollisionControl3D::BoxMeshCollision(_col, shared_from_base<MeshCollider>());
 	}//BoxCollider::TestBoxCollider
 	//==============================================================================
 	void MeshCollider::TestMeshCollider(std::shared_ptr<MeshCollider> _col)
 	{
-		CollisionControl::MeshMeshCollision(_col, shared_from_base<MeshCollider>());
+		CollisionControl3D::MeshMeshCollision(_col, shared_from_base<MeshCollider>());
 	}//BoxCollider::TestMeshCollider
 	//==============================================================================
 	void MeshCollider::TestSphereCollider(std::shared_ptr<SphereCollider>_col)
 	{
-		CollisionControl::SphereMeshCollision(_col, shared_from_base<MeshCollider>());
+		CollisionControl3D::SphereMeshCollision(_col, shared_from_base<MeshCollider>());
 	}//BoxCollider::TestMeshCollider
 	//==============================================================================
 }

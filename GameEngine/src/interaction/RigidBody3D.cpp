@@ -1,28 +1,28 @@
 #include "Application.h"
-#include "RigidBody.h"
-#include "CollisionControl.h"
+#include "RigidBody3D.h"
+#include "CollisionControl3D.h"
 #include "GameObject.h"
 #include "Transform.h"
-#include "components/Collider.h"
-#include "components/BoxCollider.h"
-#include "components/SphereCollider.h"
-#include "Collision.h"
+#include "Components/Collider3D.h"
+#include "Components/BoxCollider3D.h"
+#include "Components/SphereCollider.h"
+#include "Collision3D.h"
 
 #include <glm/gtx/transform.hpp>
 
 namespace GameEngine
 {
 
-	float RigidBody::rdtLastUpdate;
-	int RigidBody::rbInterval;
-	std::vector<std::weak_ptr<RigidBody>> RigidBody::rbList;
+	float RigidBody3D::rdtLastUpdate;
+	int RigidBody3D::rbInterval;
+	std::vector<std::weak_ptr<RigidBody3D>> RigidBody3D::rbList;
 
 	//==============================================================================
-	void RigidBody::OnAwake()
+	void RigidBody3D::OnAwake()
 	{
-		collider = gameObject.lock()->GetComponent<Collider>();
+		collider = gameObject.lock()->GetComponent<Collider3D>();
 
-		rbList.push_back(shared_from_base<RigidBody>());
+		rbList.push_back(shared_from_base<RigidBody3D>());
 		mass = 10;
 		drag = 10;
 		elasticity = 0.2;
@@ -30,7 +30,7 @@ namespace GameEngine
 		isKinematic = true;
 		lockRotation = false;
 
-		std::weak_ptr<BoxCollider> bCol = gameObject.lock()->GetComponent<BoxCollider>();
+		std::weak_ptr<BoxCollider3D> bCol = gameObject.lock()->GetComponent<BoxCollider3D>();
 
 		if (!bCol.expired())
 		{
@@ -64,17 +64,17 @@ namespace GameEngine
 
 
 
-	}// RigidBody::OnAwake
+	}// RigidBody3D::OnAwake
 	//==============================================================================
-	void RigidBody::OnUpdate() {
+	void RigidBody3D::OnUpdate() {
 
-	}//RigidBody::OnUpdate
+	}//RigidBody3D::OnUpdate
 	//==============================================================================
-	void RigidBody::OnCollision(Collision _col)
+	void RigidBody3D::OnCollision3D(Collision3D _col)
 	{
-		std::weak_ptr<RigidBody> colliderRB = _col.colCollider->GetGameObject().lock()->GetComponent<RigidBody>();
+		std::weak_ptr<RigidBody3D> colliderRB = _col.colCollider->GetGameObject().lock()->GetComponent<RigidBody3D>();
 		float angularModifier = 200000000.0f; //Brings the angular momentum up to a usable figure. 
-		//If the thing being collided with is a rigidbody and this is kinematic.
+		//If the thing being collided with is a RigidBody3D and this is kinematic.
 		if (!colliderRB.expired() && isKinematic)
 		{
 			float colMass = colliderRB.lock()->mass;
@@ -89,9 +89,9 @@ namespace GameEngine
 			std::shared_ptr<Transform> t = GetTransform().lock();
 			t->Translate((_col.colNormal * t->GetScale() * glm::length(prevState.linearMomentum)) * ((float)rbInterval / 1000.0f) / mass);
 		}
-	}//RigidyBody::OnCollision
+	}//RigidyBody3D::OnCollision
 	//==============================================================================
-	float RigidBody::CalculateImpulse(Collision _col, std::shared_ptr<RigidBody> colRB)
+	float RigidBody3D::CalculateImpulse(Collision3D _col, std::shared_ptr<RigidBody3D> colRB)
 	{
 		glm::vec3 relativeVelocity = GetVelocity() - colRB->GetVelocity();
 
@@ -103,18 +103,18 @@ namespace GameEngine
 		float angularImpulse = -(1 + elasticity) * glm::dot(relativeVelocity, _col.colNormal) * (angular1 + angular2);
 
 		return linearImpulse + angularImpulse;
-	}//RigidBody::CalculateImpulse
+	}//RigidBody3D::CalculateImpulse
 	//==============================================================================
-	glm::mat3x3 RigidBody::InertiaTensor() const
+	glm::mat3x3 RigidBody3D::InertiaTensor() const
 	{
 		glm::mat3x3 rotMat = GetTransform().lock()->RotationMatrix();
 		glm::mat3x3 transposeRot = glm::transpose(rotMat);
 
 		glm::mat3 m = rotMat * invInertiaTensor * transposeRot;
 		return rotMat * invInertiaTensor * transposeRot;
-	}//RigidBody::IntertiaTensor
+	}//RigidBody3D::IntertiaTensor
 	//==============================================================================
-	void RigidBody::RbUpdate()
+	void RigidBody3D::RbUpdate()
 	{
 		float rdts = rbInterval / 1000.0f;
 
@@ -140,7 +140,7 @@ namespace GameEngine
 			}
 			if (collider.expired())
 			{
-				collider = gameObject.lock()->GetComponent<Collider>();
+				collider = gameObject.lock()->GetComponent<Collider3D>();
 			}
 
 			if (prevState.position != currState.position)
@@ -156,25 +156,25 @@ namespace GameEngine
 		}
 		prevState = currState;
 
-	}//RigidBody::RbUpdate
+	}//RigidBody3D::RbUpdate
 	//==============================================================================
-	void RigidBody::SetVelocity(glm::vec3 _velocity)
+	void RigidBody3D::SetVelocity(glm::vec3 _velocity)
 	{
 		currState.linearMomentum = _velocity * mass;
-	}//RigidBody::SetVelocity
+	}//RigidBody3D::SetVelocity
 	//==============================================================================
-	void RigidBody::AddVelocity(glm::vec3 _velocity)
+	void RigidBody3D::AddVelocity(glm::vec3 _velocity)
 	{
 		glm::vec3 velocity = (currState.linearMomentum / mass) + velocity;
 		currState.linearMomentum = velocity * mass;
-	}//RigidBody::SetVelocity
+	}//RigidBody3D::SetVelocity
 	//==============================================================================
-	void RigidBody::ApplyForce(glm::vec3 _force)
+	void RigidBody3D::ApplyForce(glm::vec3 _force)
 	{
 		currState.linearMomentum += _force * (Application::Rdts());
-	}//RigidBody::SetVelocity
+	}//RigidBody3D::SetVelocity
 	//==============================================================================
-	void RigidBody::UpdateRigidBodies()
+	void RigidBody3D::UpdateRigidBodies()
 	{
 		rdtLastUpdate += Application::Rdt();
 
@@ -183,7 +183,7 @@ namespace GameEngine
 		{
 			for (int i = rbList.size() - 1; i >= 0; i--)
 			{
-				std::weak_ptr<RigidBody> rb = rbList.at(i);
+				std::weak_ptr<RigidBody3D> rb = rbList.at(i);
 
 				if (!rb.expired())
 				{
@@ -195,9 +195,9 @@ namespace GameEngine
 				}
 			}
 
-			CollisionControl::TestCollisions(rbList);
+			CollisionControl3D::TestCollisions(rbList);
 
 		}
-	}//RigidBody::UpdateRigidBodies
+	}//RigidBody3D::UpdateRigidBodies
 	//==============================================================================
 }

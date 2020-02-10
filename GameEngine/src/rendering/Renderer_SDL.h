@@ -26,8 +26,8 @@ namespace GameEngine {
 		public:
 			void GetWindowSize(int *w, int *h) const override;
 			
-			float ScreenWidth() override { return screenWidth; }
-			float ScreenHeight() override { return screenHeight; }
+			float ScreenWidth() const override { return screenWidth; }
+			float ScreenHeight() const override { return screenHeight; }
 
 		};
 	}

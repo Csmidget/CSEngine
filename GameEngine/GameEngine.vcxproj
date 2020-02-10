@@ -165,9 +165,9 @@
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="src\Application.h" />
-    <ClInclude Include="src\Components\BoxCollider.h" />
+    <ClInclude Include="src\Components\BoxCollider3D.h" />
     <ClInclude Include="src\Components\Camera.h" />
-    <ClInclude Include="src\Components\Collider.h" />
+    <ClInclude Include="src\Components\Collider3D.h" />
     <ClInclude Include="src\Components\Component.h" />
     <ClInclude Include="src\Components\MeshCollider.h" />
     <ClInclude Include="src\Components\MeshRenderer.h" />
@@ -183,10 +183,10 @@
     <ClInclude Include="src\input\Input_SDL.h" />
     <ClInclude Include="src\Input\KeyCode.h" />
     <ClInclude Include="src\input\WindowEvent_SDL.h" />
-    <ClInclude Include="src\Interaction\BoundBox.h" />
-    <ClInclude Include="src\Interaction\Collision.h" />
-    <ClInclude Include="src\Interaction\CollisionControl.h" />
-    <ClInclude Include="src\Interaction\RigidBody.h" />
+    <ClInclude Include="src\Interaction\BoundBox3D.h" />
+    <ClInclude Include="src\Interaction\Collision3D.h" />
+    <ClInclude Include="src\Interaction\CollisionControl3D.h" />
+    <ClInclude Include="src\Interaction\RigidBody3D.h" />
     <ClInclude Include="src\Object.h" />
     <ClInclude Include="src\Rendering\Light.h" />
     <ClInclude Include="src\Rendering\Mesh.h" />
@@ -205,9 +205,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Application.cpp" />
-    <ClCompile Include="src\Components\BoxCollider.cpp" />
+    <ClCompile Include="src\Components\BoxCollider3D.cpp" />
     <ClCompile Include="src\Components\Camera.cpp" />
-    <ClCompile Include="src\Components\Collider.cpp" />
+    <ClCompile Include="src\Components\Collider3D.cpp" />
     <ClCompile Include="src\Components\Component.cpp" />
     <ClCompile Include="src\Components\MeshCollider.cpp" />
     <ClCompile Include="src\Components\MeshRenderer.cpp" />
@@ -220,9 +220,9 @@
     <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\input\Input_SDL.cpp" />
     <ClCompile Include="src\input\WindowEvent_SDL.cpp" />
-    <ClCompile Include="src\Interaction\BoundBox.cpp" />
-    <ClCompile Include="src\Interaction\CollisionControl.cpp" />
-    <ClCompile Include="src\Interaction\RigidBody.cpp" />
+    <ClCompile Include="src\Interaction\BoundBox3D.cpp" />
+    <ClCompile Include="src\Interaction\CollisionControl3D.cpp" />
+    <ClCompile Include="src\Interaction\RigidBody3D.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Object.cpp" />
     <ClCompile Include="src\Rendering\Light.cpp" />

@@ -4,7 +4,7 @@
 #include "rendering/Renderer.h"
 #include "input/Input.h"
 #include "GameObject.h"
-#include "interaction/Collision.h"
+#include "interaction/Collision3D.h"
 
 namespace GameEngine
 {
@@ -68,9 +68,9 @@ namespace GameEngine
 		return gameObject.lock()->GetTransform();
 	}//Component::GetTransform
 	 //==============================================================================
-	void Component::OnCollision(Collision _col)
+	void Component::OnCollision3D(Collision3D _col)
 	{
 
-	}//Component::OnCollision
+	}//Component::OnCollision3D
 
 }

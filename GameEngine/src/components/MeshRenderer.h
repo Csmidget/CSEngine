@@ -13,7 +13,7 @@ namespace GameEngine {
 		class Mesh;
 	}
 
-	class BoundBox;
+	class BoundBox3D;
 
 	//!Component class. Handles rendering an attached Mesh
 	class MeshRenderer : public Component {
@@ -44,7 +44,7 @@ namespace GameEngine {
 		std::shared_ptr<Rendering::Mesh> GetMesh() { return mesh; }
 		//!Changes the mesh attached to this MeshRenderer. This will also regenerate the GL information.
 		void SetMesh(std::string _meshName);
-		BoundBox GetMeshBounds() const;
+		BoundBox3D GetMeshBounds() const;
 		float GetMeshRadius() const;
 	};
 

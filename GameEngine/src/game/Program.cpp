@@ -1,10 +1,11 @@
 #include "Program.h"
 #include "Application.h"
 #include "GameObject.h"
+#include "interaction/Collision3D.h"
 #include "DebugComponent.h"
 #include "TableConstrainer.h"
 #include "SnookerCam.h"
-#include "interaction/RigidBody.h"
+#include "interaction/RigidBody3D.h"
 #include "components/Camera.h"
 #include "Transform.h"
 #include "rendering/Light.h"
@@ -30,7 +31,7 @@ void Program::Init()
 
 	//!Create player controlled sphere
 	go = GameObject::CreateSphere(glm::vec3(-5, 0, -19.5)).lock();
-	go->GetComponent<RigidBody>().lock()->lockRotation = true;
+	go->GetComponent<RigidBody3D>().lock()->lockRotation = true;
 	go->AddComponent<DebugComponent>();
 	go->AddComponent<TableConstrainer>();
 

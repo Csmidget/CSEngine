@@ -7,7 +7,7 @@
 namespace GameEngine {
 
 	//! A simple bounding box
-	class BoundBox {
+	class BoundBox3D {
 
 	private:
 		glm::vec3 min;
@@ -21,9 +21,9 @@ namespace GameEngine {
 
 	public:
 		//!Generate a BoundBox with size (0,0,0)
-		BoundBox();
+		BoundBox3D();
 		//!Generate a BoundBox using preset size and centre point
-		BoundBox(glm::vec3 _centre, glm::vec3 _size);
+		BoundBox3D(glm::vec3 _centre, glm::vec3 _size);
 
 		void SetMinMax(glm::vec3 _min, glm::vec3 _max);
 		glm::vec3 GetMin() { return min; }

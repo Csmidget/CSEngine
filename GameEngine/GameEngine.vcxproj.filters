@@ -17,14 +17,14 @@
     <Filter Include="src\input">
       <UniqueIdentifier>{74d50199-ec56-48cc-8560-4d8dddbca9e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\components">
-      <UniqueIdentifier>{e50a6221-7ef4-419d-902f-a2e0ae261efe}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\interaction">
       <UniqueIdentifier>{0d637464-7136-4b4d-95f6-8eb4b0752dd7}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\rendering">
       <UniqueIdentifier>{de928585-33eb-415d-97a1-7ff073bacdee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Components">
+      <UniqueIdentifier>{e50a6221-7ef4-419d-902f-a2e0ae261efe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -59,32 +59,20 @@
     <ClCompile Include="src\Input\Input.cpp">
       <Filter>src\input</Filter>
     </ClCompile>
-    <ClCompile Include="src\Components\BoxCollider.cpp">
-      <Filter>src\components</Filter>
-    </ClCompile>
     <ClCompile Include="src\Components\Camera.cpp">
-      <Filter>src\components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\Collider.cpp">
-      <Filter>src\components</Filter>
+      <Filter>src\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\Components\Component.cpp">
-      <Filter>src\components</Filter>
+      <Filter>src\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\Components\MeshCollider.cpp">
-      <Filter>src\components</Filter>
+      <Filter>src\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\Components\MeshRenderer.cpp">
-      <Filter>src\components</Filter>
+      <Filter>src\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\Components\SphereCollider.cpp">
-      <Filter>src\components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Interaction\BoundBox.cpp">
-      <Filter>src\interaction</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Interaction\CollisionControl.cpp">
-      <Filter>src\interaction</Filter>
+      <Filter>src\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\Rendering\Light.cpp">
       <Filter>src\rendering</Filter>
@@ -98,9 +86,6 @@
     <ClCompile Include="src\Rendering\Renderer.cpp">
       <Filter>src\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="src\Interaction\RigidBody.cpp">
-      <Filter>src\components</Filter>
-    </ClCompile>
     <ClCompile Include="src\rendering\Renderer_SDL.cpp">
       <Filter>src\rendering</Filter>
     </ClCompile>
@@ -112,6 +97,21 @@
     </ClCompile>
     <ClCompile Include="src\rendering\RendererFactory.cpp">
       <Filter>src\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\CollisionControl3D.cpp">
+      <Filter>src\interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\BoxCollider3D.cpp">
+      <Filter>src\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\BoundBox3D.cpp">
+      <Filter>src\interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\Collider3D.cpp">
+      <Filter>src\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\RigidBody3D.cpp">
+      <Filter>src\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,35 +149,20 @@
     <ClInclude Include="src\Input\KeyCode.h">
       <Filter>src\input</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\BoxCollider.h">
-      <Filter>src\components</Filter>
-    </ClInclude>
     <ClInclude Include="src\Components\Camera.h">
-      <Filter>src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Components\Collider.h">
-      <Filter>src\components</Filter>
+      <Filter>src\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\Components\Component.h">
-      <Filter>src\components</Filter>
+      <Filter>src\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\Components\MeshCollider.h">
-      <Filter>src\components</Filter>
+      <Filter>src\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\Components\MeshRenderer.h">
-      <Filter>src\components</Filter>
+      <Filter>src\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\Components\SphereCollider.h">
-      <Filter>src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Interaction\BoundBox.h">
-      <Filter>src\interaction</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Interaction\Collision.h">
-      <Filter>src\interaction</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Interaction\CollisionControl.h">
-      <Filter>src\interaction</Filter>
+      <Filter>src\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\Rendering\Light.h">
       <Filter>src\rendering</Filter>
@@ -190,9 +175,6 @@
     </ClInclude>
     <ClInclude Include="src\Rendering\Renderer.h">
       <Filter>src\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Interaction\RigidBody.h">
-      <Filter>src\components</Filter>
     </ClInclude>
     <ClInclude Include="src\rendering\Renderer_SDL.h">
       <Filter>src\rendering</Filter>
@@ -211,6 +193,24 @@
     </ClInclude>
     <ClInclude Include="src\Debug.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\Collision3D.h">
+      <Filter>src\interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\CollisionControl3D.h">
+      <Filter>src\interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\BoxCollider3D.h">
+      <Filter>src\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\BoundBox3D.h">
+      <Filter>src\interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\Collider3D.h">
+      <Filter>src\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\RigidBody3D.h">
+      <Filter>src\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

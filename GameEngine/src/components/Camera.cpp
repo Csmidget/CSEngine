@@ -31,17 +31,28 @@ namespace GameEngine
 		far = 1000.0f;
 		fovY = 45.0f;
 
-		float width = Application::Renderer().lock()->ScreenWidth();
-		float height = Application::Renderer().lock()->ScreenHeight();
+		if (!viewType)
+			viewType = CameraViewType::Perspective;
 
 		Rendering::Renderer::ClearToColour(100.0f / 256.0f, 104.0f / 256.0f, 130.0f / 256.0f, 0.5f);
 
-		projMat = glm::perspective(fovY, width / height, near, far);
+		float width = Application::Renderer().lock()->ScreenWidth();
+		float height = Application::Renderer().lock()->ScreenHeight();
+
+		Resize(width, height);
 	}//Camera::OnAwake
 	 //==============================================================================
 	void Camera::Resize(float _width, float _height)
 	{
-		projMat = glm::perspective(fovY, _width / _height, near, far);
+		switch (viewType)
+		{
+		case CameraViewType::Perspective:
+			projMat = glm::perspective(fovY, _width / _height, near, far);
+			break;
+		case CameraViewType::Orthographic:
+			projMat = glm::ortho(0.0f, _width, 0.0f, _height);
+			break;
+		}
 	}
 
 }

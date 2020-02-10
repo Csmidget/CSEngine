@@ -9,17 +9,24 @@ namespace GameEngine {
 		class Renderer;
 	}
 	
+	enum CameraViewType { Perspective, Orthographic };
+
 	//! Component that works with the renderer to present an image of the game.
-	class Camera : public Component {
+	class Camera : public Component {	
 
 	friend class Rendering::Renderer;
 
 	private:
+
+
 		//!The Camera that is currently presenting the main window
 		static std::weak_ptr<Camera> mainCamera;
+
 		//!Projection matrix of the Camera
 		glm::mat4 projMat;
-
+		
+		CameraViewType viewType;
+		
 		float fovY;
 		//!The near clipping plane of the projection matrix
 		float near;
@@ -35,7 +42,6 @@ namespace GameEngine {
 		*/
 		void Resize(float _width, float _height);
 		//!<The Y FOV of the projection matrix
-
 
 	public:
 		//!Return a pointer to the mainCamera

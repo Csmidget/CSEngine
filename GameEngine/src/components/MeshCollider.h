@@ -1,7 +1,7 @@
 #ifndef GAME_ENGINE_MESHCOLLIDER_H
 #define GAME_ENGINE_MESHCOLLIDER_H
 
-#include "Collider.h"
+#include "Collider3D.h"
 
 
 namespace GameEngine {
@@ -10,7 +10,7 @@ namespace GameEngine {
 		class Mesh;
 	}
 	//!UNFINISHED A Collider that uses the mesh for collision detection
-	class MeshCollider : public Collider {
+	class MeshCollider : public Collider3D {
 
 	private:
 		std::weak_ptr<Rendering::Mesh> mesh;
@@ -18,8 +18,8 @@ namespace GameEngine {
 
 	public:
 
-		void CheckCollision(std::shared_ptr<Collider> _col);
-		void TestBoxCollider(std::shared_ptr<BoxCollider> _col);
+		void CheckCollision(std::shared_ptr<Collider3D> _col);
+		void TestBoxCollider(std::shared_ptr<BoxCollider3D> _col);
 		void TestMeshCollider(std::shared_ptr<MeshCollider> _col);
 		void TestSphereCollider(std::shared_ptr<SphereCollider> _col);
 

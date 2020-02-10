@@ -2,7 +2,7 @@
 #include "input\Input.h"
 #include "GameObject.h"
 #include "Transform.h"
-#include "interaction/RigidBody.h"
+#include "interaction/RigidBody3D.h"
 
 using namespace GameEngine;
 
@@ -11,9 +11,9 @@ void TableConstrainer::OnUpdate()
 {
 	if (!gameObject.expired())
 	{
-		if (!gameObject.lock()->GetComponent<RigidBody>().expired())
+		if (!gameObject.lock()->GetComponent<RigidBody3D>().expired())
 		{
-			std::shared_ptr<RigidBody> rb = gameObject.lock()->GetComponent<RigidBody>().lock();
+			std::shared_ptr<RigidBody3D> rb = gameObject.lock()->GetComponent<RigidBody3D>().lock();
 			std::shared_ptr<Transform> trans = gameObject.lock()->GetTransform().lock();
 			glm::vec3 pos = trans->GetPosition();
 

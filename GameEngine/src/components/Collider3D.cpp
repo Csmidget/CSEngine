@@ -1,15 +1,15 @@
-#include "Collider.h"
+#include "Collider3D.h"
 
-#include "interaction/CollisionControl.h"
+#include "interaction/CollisionControl3D.h"
 #include "MeshRenderer.h"
 #include "GameObject.h"
 
 namespace GameEngine
 {
 	//==============================================================================
-	void Collider::UpdateBounds()
+	void Collider3D::UpdateBounds()
 	{
-		bounds = BoundBox();
+		bounds = BoundBox3D();
 
 		std::weak_ptr<MeshRenderer> mr = gameObject.lock()->GetComponent<MeshRenderer>();
 
@@ -17,32 +17,32 @@ namespace GameEngine
 
 		bounds = mr.lock()->GetMeshBounds();//mesh.lock()->GetBounds();
 
-	}//Collider::UpdateBounds
+	}//Collider3D::UpdateBounds
 	//====================================================W==========================
-	void Collider::CheckCollision(std::shared_ptr<Collider> _col)
+	void Collider3D::CheckCollision(std::shared_ptr<Collider3D> _col)
 	{
 
-	}//Collider::CheckCollision
+	}//Collider3D::CheckCollision
 	//==============================================================================
-	void Collider::TestBoxCollider(std::shared_ptr<BoxCollider> _col)
+	void Collider3D::TestBoxCollider3D(std::shared_ptr<BoxCollider3D> _col)
 	{
 
-	}//Collider::TestBoxCollider
+	}//Collider3D::TestBoxCollider3D
 	//==============================================================================
-	void Collider::TestMeshCollider(std::shared_ptr<MeshCollider> _col)
+	void Collider3D::TestMeshCollider(std::shared_ptr<MeshCollider> _col)
 	{
 
-	}//Collider::TestMeshCollider
+	}//Collider3D::TestMeshCollider
 	//==============================================================================
-	void Collider::TestSphereCollider(std::shared_ptr<SphereCollider> _col)
+	void Collider3D::TestSphereCollider(std::shared_ptr<SphereCollider> _col)
 	{
 
-	}//Collider::TestSphereCollider
+	}//Collider3D::TestSphereCollider
 	//==============================================================================
-	void Collider::OnAwake() {
-		CollisionControl::AddCollider(shared_from_base<Collider>());
+	void Collider3D::OnAwake() {
+		CollisionControl3D::AddCollider(shared_from_base<Collider3D>());
 
 		UpdateBounds();
-	}//Collider::OnAwake
+	}//Collider3D::OnAwake
 	//==============================================================================
 }

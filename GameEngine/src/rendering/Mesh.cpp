@@ -18,7 +18,7 @@ namespace GameEngine
 
 			if (rawVertices.size() < 1)
 			{
-				bounds = BoundBox(glm::vec3(), glm::vec3());
+				bounds = BoundBox3D(glm::vec3(), glm::vec3());
 			}
 
 			glm::vec3 min;
@@ -53,7 +53,7 @@ namespace GameEngine
 			}
 			glm::vec3 centre = (min + max) / 2.0f;
 			glm::vec3 size = (max - centre) * 2.0f;
-			bounds = BoundBox(centre, size);
+			bounds = BoundBox3D(centre, size);
 
 
 			float longestAxis = size.x;
@@ -62,7 +62,7 @@ namespace GameEngine
 
 			if (longestAxis > 1)
 			{
-				scaledBounds = BoundBox(centre, size / longestAxis);
+				scaledBounds = BoundBox3D(centre, size / longestAxis);
 				scaledRadius = radius / longestAxis;
 			}
 			else

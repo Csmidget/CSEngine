@@ -1,14 +1,14 @@
 #ifndef GAME_ENGINE_SPHERECOLLIDER_H
 #define GAME_ENGINE_SPHERECOLLIDER_H
 
-#include "components/Collider.h"
+#include "components/Collider3D.h"
 
 
 namespace GameEngine {
 
 
 	//! A Collider that uses a meshes radius for collision detection
-	class SphereCollider : public Collider {
+	class SphereCollider : public Collider3D {
 
 	private:
 
@@ -24,13 +24,13 @@ namespace GameEngine {
 		/*!
 		\param _col The Collider to run TestSphereCollider() on.
 		*/
-		void CheckCollision(std::shared_ptr<Collider> _col);
+		void CheckCollision(std::shared_ptr<Collider3D> _col);
 
 		//!Tests this SphereCollider against a BoxCollider using CollisionControl::BoxBoxCollision
 		/*!
 		\param _col The SphereCollider to test against.
 		*/
-		void TestBoxCollider(std::shared_ptr<BoxCollider> _col);
+		void TestBoxCollider3D(std::shared_ptr<BoxCollider3D> _col);
 
 		//!Tests this SphereCollider against a MeshCollider using CollisionControl::BoxMeshCollision
 		/*!

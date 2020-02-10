@@ -1,14 +1,14 @@
 #ifndef GAME_ENGINE_BOXCOLLIDER_H
 #define GAME_ENGINE_BOXCOLLIDER_H
 
-#include "components/Collider.h"
+#include "components/Collider3D.h"
 
 
 namespace GameEngine {
 
 
 	//! A Collider that uses an axis-aligned bounding box for collision detection
-	class BoxCollider : public Collider {
+	class BoxCollider3D : public Collider3D {
 
 	public:
 
@@ -16,13 +16,13 @@ namespace GameEngine {
 		/*!
 		\param _col The Collider to run TestBoxCollider() on.
 		*/
-		void CheckCollision(std::shared_ptr<Collider> _col);
+		void CheckCollision(std::shared_ptr<Collider3D> _col);
 
 		//!Tests this BoxCollider against another BoxCollider using CollisionControl::SphereBoxCollision
 		/*!
 		\param _col The BoxCollider to test against.
 		*/
-		void TestBoxCollider(std::shared_ptr<BoxCollider> _col);
+		void TestBoxCollider(std::shared_ptr<BoxCollider3D> _col);
 
 		//!Tests this BoxCollider against a MeshCollider using CollisionControl::SphereMeshCollision
 		/*!

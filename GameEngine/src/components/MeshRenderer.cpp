@@ -9,6 +9,7 @@
 #include "Transform.h"
 #include "Application.h"
 #include "rendering/Renderer.h"
+#include "interaction/BoundBox3D.h"
 
 namespace GameEngine
 {
@@ -102,7 +103,7 @@ namespace GameEngine
 		}
 	}//MeshRenderer::CreateVao
 	 //==============================================================================
-	BoundBox MeshRenderer::GetMeshBounds() const
+	BoundBox3D MeshRenderer::GetMeshBounds() const
 	{
 		if (autoScale)
 			return mesh->GetScaledBounds();

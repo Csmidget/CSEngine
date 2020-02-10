@@ -1,8 +1,6 @@
 #ifndef GAME_ENGINE_MESH_H
 #define GAME_ENGINE_MESH_H
 
-#include "interaction/BoundBox.h"
-
 #include "glm/glm.hpp"
 #include "tinyobjloader/tiny_obj_loader.h"
 #include "GL/glew.h"
@@ -11,7 +9,11 @@
 #include <memory>
 #include <map>
 
+#include "interaction/BoundBox3D.h"
+
 namespace GameEngine {
+
+
 	namespace Rendering
 	{
 
@@ -67,8 +69,8 @@ namespace GameEngine {
 			void RecalcBounds();
 
 			//!Bounding box encompassing all vertices of the mesh
-			BoundBox bounds;
-			BoundBox scaledBounds;
+			BoundBox3D bounds;
+			BoundBox3D scaledBounds;
 		public:
 
 			Mesh();
@@ -84,8 +86,8 @@ namespace GameEngine {
 			static GLuint GetTexture(std::string _texName) { return textures.at(_texName); }
 
 			//!Returns the bounding box of this mesh
-			BoundBox GetBounds() const { return bounds; }
-			BoundBox GetScaledBounds() const { return scaledBounds; }
+			BoundBox3D GetBounds() const { return bounds; }
+			BoundBox3D GetScaledBounds() const { return scaledBounds; }
 			//!Returns this meshes radius
 			float GetRadius() const { return radius; }
 			float GetScaledRadius() const { return scaledRadius; }

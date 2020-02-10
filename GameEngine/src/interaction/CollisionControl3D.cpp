@@ -1,29 +1,29 @@
-#include "CollisionControl.h"
+#include "CollisionControl3D.h"
 
 #include "util/mathutil.h"
 
-#include "components/Collider.h"
+#include "components/Collider3D.h"
 #include "GameObject.h"
 #include "Transform.h"
-#include "BoundBox.h"
-#include "components/BoxCollider.h"
+#include "BoundBox3D.h"
+#include "components/BoxCollider3D.h"
 #include "components/SphereCollider.h"
 #include "components/MeshCollider.h"
-#include "interaction/RigidBody.h"
-#include "Collision.h"
+#include "interaction/RigidBody3D.h"
+#include "Collision3D.h"
 
 namespace GameEngine
 {
 
-	std::vector<std::weak_ptr<Collider>> CollisionControl::colliders;
+	std::vector<std::weak_ptr<Collider3D>> CollisionControl3D::colliders;
 
 	//==============================================================================
-	void CollisionControl::AddCollider(std::weak_ptr<Collider> _col)
+	void CollisionControl3D::AddCollider(std::weak_ptr<Collider3D> _col)
 	{
 		colliders.push_back(_col);
-	}//CollisionControl::AddCollider
+	}//CollisionControl3D::AddCollider
 	//==============================================================================
-	void CollisionControl::TestCollisions(std::vector<std::weak_ptr<RigidBody>>& _rbList )
+	void CollisionControl3D::TestCollisions(std::vector<std::weak_ptr<RigidBody3D>>& _rbList )
 	{
 		auto activeColliders = colliders;
 
@@ -50,13 +50,13 @@ namespace GameEngine
 			}
 		}
 
-	}//CollisionControl::TestColliders
+	}//CollisionControl3D::TestColliders
 	//==============================================================================
-	void CollisionControl::BoxBoxCollision(std::shared_ptr<BoxCollider> _col1, std::shared_ptr<BoxCollider> _col2)
+	void CollisionControl3D::BoxBoxCollision(std::shared_ptr<BoxCollider3D> _col1, std::shared_ptr<BoxCollider3D> _col2)
 	{
 
-		BoundBox c1Bounds = _col1->GetBounds();
-		BoundBox c2Bounds = _col2->GetBounds();
+		BoundBox3D c1Bounds = _col1->GetBounds();
+		BoundBox3D c2Bounds = _col2->GetBounds();
 
 		glm::vec3 c1Pos = _col1->GetTransform().lock()->GetPosition() + c1Bounds.GetCentre();
 		glm::vec3 c2Pos = _col2->GetTransform().lock()->GetPosition() + c2Bounds.GetCentre();
@@ -77,7 +77,7 @@ namespace GameEngine
 
 		glm::vec3 colSize = glm::vec3(c1Bounds.GetExtents() + c2Bounds.GetExtents() - distance);
 		glm::vec3 absSize = abs(colSize);
-		Collision col;
+		Collision3D col;
 		col.colNormal = glm::vec3();
 
 		col.colNormal = glm::normalize((c1Pos + _col1->bounds.GetCentre()) - (c2Pos + _col2->bounds.GetCentre()));
@@ -86,18 +86,18 @@ namespace GameEngine
 		col.colCollider = _col2;
 		col.tags = _col2->tags;
 
-		_col1->gameObject.lock()->OnCollision(col);
+		_col1->gameObject.lock()->OnCollision3D(col);
 
 		col.colNormal = -col.colNormal;
 		col.colPos = col.colColliderPos;
 		col.colColliderPos = (-col.colNormal) * c1Extents;
 		col.colCollider = _col1;
 		col.tags = _col1->tags;
-		_col2->gameObject.lock()->OnCollision(col);
+		_col2->gameObject.lock()->OnCollision3D(col);
 
-	}//CollisionControl::BoxBoxCollision
+	}//CollisionControl3D::BoxBoxCollision
 	//==============================================================================
-	void CollisionControl::SphereSphereCollision(std::shared_ptr<SphereCollider> _col1, std::shared_ptr<SphereCollider> _col2)
+	void CollisionControl3D::SphereSphereCollision(std::shared_ptr<SphereCollider> _col1, std::shared_ptr<SphereCollider> _col2)
 	{
 
 		glm::vec3 c1Pos = _col1->GetTransform().lock()->GetPosition();
@@ -117,27 +117,27 @@ namespace GameEngine
 
 		if (distance > c1Radius + c2Radius) return;
 
-		Collision col;
+		Collision3D col;
 		col.colCollider = _col2;
 		col.colNormal = glm::normalize((c1Pos + _col1->bounds.GetCentre()) - (c2Pos + _col2->bounds.GetCentre()));
 		col.colPos = col.colNormal * _col1->GetRadius();
 		col.colColliderPos = (-col.colNormal) * _col2->GetRadius();
-		_col1->gameObject.lock()->OnCollision(col);
+		_col1->gameObject.lock()->OnCollision3D(col);
 		col.tags = _col2->tags;
 
 		col.colNormal = -col.colNormal;
 		col.colCollider = _col1;
 		col.colPos = col.colNormal * _col2->GetRadius();
 		col.colColliderPos = (-col.colNormal) * _col1->GetRadius();
-		_col2->gameObject.lock()->OnCollision(col);
+		_col2->gameObject.lock()->OnCollision3D(col);
 		col.tags = _col1->tags;
 
-	}//CollisionControl::SphereSphereCollision
+	}//CollisionControl3D::SphereSphereCollision
 	//==============================================================================
-	void CollisionControl::SphereBoxCollision(std::shared_ptr<SphereCollider> _col1, std::shared_ptr<BoxCollider> _col2)
+	void CollisionControl3D::SphereBoxCollision(std::shared_ptr<SphereCollider> _col1, std::shared_ptr<BoxCollider3D> _col2)
 	{
 
-		BoundBox c2Bounds = _col2->GetBounds();
+		BoundBox3D c2Bounds = _col2->GetBounds();
 
 		glm::vec3 c1Pos = _col1->GetTransform().lock()->GetPosition();
 		glm::vec3 c2Pos = _col2->GetTransform().lock()->GetPosition() + c2Bounds.GetCentre();
@@ -158,27 +158,27 @@ namespace GameEngine
 			return;
 		}
 
-		Collision col;
+		Collision3D col;
 		col.colCollider = _col2;
 		col.colNormal = glm::normalize((c1Pos + _col1->bounds.GetCentre()) - (c2Pos + _col2->bounds.GetCentre()));
 		col.colPos = col.colNormal * _col1->GetRadius();
 		col.colColliderPos = (-col.colNormal) * c2Extents;
-		_col1->gameObject.lock()->OnCollision(col);
+		_col1->gameObject.lock()->OnCollision3D(col);
 		col.tags = _col2->tags;
 
 		col.colNormal = -col.colNormal;
 		col.colCollider = _col1;
 		col.colPos = col.colColliderPos;
 		col.colColliderPos = col.colNormal * _col1->GetRadius();
-		_col2->gameObject.lock()->OnCollision(col);
+		_col2->gameObject.lock()->OnCollision3D(col);
 		col.tags = _col1->tags;
-	}//CollisionControl::SphereBoxCollision
+	}//CollisionControl3D::SphereBoxCollision
 	//==============================================================================
-	void CollisionControl::MeshMeshCollision(std::shared_ptr<MeshCollider> _col1, std::shared_ptr<MeshCollider> _col2)
+	void CollisionControl3D::MeshMeshCollision(std::shared_ptr<MeshCollider> _col1, std::shared_ptr<MeshCollider> _col2)
 	{
 
-		BoundBox c1Bounds = _col1->GetBounds();
-		BoundBox c2Bounds = _col2->GetBounds();
+		BoundBox3D c1Bounds = _col1->GetBounds();
+		BoundBox3D c2Bounds = _col2->GetBounds();
 
 		glm::vec3 c1Pos = _col1->GetTransform().lock()->GetPosition() + c1Bounds.GetCentre();
 		glm::vec3 c2Pos = _col2->GetTransform().lock()->GetPosition() + c2Bounds.GetCentre();
@@ -197,12 +197,12 @@ namespace GameEngine
 		//The bounding boxes are colliding. Now we'll do further tests:
 
 
-	}//CollisionControl::MeshMeshCollision
+	}//CollisionControl3D::MeshMeshCollision
 	//==============================================================================
-	void CollisionControl::SphereMeshCollision(std::shared_ptr<SphereCollider> _col1, std::shared_ptr<MeshCollider> _col2)
+	void CollisionControl3D::SphereMeshCollision(std::shared_ptr<SphereCollider> _col1, std::shared_ptr<MeshCollider> _col2)
 	{
 
-		BoundBox c2Bounds = _col2->GetBounds();
+		BoundBox3D c2Bounds = _col2->GetBounds();
 
 		glm::vec3 c1Pos = _col1->GetTransform().lock()->GetPosition();
 		glm::vec3 c2Pos = _col2->GetTransform().lock()->GetPosition() + c2Bounds.GetCentre();
@@ -222,13 +222,13 @@ namespace GameEngine
 		//The bounding box and sphere are colliding. Now we'll do further tests:
 
 
-	}//CollisionControl::SphereMeshCollision
+	}//CollisionControl3D::SphereMeshCollision
 	//==============================================================================
-	void CollisionControl::BoxMeshCollision(std::shared_ptr<BoxCollider> _col1, std::shared_ptr<MeshCollider> _col2)
+	void CollisionControl3D::BoxMeshCollision(std::shared_ptr<BoxCollider3D> _col1, std::shared_ptr<MeshCollider> _col2)
 	{
 
-		BoundBox c1Bounds = _col1->GetBounds();
-		BoundBox c2Bounds = _col2->GetBounds();
+		BoundBox3D c1Bounds = _col1->GetBounds();
+		BoundBox3D c2Bounds = _col2->GetBounds();
 
 		glm::vec3 c1Pos = _col1->GetTransform().lock()->GetPosition() + c1Bounds.GetCentre();
 		glm::vec3 c2Pos = _col2->GetTransform().lock()->GetPosition() + c2Bounds.GetCentre();
@@ -246,6 +246,6 @@ namespace GameEngine
 
 		//The bounding boxes are colliding. Now we'll do further tests:
 
-	}//CollisionControl::BoxMeshCollision
+	}//CollisionControl3D::BoxMeshCollision
 	 //==============================================================================
 }

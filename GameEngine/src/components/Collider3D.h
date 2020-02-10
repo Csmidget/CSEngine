@@ -2,25 +2,25 @@
 #define GAME_ENGINE_COLLIDER_H
 
 #include "components/Component.h"
-#include "interaction/BoundBox.h"
+#include "interaction/BoundBox3D.h"
 #include "GL\glew.h"
 #include <string>
 
 namespace GameEngine {
 
-	class BoxCollider;
+	class BoxCollider3D;
 	class MeshCollider;
 	class SphereCollider;
 
 	//! The base Collider class. Stores shared functions and variables for all Collider's
-	class Collider : public Component {
+	class Collider3D : public Component {
 
-		friend class CollisionControl;
+		friend class CollisionControl3D;
 
 	protected:
 
 		//!The axis-aligned bounding box for the Mesh attached to the same object as this Collider
-		BoundBox bounds;
+		BoundBox3D bounds;
 		std::vector<std::string> tags;
 		//!Generates a new BoundBox based on the Mesh currently attached to the same object as this collider
 		virtual void UpdateBounds();
@@ -32,20 +32,20 @@ namespace GameEngine {
 		  to store just the base class Collider, trusting it to resolve correctly when CheckCollision is run.
 		\param _col The Collider to test against.
 		*/
-		virtual void CheckCollision(std::shared_ptr<Collider> _col);
+		virtual void CheckCollision(std::shared_ptr<Collider3D> _col);
 
 		//!Adds this Collider to the global list of Collider's in CollisionControl
 		void OnAwake();
 
 	public:
 		//!Returns the axis aligned BoundBox of this Collider
-		BoundBox GetBounds() const { return bounds; }
+		BoundBox3D GetBounds() const { return bounds; }
 
 		//!Tests collision between this Collider and a BoxCollider
 		 /*!
 		 \param _col The BoxCollider to test against.
 		 */
-		virtual void TestBoxCollider(std::shared_ptr<BoxCollider> _col);
+		virtual void TestBoxCollider3D(std::shared_ptr<BoxCollider3D> _col);
 
 		//!Tests collision between this Collider and a MeshCollider
 		/*!

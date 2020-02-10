@@ -1,13 +1,13 @@
 #include "GameObject.h"
 #include "Application.h"
 #include "Transform.h"
-#include "interaction/Collision.h"
+#include "interaction/Collision3D.h"
 
 #include "components/Camera.h"
 #include "components/MeshRenderer.h"
 #include "components/SphereCollider.h"
-#include "components/BoxCollider.h"
-#include "interaction/RigidBody.h"
+#include "components/BoxCollider3D.h"
+#include "interaction/RigidBody3D.h"
 
 namespace GameEngine {
 
@@ -61,7 +61,7 @@ namespace GameEngine {
 		return transform;
 	}//GameObject::GetTransform
 	//==============================================================================
-	void GameObject::OnCollision(Collision _col)
+	void GameObject::OnCollision3D(Collision3D _col)
 	{
 
 		for (int i = components.size() - 1; i >= 0; i--)
@@ -72,17 +72,17 @@ namespace GameEngine {
 				components.erase(components.begin() + i);
 			}
 			else {
-				components[i]->OnCollision(_col);
+				components[i]->OnCollision3D(_col);
 			}
 		}
-	}//GameObject::OnCollision
+	}//GameObject::OnCollision3D
 	//==============================================================================
 	std::weak_ptr<GameObject> GameObject::CreateCube(glm::vec3 _pos)
 	{
 		std::shared_ptr<GameObject> go = Create();
 		go->AddComponent<MeshRenderer>().lock()->SetMesh("cube.obj");
-		go->AddComponent<BoxCollider>();
-		go->AddComponent<RigidBody>();
+		go->AddComponent<BoxCollider3D>();
+		go->AddComponent<RigidBody3D>();
 		go->GetTransform().lock()->Translate(_pos);
 		return go;
 	}//GameObject::CreateCube
@@ -92,7 +92,7 @@ namespace GameEngine {
 		std::shared_ptr<GameObject> go = Create();
 		go->AddComponent<MeshRenderer>().lock()->SetMesh("sphere.obj");
 		go->AddComponent<SphereCollider>();
-		go->AddComponent<RigidBody>();
+		go->AddComponent<RigidBody3D>();
 		go->GetTransform().lock()->Translate(_pos);
 		return go;
 	}//GameObject::CreateSphere
@@ -101,8 +101,8 @@ namespace GameEngine {
 	{
 		std::shared_ptr<GameObject> go = Create();
 		go->AddComponent<MeshRenderer>().lock()->SetMesh("capsule.obj");
-		go->AddComponent<BoxCollider>();
-		go->AddComponent<RigidBody>();
+		go->AddComponent<BoxCollider3D>();
+		go->AddComponent<RigidBody3D>();
 		go->GetTransform().lock()->Translate(_pos);
 		return go;
 	}//GameObject::CreateCapsule

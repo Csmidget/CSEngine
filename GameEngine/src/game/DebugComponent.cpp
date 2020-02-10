@@ -2,7 +2,8 @@
 #include "input/Input.h"
 #include "GameObject.h"
 #include "Transform.h"
-#include "interaction/RigidBody.h"
+#include "interaction/RigidBody3D.h"
+#include "interaction/Collision3D.h"
 #include "components/Camera.h"
 #include "SnookerCam.h"
 #include "TableConstrainer.h"
@@ -15,7 +16,7 @@ void DebugComponent::OnUpdate()
 {
 	std::shared_ptr<Input> input = Application::Input().lock();
 
-	std::shared_ptr<RigidBody> rb = gameObject.lock()->GetComponent<RigidBody>().lock();
+	std::shared_ptr<RigidBody3D> rb = gameObject.lock()->GetComponent<RigidBody3D>().lock();
 
 	float x = input->GetContAnalogueAxis(0, 0, 0);
 	float y = input->GetContAnalogueAxis(0, 0, 1);

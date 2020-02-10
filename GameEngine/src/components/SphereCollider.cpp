@@ -1,5 +1,5 @@
 #include "SphereCollider.h"
-#include "interaction/CollisionControl.h"
+#include "interaction/CollisionControl3D.h"
 #include "MeshRenderer.h"
 #include "GameObject.h"
 
@@ -11,7 +11,7 @@ namespace GameEngine
 
 		//Could do Collider::UpdateBounds for part of this but would have to reacquire Mesh/Renderer
 
-		bounds = BoundBox();
+		bounds = BoundBox3D();
 
 		std::weak_ptr<MeshRenderer> mr = gameObject.lock()->GetComponent<MeshRenderer>();
 
@@ -32,23 +32,23 @@ namespace GameEngine
 
 	}//SphereCollider::UpdateBounds
 	 //==============================================================================
-	void SphereCollider::CheckCollision(std::shared_ptr<Collider> _col)
+	void SphereCollider::CheckCollision(std::shared_ptr<Collider3D> _col)
 	{
 		_col->TestSphereCollider(shared_from_base<SphereCollider>());
 	}//BoxCollider::CheckCollision
 	 //==============================================================================
-	void SphereCollider::TestBoxCollider(std::shared_ptr<BoxCollider> _col)
+	void SphereCollider::TestBoxCollider3D(std::shared_ptr<BoxCollider3D> _col)
 	{
-		CollisionControl::SphereBoxCollision(shared_from_base<SphereCollider>(), _col);
+		CollisionControl3D::SphereBoxCollision(shared_from_base<SphereCollider>(), _col);
 	}//BoxCollider::TestBoxCollider
 	 //==============================================================================
 	void SphereCollider::TestMeshCollider(std::shared_ptr<MeshCollider> _col)
 	{
-		CollisionControl::SphereMeshCollision(shared_from_base<SphereCollider>(), _col);
+		CollisionControl3D::SphereMeshCollision(shared_from_base<SphereCollider>(), _col);
 	}//BoxCollider::TestMeshCollider
 	 //==============================================================================
 	void SphereCollider::TestSphereCollider(std::shared_ptr<SphereCollider>_col)
 	{
-		CollisionControl::SphereSphereCollision(shared_from_base<SphereCollider>(), _col);
+		CollisionControl3D::SphereSphereCollision(shared_from_base<SphereCollider>(), _col);
 	}//BoxCollider::TestSphereCollider
 }

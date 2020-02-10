@@ -15,14 +15,14 @@ namespace GameEngine {
 
 	class Component;
 	class Transform;
-	class Collision;
+	class Collision3D;
 
 	//!Core engine class. All objects in the application manifest as GameObjects.
 	class GameObject :public Object, public std::enable_shared_from_this<GameObject> {
 
 		friend class Application;
 		friend class Rendering::Renderer;
-		friend class CollisionControl;
+		friend class CollisionControl3D;
 
 	private:
 		//!List of Component's attached to this GameObject. 
@@ -37,8 +37,8 @@ namespace GameEngine {
 		void Destroy();
 		//!Call's the Update() function on all attached Component's
 		void Update();
-		//!Call's the OnCollision() function on all attached Component's
-		void OnCollision(Collision _col);
+		//!Call's the OnCollision3D() function on all attached Component's
+		void OnCollision3D(Collision3D _col);
 
 	public:
 		//!Creates a GameObject and adds it to the Application list. Use this for GameObject creation.
@@ -88,11 +88,11 @@ namespace GameEngine {
 		}//GetComponent
 
 		//Some basic objects:
-		//!Creates a basic Cube GameObject with a BoxCollider and RigidBody
+		//!Creates a basic Cube GameObject with a BoxCollider and RigidBody3D
 		static std::weak_ptr<GameObject> CreateCube(glm::vec3 _pos);
-		//!Creates a basic Sphere GameObject with a SphereCollider and RigidBody
+		//!Creates a basic Sphere GameObject with a SphereCollider and RigidBody3D
 		static std::weak_ptr<GameObject> CreateSphere(glm::vec3 _pos);
-		//!Creates a basic Capsule GameObject with a BoxCollider and RigidBody
+		//!Creates a basic Capsule GameObject with a BoxCollider and RigidBody3D
 		static std::weak_ptr<GameObject> CreateCapsule(glm::vec3 _pos);
 		//!Creates a GameObject and attaches a camera.
 		static std::weak_ptr<GameObject> CreateCamera(glm::vec3 _pos);

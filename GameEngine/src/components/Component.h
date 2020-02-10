@@ -6,7 +6,7 @@
 namespace GameEngine {
 
 	class Transform;
-	class Collision;
+	class Collision3D;
 	class GameObject;
 
 	//! The base class for all Components
@@ -48,7 +48,7 @@ namespace GameEngine {
 		/*!
 		\param _col Information about the collision
 		*/
-		virtual void OnCollision(Collision _col);
+		virtual void OnCollision3D(Collision3D _col);
 		//!A pointer to the GameObject that currently owns this component*/
 		std::weak_ptr<GameObject> gameObject;
 

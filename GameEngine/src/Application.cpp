@@ -4,8 +4,8 @@
 #include "rendering/Renderer.h"
 #include "rendering/RendererFactory.h"
 #include "input/Input.h"
-#include "interaction/CollisionControl.h"
-#include "interaction/RigidBody.h"
+#include "interaction/CollisionControl3D.h"
+#include "interaction/RigidBody3D.h"
 #include "Debug.h"
 
 namespace GameEngine
@@ -34,14 +34,9 @@ namespace GameEngine
 		renderer = Rendering::RendererFactory::CreateRenderer();
 		input = CreateInput();
 
-		//if (!Rendering::Renderer::Init(argc, argv))
-		//{
-		//	return false;
-		//}
+		CollisionControl3D::colliders.clear();
 
-		CollisionControl::colliders.clear();
-
-		RigidBody::rbInterval = 20;
+		RigidBody3D::rbInterval = 20;
 
 		//Initialize the main camera
 		GameObject::CreateCamera(glm::vec3(0, 0, 0));
@@ -94,7 +89,7 @@ namespace GameEngine
 			}
 		}
 
-		RigidBody::UpdateRigidBodies();
+		RigidBody3D::UpdateRigidBodies();
 
 	}//Application::Update
 	//==============================================================================

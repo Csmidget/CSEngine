@@ -58,9 +58,9 @@ namespace GameEngine {
 			GLuint viewLoc;
 
 		public:
-			virtual GLuint GetProgramId() { return programId; }
-			virtual float ScreenWidth() = 0;
-			virtual float ScreenHeight() = 0;
+			virtual GLuint GetProgramId() const { return programId; }
+			virtual float ScreenWidth() const = 0;
+			virtual float ScreenHeight() const = 0;
 			virtual void GetWindowSize(int *w, int *h) const = 0;
 
 			//!Clears the GL background to entered color.
