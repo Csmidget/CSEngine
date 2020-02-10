@@ -3,6 +3,7 @@
 
 #include "Input.h"
 #include "SDL\SDL.h"
+#include <string>
 
 namespace GameEngine {
 

@@ -2,6 +2,7 @@
 #define GAME_ENGINE_COLLISION_H
 
 #include <glm/glm.hpp>
+#include <string>
 
 namespace GameEngine {
 

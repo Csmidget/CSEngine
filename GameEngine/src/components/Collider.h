@@ -4,6 +4,7 @@
 #include "components/Component.h"
 #include "interaction/BoundBox.h"
 #include "GL\glew.h"
+#include <string>
 
 namespace GameEngine {
 
