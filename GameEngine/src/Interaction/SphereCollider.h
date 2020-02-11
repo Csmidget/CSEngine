@@ -1,7 +1,7 @@
 #ifndef GAME_ENGINE_SPHERECOLLIDER_H
 #define GAME_ENGINE_SPHERECOLLIDER_H
 
-#include "components/Collider3D.h"
+#include "Collider3D.h"
 
 
 namespace GameEngine {

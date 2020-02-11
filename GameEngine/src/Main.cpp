@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "game/Program.h"
+#include "Game/Program.h"
 
 #include <iostream>
 

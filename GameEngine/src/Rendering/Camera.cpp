@@ -2,9 +2,9 @@
 
 #include "glm/gtx/transform.hpp"
 
-#include "input/Input.h"
+#include "Input/Input.h"
 #include "Transform.h"
-#include "rendering/Renderer.h"
+#include "Renderer.h"
 #include "Application.h"
 
 namespace GameEngine

@@ -1,4 +1,4 @@
-#include "rendering/Light.h"
+#include "Light.h"
 #include "Transform.h"
 
 #include "glm/gtc/type_ptr.hpp"

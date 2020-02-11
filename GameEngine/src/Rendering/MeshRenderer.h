@@ -2,7 +2,7 @@
 #define GAME_ENGINE_MESHRENDERER_H
 
 #include <string>
-#include "components/Component.h"
+#include "Component.h"
 #include "GL/glew.h"
 
 

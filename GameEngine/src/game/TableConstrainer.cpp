@@ -1,8 +1,8 @@
 #include "TableConstrainer.h"
-#include "input\Input.h"
+#include "Input\Input.h"
 #include "GameObject.h"
 #include "Transform.h"
-#include "interaction/RigidBody3D.h"
+#include "Interaction/RigidBody3D.h"
 
 using namespace GameEngine;
 

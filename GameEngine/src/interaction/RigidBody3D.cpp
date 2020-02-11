@@ -3,9 +3,9 @@
 #include "CollisionControl3D.h"
 #include "GameObject.h"
 #include "Transform.h"
-#include "Components/Collider3D.h"
-#include "Components/BoxCollider3D.h"
-#include "Components/SphereCollider.h"
+#include "Collider3D.h"
+#include "BoxCollider3D.h"
+#include "SphereCollider.h"
 #include "Collision3D.h"
 
 #include <glm/gtx/transform.hpp>

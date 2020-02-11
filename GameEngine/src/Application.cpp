@@ -1,11 +1,11 @@
 #include "Application.h"
 
 #include "GameObject.h"
-#include "rendering/Renderer.h"
-#include "rendering/RendererFactory.h"
-#include "input/Input.h"
-#include "interaction/CollisionControl3D.h"
-#include "interaction/RigidBody3D.h"
+#include "Rendering/Renderer.h"
+#include "Rendering/RendererFactory.h"
+#include "Input/Input.h"
+#include "Interaction/CollisionControl3D.h"
+#include "Interaction/RigidBody3D.h"
 #include "Debug.h"
 
 namespace GameEngine

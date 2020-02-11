@@ -1,7 +1,7 @@
 #ifndef GAME_ENGINE_TRANSFORM_H
 #define GAME_ENGINE_TRANSFORM_H
 
-#include "Components/Component.h"
+#include "Component.h"
 #include <vector>
 #include <glm\glm.hpp>
 

@@ -8,28 +8,94 @@
     <Filter Include="src">
       <UniqueIdentifier>{ad77ebbb-d803-4f62-a936-8978e2b38d20}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\util">
-      <UniqueIdentifier>{eb22b90d-928a-42ac-9650-2df60e397600}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\game">
+    <Filter Include="src\Game">
       <UniqueIdentifier>{0070b7ea-5217-4b55-8726-3c97ba20e73d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\input">
+    <Filter Include="src\Input">
       <UniqueIdentifier>{74d50199-ec56-48cc-8560-4d8dddbca9e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\interaction">
+    <Filter Include="src\Interaction">
       <UniqueIdentifier>{0d637464-7136-4b4d-95f6-8eb4b0752dd7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\rendering">
+    <Filter Include="src\Rendering">
       <UniqueIdentifier>{de928585-33eb-415d-97a1-7ff073bacdee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Components">
-      <UniqueIdentifier>{e50a6221-7ef4-419d-902f-a2e0ae261efe}</UniqueIdentifier>
+    <Filter Include="src\Util">
+      <UniqueIdentifier>{eb22b90d-928a-42ac-9650-2df60e397600}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="src\game\DebugComponent.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Program.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\SnookerCam.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\TableConstrainer.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\Input.cpp">
+      <Filter>src\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\Input_SDL.cpp">
+      <Filter>src\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\WindowEvent_SDL.cpp">
+      <Filter>src\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\BoundBox3D.cpp">
+      <Filter>src\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\BoxCollider3D.cpp">
+      <Filter>src\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\Collider3D.cpp">
+      <Filter>src\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\CollisionControl3D.cpp">
+      <Filter>src\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\MeshCollider.cpp">
+      <Filter>src\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\RigidBody3D.cpp">
+      <Filter>src\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interaction\SphereCollider.cpp">
+      <Filter>src\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Camera.cpp">
+      <Filter>src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Light.cpp">
+      <Filter>src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Mesh.cpp">
+      <Filter>src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\MeshLoader.cpp">
+      <Filter>src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\MeshRenderer.cpp">
+      <Filter>src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Renderer.cpp">
+      <Filter>src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Renderer_SDL.cpp">
+      <Filter>src\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\RendererFactory.cpp">
+      <Filter>src\Rendering</Filter>
+    </ClCompile>
     <ClCompile Include="src\Application.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\GameObject.cpp">
@@ -44,79 +110,94 @@
     <ClCompile Include="src\Transform.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\DebugComponent.cpp">
-      <Filter>src\game</Filter>
-    </ClCompile>
-    <ClCompile Include="src\game\Program.cpp">
-      <Filter>src\game</Filter>
-    </ClCompile>
-    <ClCompile Include="src\game\SnookerCam.cpp">
-      <Filter>src\game</Filter>
-    </ClCompile>
-    <ClCompile Include="src\game\TableConstrainer.cpp">
-      <Filter>src\game</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Input\Input.cpp">
-      <Filter>src\input</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\Camera.cpp">
-      <Filter>src\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\Component.cpp">
-      <Filter>src\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\MeshCollider.cpp">
-      <Filter>src\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\MeshRenderer.cpp">
-      <Filter>src\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\SphereCollider.cpp">
-      <Filter>src\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Rendering\Light.cpp">
-      <Filter>src\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Rendering\Mesh.cpp">
-      <Filter>src\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Rendering\MeshLoader.cpp">
-      <Filter>src\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Rendering\Renderer.cpp">
-      <Filter>src\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="src\rendering\Renderer_SDL.cpp">
-      <Filter>src\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="src\input\Input_SDL.cpp">
-      <Filter>src\input</Filter>
-    </ClCompile>
-    <ClCompile Include="src\input\WindowEvent_SDL.cpp">
-      <Filter>src\input</Filter>
-    </ClCompile>
-    <ClCompile Include="src\rendering\RendererFactory.cpp">
-      <Filter>src\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Interaction\CollisionControl3D.cpp">
-      <Filter>src\interaction</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\BoxCollider3D.cpp">
-      <Filter>src\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Interaction\BoundBox3D.cpp">
-      <Filter>src\interaction</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\Collider3D.cpp">
-      <Filter>src\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Interaction\RigidBody3D.cpp">
-      <Filter>src\Components</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="src\util\mathutil.h">
+      <Filter>src\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\DebugComponent.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Program.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\SnookerCam.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\TableConstrainer.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Input.h">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\KeyCode.h">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\Input_SDL.h">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\WindowEvent.h">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\WindowEvent_SDL.h">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\BoundBox3D.h">
+      <Filter>src\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\BoxCollider3D.h">
+      <Filter>src\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\Collider3D.h">
+      <Filter>src\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\Collision3D.h">
+      <Filter>src\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\CollisionControl3D.h">
+      <Filter>src\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\MeshCollider.h">
+      <Filter>src\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\RigidBody3D.h">
+      <Filter>src\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interaction\SphereCollider.h">
+      <Filter>src\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\Camera.h">
+      <Filter>src\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\Light.h">
+      <Filter>src\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\Mesh.h">
+      <Filter>src\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\MeshLoader.h">
+      <Filter>src\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\MeshRenderer.h">
+      <Filter>src\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\Renderer.h">
+      <Filter>src\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\Renderer_SDL.h">
+      <Filter>src\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\RendererFactory.h">
+      <Filter>src\Rendering</Filter>
+    </ClInclude>
     <ClInclude Include="src\Application.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Component.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Debug.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\GameObject.h">
@@ -127,90 +208,6 @@
     </ClInclude>
     <ClInclude Include="src\Transform.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\util\mathutil.h">
-      <Filter>src\util</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\DebugComponent.h">
-      <Filter>src\game</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\Program.h">
-      <Filter>src\game</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\SnookerCam.h">
-      <Filter>src\game</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\TableConstrainer.h">
-      <Filter>src\game</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Input\Input.h">
-      <Filter>src\input</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Input\KeyCode.h">
-      <Filter>src\input</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Components\Camera.h">
-      <Filter>src\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Components\Component.h">
-      <Filter>src\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Components\MeshCollider.h">
-      <Filter>src\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Components\MeshRenderer.h">
-      <Filter>src\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Components\SphereCollider.h">
-      <Filter>src\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rendering\Light.h">
-      <Filter>src\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rendering\Mesh.h">
-      <Filter>src\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rendering\MeshLoader.h">
-      <Filter>src\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rendering\Renderer.h">
-      <Filter>src\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="src\rendering\Renderer_SDL.h">
-      <Filter>src\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="src\input\Input_SDL.h">
-      <Filter>src\input</Filter>
-    </ClInclude>
-    <ClInclude Include="src\input\WindowEvent.h">
-      <Filter>src\input</Filter>
-    </ClInclude>
-    <ClInclude Include="src\input\WindowEvent_SDL.h">
-      <Filter>src\input</Filter>
-    </ClInclude>
-    <ClInclude Include="src\rendering\RendererFactory.h">
-      <Filter>src\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Debug.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Interaction\Collision3D.h">
-      <Filter>src\interaction</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Interaction\CollisionControl3D.h">
-      <Filter>src\interaction</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Components\BoxCollider3D.h">
-      <Filter>src\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Interaction\BoundBox3D.h">
-      <Filter>src\interaction</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Components\Collider3D.h">
-      <Filter>src\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Interaction\RigidBody3D.h">
-      <Filter>src\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #ifndef GAME_ENGINE_SNOOKERCAM_H
 #define GAME_ENGINE_SNOOKERCAM_H
 
-#include "components/Component.h"
+#include "Component.h"
 
 namespace GameEngine {
 

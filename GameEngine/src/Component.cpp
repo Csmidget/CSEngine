@@ -1,10 +1,10 @@
 #include "Component.h"
 
 #include "Application.h"
-#include "rendering/Renderer.h"
-#include "input/Input.h"
+#include "Rendering/Renderer.h"
+#include "Input/Input.h"
 #include "GameObject.h"
-#include "interaction/Collision3D.h"
+#include "Interaction/Collision3D.h"
 
 namespace GameEngine
 {

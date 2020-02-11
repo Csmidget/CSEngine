@@ -3,13 +3,13 @@
 #include "GL\glew.h"
 #include "glm\gtc\type_ptr.hpp"
 
-#include "rendering/MeshLoader.h"
-#include "rendering/Mesh.h"
+#include "MeshLoader.h"
+#include "Mesh.h"
 #include "GameObject.h"
 #include "Transform.h"
 #include "Application.h"
-#include "rendering/Renderer.h"
-#include "interaction/BoundBox3D.h"
+#include "Renderer.h"
+#include "Interaction/BoundBox3D.h"
 
 namespace GameEngine
 {

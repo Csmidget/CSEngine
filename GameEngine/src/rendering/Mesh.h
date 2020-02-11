@@ -9,7 +9,7 @@
 #include <memory>
 #include <map>
 
-#include "interaction/BoundBox3D.h"
+#include "Interaction/BoundBox3D.h"
 
 namespace GameEngine {
 

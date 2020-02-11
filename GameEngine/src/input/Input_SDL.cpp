@@ -1,6 +1,6 @@
 #include "Input_SDL.h"
 #include "Application.h"
-#include "rendering/Renderer.h"
+#include "Rendering/Renderer.h"
 #include "WindowEvent_SDL.h"
 #include "Debug.h"
 namespace GameEngine

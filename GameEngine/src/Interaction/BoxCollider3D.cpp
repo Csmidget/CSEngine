@@ -1,5 +1,5 @@
 #include "BoxCollider3D.h"
-#include "interaction/CollisionControl3D.h"
+#include "CollisionControl3D.h"
 
 namespace GameEngine
 {

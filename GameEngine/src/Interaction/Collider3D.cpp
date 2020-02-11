@@ -1,7 +1,7 @@
 #include "Collider3D.h"
 
-#include "interaction/CollisionControl3D.h"
-#include "MeshRenderer.h"
+#include "CollisionControl3D.h"
+#include "Rendering/MeshRenderer.h"
 #include "GameObject.h"
 
 namespace GameEngine

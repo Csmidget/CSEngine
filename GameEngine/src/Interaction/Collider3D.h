@@ -1,8 +1,8 @@
 #ifndef GAME_ENGINE_COLLIDER_H
 #define GAME_ENGINE_COLLIDER_H
 
-#include "components/Component.h"
-#include "interaction/BoundBox3D.h"
+#include "Component.h"
+#include "BoundBox3D.h"
 #include "GL\glew.h"
 #include <string>
 

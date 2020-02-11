@@ -5,7 +5,7 @@
 #include <map>
 #include <memory>
 
-#include "input/KeyCode.h"
+#include "Input/KeyCode.h"
 #include "glm\glm.hpp"
 
 namespace GameEngine {

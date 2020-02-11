@@ -1,4 +1,4 @@
-#include "rendering/Renderer.h"
+#include "Rendering/Renderer.h"
 
 #include <fstream>
 #include "glm/glm.hpp"
@@ -7,9 +7,9 @@
 #include "Light.h"
 #include "Transform.h"
 #include "Light.h"
-#include "components/Camera.h"
+#include "Camera.h"
 #include "GameObject.h"
-#include "input/WindowEvent.h"
+#include "Input/WindowEvent.h"
 #include "Debug.h"
 
 namespace GameEngine

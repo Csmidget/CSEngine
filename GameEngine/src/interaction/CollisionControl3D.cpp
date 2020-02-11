@@ -1,15 +1,15 @@
 #include "CollisionControl3D.h"
 
-#include "util/mathutil.h"
+#include "Util/mathutil.h"
 
-#include "components/Collider3D.h"
+#include "RigidBody3D.h"
+#include "Collider3D.h"
 #include "GameObject.h"
 #include "Transform.h"
 #include "BoundBox3D.h"
-#include "components/BoxCollider3D.h"
-#include "components/SphereCollider.h"
-#include "components/MeshCollider.h"
-#include "interaction/RigidBody3D.h"
+#include "BoxCollider3D.h"
+#include "SphereCollider.h"
+#include "MeshCollider.h"
 #include "Collision3D.h"
 
 namespace GameEngine

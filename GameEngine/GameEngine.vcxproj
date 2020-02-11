@@ -165,13 +165,7 @@
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="src\Application.h" />
-    <ClInclude Include="src\Components\BoxCollider3D.h" />
-    <ClInclude Include="src\Components\Camera.h" />
-    <ClInclude Include="src\Components\Collider3D.h" />
-    <ClInclude Include="src\Components\Component.h" />
-    <ClInclude Include="src\Components\MeshCollider.h" />
-    <ClInclude Include="src\Components\MeshRenderer.h" />
-    <ClInclude Include="src\Components\SphereCollider.h" />
+    <ClInclude Include="src\Component.h" />
     <ClInclude Include="src\Debug.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\game\DebugComponent.h" />
@@ -184,16 +178,22 @@
     <ClInclude Include="src\Input\KeyCode.h" />
     <ClInclude Include="src\input\WindowEvent_SDL.h" />
     <ClInclude Include="src\Interaction\BoundBox3D.h" />
+    <ClInclude Include="src\Interaction\BoxCollider3D.h" />
+    <ClInclude Include="src\Interaction\Collider3D.h" />
     <ClInclude Include="src\Interaction\Collision3D.h" />
     <ClInclude Include="src\Interaction\CollisionControl3D.h" />
+    <ClInclude Include="src\Interaction\MeshCollider.h" />
     <ClInclude Include="src\Interaction\RigidBody3D.h" />
+    <ClInclude Include="src\Interaction\SphereCollider.h" />
     <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\Rendering\Camera.h" />
     <ClInclude Include="src\Rendering\Light.h" />
     <ClInclude Include="src\Rendering\Mesh.h" />
     <ClInclude Include="src\Rendering\MeshLoader.h" />
+    <ClInclude Include="src\Rendering\MeshRenderer.h" />
     <ClInclude Include="src\Rendering\Renderer.h" />
-    <ClInclude Include="src\rendering\RendererFactory.h" />
-    <ClInclude Include="src\rendering\Renderer_SDL.h" />
+    <ClInclude Include="src\Rendering\RendererFactory.h" />
+    <ClInclude Include="src\Rendering\Renderer_SDL.h" />
     <ClInclude Include="src\Transform.h" />
     <ClInclude Include="src\util\mathutil.h" />
   </ItemGroup>
@@ -205,13 +205,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Application.cpp" />
-    <ClCompile Include="src\Components\BoxCollider3D.cpp" />
-    <ClCompile Include="src\Components\Camera.cpp" />
-    <ClCompile Include="src\Components\Collider3D.cpp" />
-    <ClCompile Include="src\Components\Component.cpp" />
-    <ClCompile Include="src\Components\MeshCollider.cpp" />
-    <ClCompile Include="src\Components\MeshRenderer.cpp" />
-    <ClCompile Include="src\Components\SphereCollider.cpp" />
+    <ClCompile Include="src\Component.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\game\DebugComponent.cpp" />
     <ClCompile Include="src\game\Program.cpp" />
@@ -221,16 +215,22 @@
     <ClCompile Include="src\input\Input_SDL.cpp" />
     <ClCompile Include="src\input\WindowEvent_SDL.cpp" />
     <ClCompile Include="src\Interaction\BoundBox3D.cpp" />
+    <ClCompile Include="src\Interaction\BoxCollider3D.cpp" />
+    <ClCompile Include="src\Interaction\Collider3D.cpp" />
     <ClCompile Include="src\Interaction\CollisionControl3D.cpp" />
+    <ClCompile Include="src\Interaction\MeshCollider.cpp" />
     <ClCompile Include="src\Interaction\RigidBody3D.cpp" />
+    <ClCompile Include="src\Interaction\SphereCollider.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\Rendering\Camera.cpp" />
     <ClCompile Include="src\Rendering\Light.cpp" />
     <ClCompile Include="src\Rendering\Mesh.cpp" />
     <ClCompile Include="src\Rendering\MeshLoader.cpp" />
+    <ClCompile Include="src\Rendering\MeshRenderer.cpp" />
     <ClCompile Include="src\Rendering\Renderer.cpp" />
-    <ClCompile Include="src\rendering\RendererFactory.cpp" />
-    <ClCompile Include="src\rendering\Renderer_SDL.cpp" />
+    <ClCompile Include="src\Rendering\RendererFactory.cpp" />
+    <ClCompile Include="src\Rendering\Renderer_SDL.cpp" />
     <ClCompile Include="src\Transform.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
