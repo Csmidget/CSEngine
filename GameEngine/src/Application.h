@@ -1,19 +1,15 @@
 #ifndef GAME_ENGINE_APPLICATION_H
 #define GAME_ENGINE_APPLICATION_H
 
-#include <vector>
-#include <memory>
-
 namespace GameEngine {
 
 	class Object;
 	class GameObject;
 	class Input;
 
-	namespace Rendering
-	{
-		class Renderer;
-	}
+
+	class Renderer;
+
 
 	//! The central class of the engine. Manages Initialization, Updating and Quitting. Also stores a list of all game objects currently loaded.
 	class Application {
@@ -32,7 +28,7 @@ namespace GameEngine {
 		//!Real Delta Time in Seconds 
 		static float rdts;
 
-		static std::shared_ptr<Rendering::Renderer> renderer;
+		static std::shared_ptr<Renderer> renderer;
 		static std::shared_ptr<Input> input;
 
 		//!Calls Update on all active game objects
@@ -67,7 +63,7 @@ namespace GameEngine {
 		//!Returns the time since last update in seconds
 		static float Rdts() { return rdts; }
 		
-		static std::weak_ptr<Rendering::Renderer> Renderer() { return renderer; }
+		static std::weak_ptr<Renderer> Renderer() { return renderer; }
 
 		static std::weak_ptr<Input> Input() { return input; }
 

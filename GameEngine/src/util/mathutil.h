@@ -1,5 +1,3 @@
-#include <glm\glm.hpp>
-
 namespace GameEngine {
 	namespace Util {
 
@@ -10,5 +8,4 @@ namespace GameEngine {
 		}//DistanceToPlane
 
 	}
-
 }

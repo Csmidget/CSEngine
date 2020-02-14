@@ -1,10 +1,14 @@
-#include "GameObject.h"
+#include "CSEngine_Common.h" 
+
 #include "Application.h"
 #include "Transform.h"
-#include "Interaction/Collision3D.h"
 
 #include "Rendering/Camera.h"
 #include "Rendering/MeshRenderer.h"
+
+#include "Interaction/Collision3D.h"
+#include "Interaction/BoundBox3D.h"
+#include "Interaction/Collider3D.h"
 #include "Interaction/SphereCollider.h"
 #include "Interaction/BoxCollider3D.h"
 #include "Interaction/RigidBody3D.h"

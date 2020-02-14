@@ -1,12 +1,11 @@
-#include "Application.h"
+#include "CSEngine_Common.h" 
 
-#include "GameObject.h"
 #include "Rendering/Renderer.h"
-#include "Rendering/RendererFactory.h"
 #include "Input/Input.h"
 #include "Interaction/CollisionControl3D.h"
 #include "Interaction/RigidBody3D.h"
-#include "Debug.h"
+
+#include "Application.h"
 
 namespace GameEngine
 {
@@ -16,7 +15,7 @@ namespace GameEngine
 	unsigned int Application::lastTicks;
 	int Application::rdt;
 	float Application::rdts;
-	std::shared_ptr<Rendering::Renderer> Application::renderer;
+	std::shared_ptr<Renderer> Application::renderer;
 	std::shared_ptr<Input> Application::input;
 	
 	//==============================================================================
@@ -31,7 +30,7 @@ namespace GameEngine
 
 		run = true;
 
-		renderer = Rendering::RendererFactory::CreateRenderer();
+		renderer = RendererFactory::CreateRenderer();
 		input = CreateInput();
 
 		CollisionControl3D::colliders.clear();

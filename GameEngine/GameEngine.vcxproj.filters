@@ -131,9 +131,6 @@
     <ClInclude Include="src\Input\Input.h">
       <Filter>src\Input</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input\KeyCode.h">
-      <Filter>src\Input</Filter>
-    </ClInclude>
     <ClInclude Include="src\input\Input_SDL.h">
       <Filter>src\Input</Filter>
     </ClInclude>
@@ -188,9 +185,6 @@
     <ClInclude Include="src\Rendering\Renderer_SDL.h">
       <Filter>src\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rendering\RendererFactory.h">
-      <Filter>src\Rendering</Filter>
-    </ClInclude>
     <ClInclude Include="src\Application.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -208,6 +202,15 @@
     </ClInclude>
     <ClInclude Include="src\Transform.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="CSEngine.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="CSEngine_Common.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\KeyCode_SDL.h">
+      <Filter>src\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

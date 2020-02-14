@@ -4,9 +4,6 @@
 #ifndef GAME_ENGINE_DEBUG_H
 #define GAME_ENGINE_DEBUG_H
 
-#include <string>
-#include <iostream>
-
 //TODO: add optional file output streams to allow propper logging of debug info.
 
 namespace GameEngine

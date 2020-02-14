@@ -1,20 +1,18 @@
-#include "MeshRenderer.h"
-
-#include "GL\glew.h"
+#include "CSEngine_Common.h" 
 #include "glm\gtc\type_ptr.hpp"
+#include "tinyobjloader/tiny_obj_loader.h"
 
-#include "MeshLoader.h"
-#include "Mesh.h"
-#include "GameObject.h"
-#include "Transform.h"
 #include "Application.h"
 #include "Renderer.h"
+
+#include "Transform.h"
 #include "Interaction/BoundBox3D.h"
+#include "MeshLoader.h"
+#include "Mesh.h"
+#include "MeshRenderer.h"
 
 namespace GameEngine
 {
-	using namespace Rendering;
-
 	//==============================================================================
 	void MeshRenderer::Draw()
 	{
@@ -61,7 +59,7 @@ namespace GameEngine
 
 		char* meshName = new char[_meshName.length() + 1];
 		strcpy_s(meshName, _meshName.length() + 1, _meshName.c_str());
-		
+
 		mesh = MeshLoader::LoadMesh(meshName);
 		CreateVao();
 
@@ -123,5 +121,5 @@ namespace GameEngine
 	{
 		autoScale = _autoScale;
 		CreateVao();
-	}//MeshRenderer::SetAutoScale
+	}//MeshRenderer::SetAutoScaleW
 }

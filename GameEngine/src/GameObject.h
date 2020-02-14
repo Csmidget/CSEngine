@@ -1,12 +1,6 @@
 #ifndef GAME_ENGINE_GAMEOBJECT_H
 #define GAME_ENGINE_GAMEOBJECT_H
 
-
-#include "Object.h"
-#include <vector>
-#include "glm/glm.hpp"
-
-
 namespace GameEngine {
 
 	namespace Rendering {
@@ -21,7 +15,7 @@ namespace GameEngine {
 	class GameObject :public Object, public std::enable_shared_from_this<GameObject> {
 
 		friend class Application;
-		friend class Rendering::Renderer;
+		friend class Renderer;
 		friend class CollisionControl3D;
 
 	private:

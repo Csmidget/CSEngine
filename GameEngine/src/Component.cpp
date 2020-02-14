@@ -1,10 +1,7 @@
-#include "Component.h"
+#include "CSEngine_Common.h"
 
-#include "Application.h"
-#include "Rendering/Renderer.h"
-#include "Input/Input.h"
-#include "GameObject.h"
 #include "Interaction/Collision3D.h"
+
 
 namespace GameEngine
 {

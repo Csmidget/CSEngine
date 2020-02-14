@@ -1,8 +1,10 @@
-#include "Collider3D.h"
+#include "CSEngine_Common.h"
+
+#include "Rendering/MeshRenderer.h"
 
 #include "CollisionControl3D.h"
-#include "Rendering/MeshRenderer.h"
-#include "GameObject.h"
+#include "BoundBox3D.h"
+#include "Collider3D.h"
 
 namespace GameEngine
 {

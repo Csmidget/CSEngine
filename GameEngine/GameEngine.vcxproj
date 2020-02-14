@@ -163,6 +163,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CSEngine.h" />
+    <ClInclude Include="CSEngine_Common.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\Component.h" />
@@ -175,7 +177,7 @@
     <ClInclude Include="src\Input\Input.h" />
     <ClInclude Include="src\input\WindowEvent.h" />
     <ClInclude Include="src\input\Input_SDL.h" />
-    <ClInclude Include="src\Input\KeyCode.h" />
+    <ClInclude Include="src\Input\KeyCode_SDL.h" />
     <ClInclude Include="src\input\WindowEvent_SDL.h" />
     <ClInclude Include="src\Interaction\BoundBox3D.h" />
     <ClInclude Include="src\Interaction\BoxCollider3D.h" />
@@ -192,7 +194,6 @@
     <ClInclude Include="src\Rendering\MeshLoader.h" />
     <ClInclude Include="src\Rendering\MeshRenderer.h" />
     <ClInclude Include="src\Rendering\Renderer.h" />
-    <ClInclude Include="src\Rendering\RendererFactory.h" />
     <ClInclude Include="src\Rendering\Renderer_SDL.h" />
     <ClInclude Include="src\Transform.h" />
     <ClInclude Include="src\util\mathutil.h" />

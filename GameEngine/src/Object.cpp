@@ -1,3 +1,4 @@
+#include <memory>
 #include "Object.h"
 
 namespace GameEngine

@@ -1,3 +1,7 @@
+#include <map>
+
+#include "CSEngine_Common.h"
+
 #include "Input.h"
 #include "Input_SDL.h"
 

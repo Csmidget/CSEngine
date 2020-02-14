@@ -1,5 +1,8 @@
-#include <Transform.h>
+#include "CSEngine_Common.h" 
+
 #include <glm/gtx/transform.hpp>
+
+#include <Transform.h>
 
 namespace GameEngine
 {

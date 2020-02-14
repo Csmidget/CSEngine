@@ -1,8 +1,6 @@
 #ifndef GAME_ENGINE_COMPONENT_H
 #define GAME_ENGINE_COMPONENT_H
 
-#include <Object.h>
-
 namespace GameEngine {
 
 	class Transform;

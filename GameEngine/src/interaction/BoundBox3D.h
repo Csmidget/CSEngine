@@ -1,8 +1,7 @@
 #ifndef GAME_ENGINE_BOUNDBOX_H
 #define GAME_ENGINE_BOUNDBOX_H
 
-#include <vector>
-#include <glm\glm.hpp>
+
 
 namespace GameEngine {
 

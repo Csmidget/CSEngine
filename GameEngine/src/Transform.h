@@ -1,10 +1,6 @@
 #ifndef GAME_ENGINE_TRANSFORM_H
 #define GAME_ENGINE_TRANSFORM_H
 
-#include "Component.h"
-#include <vector>
-#include <glm\glm.hpp>
-
 
 namespace GameEngine {
 

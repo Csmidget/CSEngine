@@ -1,16 +1,14 @@
-#include "Program.h"
-#include "Application.h"
-#include "GameObject.h"
-#include "Interaction/Collision3D.h"
-#include "DebugComponent.h"
-#include "TableConstrainer.h"
-#include "SnookerCam.h"
-#include "Interaction/RigidBody3D.h"
-#include "Rendering/Camera.h"
-#include "Transform.h"
-#include "Rendering/Light.h"
+#include "CSEngine.h" 
 
+#include "Interaction/Collision3D.h"
+#include "Interaction/RigidBody3D.h"
+#include "Rendering/Light.h"
 #include "Rendering/MeshRenderer.h"
+
+#include "SnookerCam.h"
+#include "TableConstrainer.h"
+#include "DebugComponent.h"
+#include "Program.h"
 
 using namespace GameEngine;
 
@@ -38,7 +36,7 @@ void Program::Init()
 	std::shared_ptr<GameObject> go2 = GameObject::Create();
 	go2->GetTransform().lock()->SetLocalPosition(glm::vec3(0, 0, 1));
 	go2->GetTransform().lock()->SetParent(go->GetTransform());
-	Rendering::Light::SetParent(go2->GetTransform());
+	Light::SetParent(go2->GetTransform());
 
 	//!Create other objects
 	GameObject::CreateSphere((glm::vec3(0, 0, -19.5))).lock()->AddComponent<TableConstrainer>();

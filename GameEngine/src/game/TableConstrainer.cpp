@@ -1,8 +1,6 @@
+#include "CSEngine.h" 
+
 #include "TableConstrainer.h"
-#include "Input\Input.h"
-#include "GameObject.h"
-#include "Transform.h"
-#include "Interaction/RigidBody3D.h"
 
 using namespace GameEngine;
 

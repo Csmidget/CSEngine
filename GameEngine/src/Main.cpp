@@ -1,7 +1,5 @@
-#include "Application.h"
+#include "CSEngine.h"
 #include "Game/Program.h"
-
-#include <iostream>
 
 #define DEBUGMODE "Debug"
 

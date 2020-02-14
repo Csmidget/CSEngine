@@ -1,12 +1,17 @@
-#include "Input_SDL.h"
+#include <map>
+
+#include "SDL/SDL.h"
+
+#include "CSEngine_Common.h"
+
 #include "Application.h"
 #include "Rendering/Renderer.h"
 #include "WindowEvent_SDL.h"
-#include "Debug.h"
+#include "Input.h"
+#include "Input_SDL.h"
+
 namespace GameEngine
 {
-
-
 	//==============================================================================
 	void Input_SDL::RefreshEvents()
 	{

@@ -1,5 +1,9 @@
-#include "BoxCollider3D.h"
+#include "CSEngine_Common.h"
+
 #include "CollisionControl3D.h"
+#include "BoundBox3D.h"
+#include "Collider3D.h"
+#include "BoxCollider3D.h"
 
 namespace GameEngine
 {

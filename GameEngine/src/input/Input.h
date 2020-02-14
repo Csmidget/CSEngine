@@ -1,12 +1,7 @@
 #ifndef GAME_ENGINE_INPUT_H
 #define GAME_ENGINE_INPUT_H
 
-#include <vector>
-#include <map>
-#include <memory>
-
-#include "Input/KeyCode.h"
-#include "glm\glm.hpp"
+#include "KeyCode_SDL.h"
 
 namespace GameEngine {
 

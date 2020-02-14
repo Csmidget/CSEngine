@@ -1,9 +1,6 @@
 #ifndef GAME_ENGINE_RigidBody3D_H
 #define GAME_ENGINE_RigidBody3D_H
 
-#include "Component.h"
-#include "glm/glm.hpp"
-
 namespace GameEngine {
 
 

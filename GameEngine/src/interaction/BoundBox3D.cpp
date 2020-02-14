@@ -1,3 +1,4 @@
+#include "CSEngine_Common.h"
 #include "BoundBox3D.h"
 
 namespace GameEngine

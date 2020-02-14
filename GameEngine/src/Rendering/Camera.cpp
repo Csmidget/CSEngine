@@ -1,11 +1,13 @@
-#include "Camera.h"
-
 #include "glm/gtx/transform.hpp"
 
-#include "Input/Input.h"
-#include "Transform.h"
-#include "Renderer.h"
+#include "CSEngine_Common.h"
+
 #include "Application.h"
+#include "Renderer.h"
+#include "Input/Input.h"
+
+#include "Transform.h"
+#include "Camera.h"
 
 namespace GameEngine
 {
@@ -34,7 +36,7 @@ namespace GameEngine
 		if (!viewType)
 			viewType = CameraViewType::Perspective;
 
-		Rendering::Renderer::ClearToColour(100.0f / 256.0f, 104.0f / 256.0f, 130.0f / 256.0f, 0.5f);
+		Renderer::ClearToColour(100.0f / 256.0f, 104.0f / 256.0f, 130.0f / 256.0f, 0.5f);
 
 		float width = Application::Renderer().lock()->ScreenWidth();
 		float height = Application::Renderer().lock()->ScreenHeight();
@@ -54,5 +56,4 @@ namespace GameEngine
 			break;
 		}
 	}
-
 }

@@ -1,10 +1,6 @@
 #ifndef GAME_ENGINE_INPUT_SDL_H
 #define GAME_ENGINE_INPUT_SDL_H
 
-#include "Input.h"
-#include "SDL\SDL.h"
-#include <string>
-
 namespace GameEngine {
 
 	class Input_SDL : public Input 

@@ -2,7 +2,6 @@
 #define GAME_ENGINE_WINDOW_EVENT_SDL_H
 
 #include "WindowEvent.h"
-#include "SDL\SDL.h"
 
 namespace GameEngine
 {

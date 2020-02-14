@@ -1,9 +1,6 @@
 #ifndef GAME_ENGINE_COLLISIONCONTROL_H
 #define GAME_ENGINE_COLLISIONCONTROL_H
 
-#include <vector>
-#include <memory>
-
 namespace GameEngine {
 
 	class Collider3D;

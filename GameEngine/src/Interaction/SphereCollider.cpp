@@ -1,7 +1,11 @@
-#include "SphereCollider.h"
-#include "CollisionControl3D.h"
+#include "CSEngine_Common.h"
+
 #include "Rendering/MeshRenderer.h"
-#include "GameObject.h"
+
+#include "CollisionControl3D.h"
+#include "BoundBox3D.h"
+#include "Collider3D.h"
+#include "SphereCollider.h"
 
 namespace GameEngine
 {
@@ -20,7 +24,7 @@ namespace GameEngine
 			return; //If no meshrenderer, just return with empty bound box
 		}
 
-		std::weak_ptr<Rendering::Mesh> mesh = gameObject.lock()->GetComponent<MeshRenderer>().lock()->GetMesh();
+		std::weak_ptr<Mesh> mesh = gameObject.lock()->GetComponent<MeshRenderer>().lock()->GetMesh();
 
 		if (mesh.expired())
 		{

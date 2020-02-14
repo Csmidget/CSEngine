@@ -1,8 +1,6 @@
 #ifndef GAME_ENGINE_SNOOKERCAM_H
 #define GAME_ENGINE_SNOOKERCAM_H
 
-#include "Component.h"
-
 namespace GameEngine {
 
 	class Transform;

@@ -1,8 +1,6 @@
 #ifndef GAME_ENGINE_OBJECT_H
 #define GAME_ENGINE_OBJECT_H
 
-#include <memory>
-
 namespace GameEngine {
 
 	//!Base class for GameObject's and Component's. Supplies Destroy functionality.

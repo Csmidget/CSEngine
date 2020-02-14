@@ -1,38 +1,36 @@
-#include "Light.h"
-#include "Transform.h"
-
 #include "glm/gtc/type_ptr.hpp"
 
+#include "CSEngine_Common.h"
+
+#include "Transform.h"
+#include "Light.h"
 
 namespace GameEngine {
-	namespace Rendering
+
+	GLuint Light::lightLoc;
+	std::weak_ptr<Transform> Light::parent;
+	//==============================================================================
+	void Light::Init(GLuint _lightLoc)
+	{
+		lightLoc = _lightLoc;
+	}
+	//==============================================================================
+	void Light::UpdateLight()
 	{
 
-		GLuint Light::lightLoc;
-		std::weak_ptr<Transform> Light::parent;
-		//==============================================================================
-		void Light::Init(GLuint _lightLoc)
+		if (!parent.expired())
 		{
-			lightLoc = _lightLoc;
+			glUniform4fv(lightLoc, 1, glm::value_ptr(glm::vec4(parent.lock()->GetPosition(), 1)));
 		}
-		//==============================================================================
-		void Light::UpdateLight()
+		else
 		{
-
-			if (!parent.expired())
-			{
-				glUniform4fv(lightLoc, 1, glm::value_ptr(glm::vec4(parent.lock()->GetPosition(), 1)));
-			}
-			else
-			{
-				glUniform4fv(lightLoc, 1, glm::value_ptr(glm::vec4(1.0f, 0.0f, 1.0f, 1.0f)));
-			}
+			glUniform4fv(lightLoc, 1, glm::value_ptr(glm::vec4(1.0f, 0.0f, 1.0f, 1.0f)));
 		}
-		//==============================================================================
-		void Light::SetParent(std::weak_ptr<Transform> _parent)
-		{
-			parent = _parent;
-		}
-
 	}
+	//==============================================================================
+	void Light::SetParent(std::weak_ptr<Transform> _parent)
+	{
+		parent = _parent;
+	}
+
 }

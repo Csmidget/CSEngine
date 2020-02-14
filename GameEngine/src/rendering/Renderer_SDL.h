@@ -1,11 +1,7 @@
 #ifndef GAME_ENGINE_SDL_RENDERER_H
 #define GAME_ENGINE_SDL_RENDERER_H
 
-#include "Renderer.h"
-#include "SDL/SDL.h"
-
 namespace GameEngine {
-	namespace Rendering {
 
 		class Renderer_SDL : public Renderer{
 
@@ -30,6 +26,5 @@ namespace GameEngine {
 			float ScreenHeight() const override { return screenHeight; }
 
 		};
-	}
 }
 #endif

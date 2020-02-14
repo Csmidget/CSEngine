@@ -1,9 +1,12 @@
+#include "CSEngine_Common.h" 
+
+#include "SDL/SDL.h"
+
+#include "Renderer.h"
 #include "Renderer_SDL.h"
-#include "Debug.h"
+
 namespace GameEngine
 {
-	namespace Rendering
-	{
 
 		void Print_SDL_GL_Attributes()
 		{
@@ -97,5 +100,5 @@ namespace GameEngine
 			SDL_GetWindowSize(mainWindow, w, h);
 		}//Renderer_SDL::GetWindowSize
 		//==============================================================================
-	}
+
 }

@@ -1,19 +1,17 @@
 #ifndef GAME_ENGINE_MESHCOLLIDER_H
 #define GAME_ENGINE_MESHCOLLIDER_H
 
-#include "Collider3D.h"
 
 
 namespace GameEngine {
 
-	namespace Rendering {
-		class Mesh;
-	}
+	class Mesh;
+
 	//!UNFINISHED A Collider that uses the mesh for collision detection
 	class MeshCollider : public Collider3D {
 
 	private:
-		std::weak_ptr<Rendering::Mesh> mesh;
+		std::weak_ptr<Mesh> mesh;
 		void UpdateBounds();
 
 	public:

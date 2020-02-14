@@ -1,20 +1,15 @@
 #ifndef GAME_ENGINE_CAMERA_H
 #define GAME_ENGINE_CAMERA_H
 
-#include "Component.h"
-#include "glm\glm.hpp"
 namespace GameEngine {
+	class Renderer;
 
-	namespace Rendering {
-		class Renderer;
-	}
-	
 	enum CameraViewType { Perspective, Orthographic };
 
 	//! Component that works with the renderer to present an image of the game.
-	class Camera : public Component {	
+	class Camera : public Component {
 
-	friend class Rendering::Renderer;
+		friend class Renderer;
 
 	private:
 
@@ -24,9 +19,9 @@ namespace GameEngine {
 
 		//!Projection matrix of the Camera
 		glm::mat4 projMat;
-		
+
 		CameraViewType viewType;
-		
+
 		float fovY;
 		//!The near clipping plane of the projection matrix
 		float near;
@@ -61,7 +56,7 @@ namespace GameEngine {
 		/*!
 		\param _camera The camera to set as the mainCamera
 		*/
-		static void SetMainCamera(Camera *_camera) { mainCamera = std::make_shared<Camera>(*_camera); }
+		static void SetMainCamera(Camera* _camera) { mainCamera = std::make_shared<Camera>(*_camera); }
 	};//class Camera
 
 }//namespace GameEngine

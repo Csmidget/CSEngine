@@ -1,9 +1,7 @@
+#include "CSEngine.h" 
+
 #include "SnookerCam.h"
-#include "Input/Input.h"
-#include "GameObject.h"
-#include "Transform.h"
-#include "Rendering/Camera.h"
-#include "Application.h"
+
 namespace GameEngine
 {
 

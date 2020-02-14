@@ -1,9 +1,6 @@
 #ifndef GAME_ENGINE_BOXCOLLIDER_H
 #define GAME_ENGINE_BOXCOLLIDER_H
 
-#include "Collider3D.h"
-
-
 namespace GameEngine {
 
 
