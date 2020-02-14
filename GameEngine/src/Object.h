@@ -1,7 +1,7 @@
 #ifndef GAME_ENGINE_OBJECT_H
 #define GAME_ENGINE_OBJECT_H
 
-namespace GameEngine {
+namespace CSEngine {
 
 	//!Base class for GameObject's and Component's. Supplies Destroy functionality.
 	class Object
@@ -22,5 +22,5 @@ namespace GameEngine {
 		bool active;
 	};
 
-}//namespace GameEngine
+}//namespace CSEngine
 #endif

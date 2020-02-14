@@ -1,21 +1,18 @@
 #ifndef GAME_ENGINE_SNOOKERCAM_H
 #define GAME_ENGINE_SNOOKERCAM_H
 
-namespace GameEngine {
+//!Example of game specific component. Not part of core engine.
+class SnookerCam : public CSEngine::Component {
 
-	class Transform;
-	//!Example of game specific component. Not part of core engine.
-	class SnookerCam : public Component {
+private:
+	bool freeRoam;
+	void OnAwake();
+	void OnUpdate();
 
-	private:
-		bool freeRoam;
-		void OnAwake();
-		void OnUpdate();
+public:
+	void AttachTo(std::weak_ptr<CSEngine::Transform> _parent);
 
-	public:
-		void AttachTo(std::weak_ptr<Transform> _parent);
+};
 
-	};
-}
 
 #endif

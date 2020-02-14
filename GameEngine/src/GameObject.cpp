@@ -3,17 +3,17 @@
 #include "Application.h"
 #include "Transform.h"
 
-#include "Rendering/Camera.h"
-#include "Rendering/MeshRenderer.h"
+#include "Camera.h"
+#include "MeshRenderer.h"
 
-#include "Interaction/Collision3D.h"
-#include "Interaction/BoundBox3D.h"
-#include "Interaction/Collider3D.h"
-#include "Interaction/SphereCollider.h"
-#include "Interaction/BoxCollider3D.h"
-#include "Interaction/RigidBody3D.h"
+#include "Collision3D.h"
+#include "BoundBox3D.h"
+#include "Collider3D.h"
+#include "SphereCollider.h"
+#include "BoxCollider3D.h"
+#include "RigidBody3D.h"
 
-namespace GameEngine {
+namespace CSEngine {
 
 	//==============================================================================
 	std::shared_ptr<GameObject> GameObject::Create()

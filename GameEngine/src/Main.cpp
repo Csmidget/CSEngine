@@ -7,11 +7,11 @@
 
 int main(int argc, char *argv[]) {
 
-  if (GameEngine::Application::Init(argc, argv)) {
+  if (CSEngine::Application::Init(argc, argv)) {
 
     Program::Init();
 
-    GameEngine::Application::Run();
+    CSEngine::Application::Run();
 
   }
   else {

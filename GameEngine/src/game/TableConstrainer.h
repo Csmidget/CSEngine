@@ -2,7 +2,7 @@
 #define GAME_ENGINE_TABLECONSTRAINER_H
 
 //!Example of game specific component. Not part of core engine.
-class TableConstrainer : public GameEngine::Component {
+class TableConstrainer : public CSEngine::Component {
 
 public:
 

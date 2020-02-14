@@ -1,7 +1,7 @@
 #ifndef GAME_ENGINE_APPLICATION_H
 #define GAME_ENGINE_APPLICATION_H
 
-namespace GameEngine {
+namespace CSEngine {
 
 	class Object;
 	class GameObject;
@@ -72,6 +72,6 @@ namespace GameEngine {
 
 	};
 
-}//namespace GameEngine
+}//namespace CSEngine
 
 #endif

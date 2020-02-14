@@ -2,7 +2,7 @@
 
 #include "TableConstrainer.h"
 
-using namespace GameEngine;
+using namespace CSEngine;
 
 //==============================================================================
 void TableConstrainer::OnUpdate()

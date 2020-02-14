@@ -2,7 +2,7 @@
 #define GAME_ENGINE_TRANSFORM_H
 
 
-namespace GameEngine {
+namespace CSEngine {
 
 	//!Controls Object's positioning within scene. Also manages parent/child relationships
 	class Transform : public Component {
@@ -81,6 +81,6 @@ namespace GameEngine {
 		void RemoveChild(std::weak_ptr<Transform> _child);
 	};
 
-}//namespace GameEngine
+}//namespace CSEngine
 
 #endif

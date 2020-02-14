@@ -1,16 +1,16 @@
 #include "CSEngine.h" 
 
-#include "Interaction/Collision3D.h"
-#include "Interaction/RigidBody3D.h"
-#include "Rendering/Light.h"
-#include "Rendering/MeshRenderer.h"
+#include "Collision3D.h"
+#include "RigidBody3D.h"
+#include "Light.h"
+#include "MeshRenderer.h"
 
 #include "SnookerCam.h"
 #include "TableConstrainer.h"
 #include "DebugComponent.h"
 #include "Program.h"
 
-using namespace GameEngine;
+using namespace CSEngine;
 
 void Program::Init()
 {

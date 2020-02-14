@@ -4,7 +4,7 @@
 
 #include <Transform.h>
 
-namespace GameEngine
+namespace CSEngine
 {
 	//==============================================================================
 	void Transform::SetParent(std::weak_ptr<Transform> _transform)

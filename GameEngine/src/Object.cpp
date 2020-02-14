@@ -1,7 +1,7 @@
 #include <memory>
 #include "Object.h"
 
-namespace GameEngine
+namespace CSEngine
 {
 	//==============================================================================
 	void Object::Destroy(std::weak_ptr<Object> _object)

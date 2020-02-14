@@ -1,7 +1,7 @@
 #ifndef GAME_ENGINE_COMPONENT_H
 #define GAME_ENGINE_COMPONENT_H
 
-namespace GameEngine {
+namespace CSEngine {
 
 	class Transform;
 	class Collision3D;
@@ -58,6 +58,6 @@ namespace GameEngine {
 		virtual std::weak_ptr<Transform> GetTransform() const;
 	};
 
-}//namespace GameEngine
+}//namespace CSEngine
 
 #endif

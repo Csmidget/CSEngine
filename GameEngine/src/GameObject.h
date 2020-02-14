@@ -1,7 +1,7 @@
 #ifndef GAME_ENGINE_GAMEOBJECT_H
 #define GAME_ENGINE_GAMEOBJECT_H
 
-namespace GameEngine {
+namespace CSEngine {
 
 	namespace Rendering {
 		class Renderer;
@@ -93,6 +93,6 @@ namespace GameEngine {
 
 	};
 
-}//namespace GameEngine
+}//namespace CSEngine
 
 #endif

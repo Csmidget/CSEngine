@@ -6,7 +6,7 @@
 
 //TODO: add optional file output streams to allow propper logging of debug info.
 
-namespace GameEngine
+namespace CSEngine
 {
 	class Debug
 	{

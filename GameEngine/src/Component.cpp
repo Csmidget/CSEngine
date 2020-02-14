@@ -1,9 +1,9 @@
 #include "CSEngine_Common.h"
 
-#include "Interaction/Collision3D.h"
+#include "Collision3D.h"
 
 
-namespace GameEngine
+namespace CSEngine
 {
 	//==============================================================================
 	Component::Component()

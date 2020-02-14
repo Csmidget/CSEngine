@@ -1,16 +1,16 @@
 #include "CSEngine.h"
 
-#include "Rendering/MeshRenderer.h"
+#include "MeshRenderer.h"
 
-#include "Interaction/RigidBody3D.h"
-#include "Interaction/Collision3D.h"
+#include "RigidBody3D.h"
+#include "Collision3D.h"
 
 #include "SnookerCam.h"
 #include "TableConstrainer.h"
 
 #include "DebugComponent.h"
 
-using namespace GameEngine;
+using namespace CSEngine;
 //==============================================================================
 void DebugComponent::OnUpdate()
 {

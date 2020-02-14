@@ -1,13 +1,13 @@
 #include "CSEngine_Common.h" 
 
-#include "Rendering/Renderer.h"
-#include "Input/Input.h"
-#include "Interaction/CollisionControl3D.h"
-#include "Interaction/RigidBody3D.h"
+#include "Renderer.h"
+#include "Input.h"
+#include "CollisionControl3D.h"
+#include "RigidBody3D.h"
 
 #include "Application.h"
 
-namespace GameEngine
+namespace CSEngine
 {
 	std::vector<std::shared_ptr<GameObject>> Application::gameObjects;
 	bool Application::run;
