@@ -92,7 +92,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir);$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(ProjectDir);$(ProjectDir)src;$(ProjectDir)\headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -101,9 +101,10 @@
       <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetDir)$(ProjectName).lib" "$(SolutionDir)lib\$(ProjectName).lib"
+      <Command>xcopy  "$(TargetDir)$(ProjectName).lib" "$(SolutionDir)lib\" /Y /F
 xcopy "$(ProjectDir)lib\*.*" "$(SolutionDir)lib" /Y /I /E
-xcopy "$(ProjectDir)include\*.*" "$(SolutionDir)include\CSEngine" /Y /I /E</Command>
+xcopy "$(ProjectDir)headers\*.*" "$(SolutionDir)include\CSEngine" /Y /I /E
+xcopy "$(ProjectDir)include\*.*" "$(SolutionDir)include\" /Y /I /E</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -169,40 +170,40 @@ xcopy "$(ProjectDir)include\*.*" "$(SolutionDir)include\CSEngine" /Y /I /E</Comm
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\Application.h" />
-    <ClInclude Include="include\BoundBox3D.h" />
-    <ClInclude Include="include\BoxCollider3D.h" />
-    <ClInclude Include="include\Camera.h" />
-    <ClInclude Include="include\Collider3D.h" />
-    <ClInclude Include="include\Collision3D.h" />
-    <ClInclude Include="include\CollisionControl3D.h" />
-    <ClInclude Include="include\Component.h" />
-    <ClInclude Include="include\CSEngine.h" />
-    <ClInclude Include="include\CSEngine_Common.h" />
-    <ClInclude Include="include\Debug.h" />
-    <ClInclude Include="include\GameObject.h" />
-    <ClInclude Include="include\Input.h" />
-    <ClInclude Include="include\Input_SDL.h" />
-    <ClInclude Include="include\KeyCode_SDL.h" />
-    <ClInclude Include="include\Light.h" />
-    <ClInclude Include="include\mathutil.h" />
-    <ClInclude Include="include\Mesh.h" />
-    <ClInclude Include="include\MeshCollider.h" />
-    <ClInclude Include="include\MeshLoader.h" />
-    <ClInclude Include="include\MeshRenderer.h" />
-    <ClInclude Include="include\Object.h" />
-    <ClInclude Include="include\Renderer.h" />
-    <ClInclude Include="include\Renderer_SDL.h" />
-    <ClInclude Include="include\RigidBody3D.h" />
-    <ClInclude Include="include\SphereCollider.h" />
-    <ClInclude Include="include\Transform.h" />
-    <ClInclude Include="include\WindowEvent.h" />
-    <ClInclude Include="include\WindowEvent_SDL.h" />
+    <ClInclude Include="headers\Application.h" />
+    <ClInclude Include="headers\BoundBox3D.h" />
+    <ClInclude Include="headers\BoxCollider3D.h" />
+    <ClInclude Include="headers\Camera.h" />
+    <ClInclude Include="headers\Collider3D.h" />
+    <ClInclude Include="headers\Collision3D.h" />
+    <ClInclude Include="headers\CollisionControl3D.h" />
+    <ClInclude Include="headers\Component.h" />
+    <ClInclude Include="headers\CSEngine.h" />
+    <ClInclude Include="headers\CSEngine_Common.h" />
+    <ClInclude Include="headers\Debug.h" />
+    <ClInclude Include="headers\GameObject.h" />
+    <ClInclude Include="headers\Input.h" />
+    <ClInclude Include="headers\Input_SDL.h" />
+    <ClInclude Include="headers\KeyCode_SDL.h" />
+    <ClInclude Include="headers\Light.h" />
+    <ClInclude Include="headers\mathutil.h" />
+    <ClInclude Include="headers\Mesh.h" />
+    <ClInclude Include="headers\MeshCollider.h" />
+    <ClInclude Include="headers\MeshLoader.h" />
+    <ClInclude Include="headers\MeshRenderer.h" />
+    <ClInclude Include="headers\Object.h" />
+    <ClInclude Include="headers\Renderer.h" />
+    <ClInclude Include="headers\Renderer_SDL.h" />
+    <ClInclude Include="headers\RigidBody3D.h" />
+    <ClInclude Include="headers\SphereCollider.h" />
+    <ClInclude Include="headers\Transform.h" />
+    <ClInclude Include="headers\WindowEvent.h" />
+    <ClInclude Include="headers\WindowEvent_SDL.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="src\Game\DebugComponent.h" />
-    <ClInclude Include="src\Game\Program.h" />
-    <ClInclude Include="src\Game\SnookerCam.h" />
-    <ClInclude Include="src\Game\TableConstrainer.h" />
+    <ClInclude Include="source\Game\DebugComponent.h" />
+    <ClInclude Include="source\Game\Program.h" />
+    <ClInclude Include="source\Game\SnookerCam.h" />
+    <ClInclude Include="source\Game\TableConstrainer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -211,34 +212,34 @@ xcopy "$(ProjectDir)include\*.*" "$(SolutionDir)include\CSEngine" /Y /I /E</Comm
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Application.cpp" />
-    <ClCompile Include="src\BoundBox3D.cpp" />
-    <ClCompile Include="src\BoxCollider3D.cpp" />
-    <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\Collider3D.cpp" />
-    <ClCompile Include="src\CollisionControl3D.cpp" />
-    <ClCompile Include="src\Component.cpp" />
-    <ClCompile Include="src\GameObject.cpp" />
-    <ClCompile Include="src\Game\DebugComponent.cpp" />
-    <ClCompile Include="src\Game\Program.cpp" />
-    <ClCompile Include="src\Game\SnookerCam.cpp" />
-    <ClCompile Include="src\Game\TableConstrainer.cpp" />
-    <ClCompile Include="src\Input.cpp" />
-    <ClCompile Include="src\Input_SDL.cpp" />
-    <ClCompile Include="src\Light.cpp" />
-    <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\Mesh.cpp" />
-    <ClCompile Include="src\MeshCollider.cpp" />
-    <ClCompile Include="src\MeshLoader.cpp" />
-    <ClCompile Include="src\MeshRenderer.cpp" />
-    <ClCompile Include="src\Object.cpp" />
-    <ClCompile Include="src\Renderer.cpp" />
-    <ClCompile Include="src\RendererFactory.cpp" />
-    <ClCompile Include="src\Renderer_SDL.cpp" />
-    <ClCompile Include="src\RigidBody3D.cpp" />
-    <ClCompile Include="src\SphereCollider.cpp" />
-    <ClCompile Include="src\Transform.cpp" />
-    <ClCompile Include="src\WindowEvent_SDL.cpp" />
+    <ClCompile Include="source\Application.cpp" />
+    <ClCompile Include="source\BoundBox3D.cpp" />
+    <ClCompile Include="source\BoxCollider3D.cpp" />
+    <ClCompile Include="source\Camera.cpp" />
+    <ClCompile Include="source\Collider3D.cpp" />
+    <ClCompile Include="source\CollisionControl3D.cpp" />
+    <ClCompile Include="source\Component.cpp" />
+    <ClCompile Include="source\GameObject.cpp" />
+    <ClCompile Include="source\Game\DebugComponent.cpp" />
+    <ClCompile Include="source\Game\Program.cpp" />
+    <ClCompile Include="source\Game\SnookerCam.cpp" />
+    <ClCompile Include="source\Game\TableConstrainer.cpp" />
+    <ClCompile Include="source\Input.cpp" />
+    <ClCompile Include="source\Input_SDL.cpp" />
+    <ClCompile Include="source\Light.cpp" />
+    <ClCompile Include="source\Main.cpp" />
+    <ClCompile Include="source\Mesh.cpp" />
+    <ClCompile Include="source\MeshCollider.cpp" />
+    <ClCompile Include="source\MeshLoader.cpp" />
+    <ClCompile Include="source\MeshRenderer.cpp" />
+    <ClCompile Include="source\Object.cpp" />
+    <ClCompile Include="source\Renderer.cpp" />
+    <ClCompile Include="source\RendererFactory.cpp" />
+    <ClCompile Include="source\Renderer_SDL.cpp" />
+    <ClCompile Include="source\RigidBody3D.cpp" />
+    <ClCompile Include="source\SphereCollider.cpp" />
+    <ClCompile Include="source\Transform.cpp" />
+    <ClCompile Include="source\WindowEvent_SDL.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
