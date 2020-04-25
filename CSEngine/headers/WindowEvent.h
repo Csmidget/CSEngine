@@ -33,8 +33,8 @@ namespace CSEngine
 	struct WindowEvent
 	{
 		WindowEventID type;
-		int data1;
-		int data2;
+		short data1;
+		short data2;
 	};
 }
 

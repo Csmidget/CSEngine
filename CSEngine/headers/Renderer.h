@@ -22,8 +22,8 @@ namespace CSEngine {
 
 		friend RendererFactory;
 
-		float screenWidth;
-		float screenHeight;
+		short screenWidth;
+		short screenHeight;
 
 		//!Initializes GL context and uniforms.
 		bool InitGL();

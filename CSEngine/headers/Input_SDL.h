@@ -13,16 +13,16 @@ namespace CSEngine {
 			//!The name of this controller (Normally "xinput Controller")
 			std::string name;
 			//!Buttons currently being held down
-			std::vector<int> heldButtons;
+			std::vector<Uint32> heldButtons;
 			//!Buttons that have just been pressed
-			std::vector<int> downButtons;
+			std::vector<Uint32> downButtons;
 			//!Buttons that have been released this frame
-			std::vector<int>   upButtons;
+			std::vector<Uint32>   upButtons;
 			//!Information on controller analogue sticks Left stick:[0],[1]|Right stick:[1],[2] 
 			float analogueAxis[6] = { 0,0,0,0,0,0 };
 		};
 		//! Used for connecting instance id to device id.
-		typedef std::map<int, int> DeviceInstanceMap;
+		typedef std::map<Uint32, Uint32> DeviceInstanceMap;
 
 
 	private:
@@ -33,18 +33,18 @@ namespace CSEngine {
 		std::vector<std::shared_ptr<Controller>> controllers;
 
 		//!Keys currently being held down
-		std::vector<int> heldKeys;
+		std::vector<Uint32> heldKeys;
 		//!Keys that have just been pressed
-		std::vector<int> downKeys;
+		std::vector<Uint32> downKeys;
 		//!Keys that have been released this frame
-		std::vector<int> upKeys;
+		std::vector<Uint32> upKeys;
 
 		//!Mouse buttons currently being held down
-		std::vector<int> heldMouseButtons;
+		std::vector<Uint32> heldMouseButtons;
 		//!Mouse buttons that have just been pressed
-		std::vector<int> downMouseButtons;
+		std::vector<Uint32> downMouseButtons;
 		//!Mouse buttons that have been released this frame
-		std::vector<int> upMouseButtons;
+		std::vector<Uint32> upMouseButtons;
 
 		//!The X position of the mouse within the window (Left = 0)
 		int mousePosX;
@@ -67,34 +67,34 @@ namespace CSEngine {
 		void ProcessControllerAxisEvent(SDL_ControllerAxisEvent &_event);
 
 		//!Adds a controller to the list of active controllers. Called if new controller is detected.
-		void AddController(int _deviceNumber);
+		void AddController(Uint32 _deviceNumber);
 		//!Removes a controller from the list of active controllers. Called if a Controller is unplugged.
-		void RemoveController(int _deviceNumber);
+		void RemoveController(Uint32 _deviceNumber);
 
 	public:
 		int NumControllers() const override { return controllers.size(); } ;
 
-		bool KeyHeld(int _keyCode) const override;
+		bool KeyHeld(Uint32 _keyCode) const override;
 
-		bool KeyDown(int _keyCode) const override;
+		bool KeyDown(Uint32 _keyCode) const override;
 
-		bool KeyUp(int _keyCode) const override;
+		bool KeyUp(Uint32 _keyCode) const override;
 
-		bool MouseButtonHeld(int _mouseCode) const override;
+		bool MouseButtonHeld(Uint32 _mouseCode) const override;
 
-		bool MouseButtonUp(int _mouseCode) const override;
+		bool MouseButtonUp(Uint32 _mouseCode) const override;
 
-		bool MouseButtonDown(int _mouseCode) const override;
+		bool MouseButtonDown(Uint32 _mouseCode) const override;
 
 		void GetMousePos(int *_x, int *_y) const override;
 
-		bool ContButtonHeld(int _deviceNumber, int _controllerCode) const override;
+		bool ContButtonHeld(Uint32 _deviceNumber, Uint32 _controllerCode) const override;
 
-		bool ContButtonUp(int _deviceNumber, int _controllerCode) const override;
+		bool ContButtonUp(Uint32 _deviceNumber, Uint32 _controllerCode) const override;
 
-		bool ContButtonDown(int _deviceNumber, int _controllerCode) const override;
+		bool ContButtonDown(Uint32 _deviceNumber, Uint32 _controllerCode) const override;
 
-		float GetContAnalogueAxis(int _deviceNumber, int _analogueNumber, int _axisNumber) const override;
+		float GetContAnalogueAxis(Uint32 _deviceNumber, Uint32 _analogueNumber, Uint32 _axisNumber) const override;
 
 	};
 }

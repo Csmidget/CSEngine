@@ -7,7 +7,6 @@ namespace CSEngine {
 
 	//!Stores information on a collision. Passed into Component OnCollision() functions.
 	struct Collision3D {
-	public:
 		glm::vec3 colPos; /*!<The position of the collision relative to the position of the object*/
 		glm::vec3 colNormal; /*!<The normal vector of the collision*/
 		std::shared_ptr<Collider3D> colCollider; /*!<The Collider that has been hit*/

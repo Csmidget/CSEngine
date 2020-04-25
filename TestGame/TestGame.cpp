@@ -15,7 +15,5 @@ int main(int argc, char** argv)
         std::cout << "Unable to initialize engine" << std::endl;
     }
 
-
-
     return 0;
 }

@@ -4,7 +4,7 @@
 namespace CSEngine {
 
 	class Transform;
-	class Collision3D;
+	struct Collision3D;
 	class GameObject;
 
 	//! The base class for all Components

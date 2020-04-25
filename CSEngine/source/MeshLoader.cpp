@@ -61,7 +61,7 @@ namespace CSEngine
 				);
 			}
 
-			for (int i = 0; i < attrib.normals.size() / 3; i++)
+			for (size_t i = 0; i < attrib.normals.size() / 3; i++)
 			{
 				returnMesh->rawNormals.push_back(
 					glm::vec3(attrib.vertices.at(i * 3),
@@ -70,7 +70,7 @@ namespace CSEngine
 				);
 			}
 
-			for (int i = 0; i < attrib.texcoords.size() / 2; i++)
+			for (size_t i = 0; i < attrib.texcoords.size() / 2; i++)
 			{
 				returnMesh->rawTexCoords.push_back(
 					glm::vec2(attrib.texcoords.at(i * 2),
@@ -136,7 +136,7 @@ namespace CSEngine
 
 			if (longestAxis > 1)
 			{
-				for (int i = 0; i < returnMesh->posVertices.size(); i++)
+				for (size_t i = 0; i < returnMesh->posVertices.size(); i++)
 				{
 					glm::vec4 scaled = glm::vec4(returnMesh->posVertices.at(i).x / longestAxis, returnMesh->posVertices.at(i).y / longestAxis, returnMesh->posVertices.at(i).z / longestAxis, 1);
 
@@ -180,7 +180,7 @@ namespace CSEngine
 		}
 
 		Mesh::loadedMeshes.insert(std::make_pair(_fileName, returnMesh));
-
+		Debug::Log("Loaded mesh: ", _fileName,".");
 		return returnMesh;
 	}//MeshLoader::LoadMesh
 	 //==============================================================================

@@ -24,7 +24,7 @@ namespace CSEngine
 		mouseWheel = 0;
 
 		//used to iterate through map as though it was a list: credit to: https://stackoverflow.com/questions/771453/copy-map-values-to-vector-in-stl
-		for (int i = 0; i < controllers.size(); i++)
+		for (size_t i = 0; i < controllers.size(); i++)
 		{
 			controllers.at(i)->downButtons.clear();
 			controllers.at(i)->upButtons.clear();
@@ -213,7 +213,7 @@ namespace CSEngine
 	}//Input::ProcessControllerAxis
 	//==============================================================================
 
-	void Input_SDL::AddController(int _deviceNumber)
+	void Input_SDL::AddController(Uint32 _deviceNumber)
 	{
 		if (SDL_IsGameController(_deviceNumber))
 		{
@@ -226,7 +226,7 @@ namespace CSEngine
 		}
 	}//Input::AddController
 	//==============================================================================
-	void Input_SDL::RemoveController(int _deviceNumber)
+	void Input_SDL::RemoveController(Uint32 _deviceNumber)
 	{
 		controllers.erase(controllers.begin() + controllerInstances.at(_deviceNumber));
 		controllerInstances.erase(_deviceNumber);
@@ -239,7 +239,7 @@ namespace CSEngine
 	}//Input::RemoveController
 	//==============================================================================
 
-	bool Input_SDL::KeyHeld(int _keyCode) const
+	bool Input_SDL::KeyHeld(Uint32 _keyCode) const
 	{
 		for (int i = heldKeys.size() - 1; i >= 0; i--)
 		{
@@ -251,7 +251,7 @@ namespace CSEngine
 		return false;
 	}//Input::KeyHeld
 	//==============================================================================
-	bool Input_SDL::KeyUp(int _keyCode) const
+	bool Input_SDL::KeyUp(Uint32 _keyCode) const
 	{
 		for (int i = upKeys.size() - 1; i >= 0; i--)
 		{
@@ -263,7 +263,7 @@ namespace CSEngine
 		return false;
 	}//Input::KeyUp
 	//==============================================================================
-	bool Input_SDL::KeyDown(int _keyCode) const
+	bool Input_SDL::KeyDown(Uint32 _keyCode) const
 	{
 		for (int i = downKeys.size() - 1; i >= 0; i--)
 		{
@@ -281,7 +281,7 @@ namespace CSEngine
 		*_y = mousePosY;
 	}//Input::GetMousePos
 	//==============================================================================
-	bool Input_SDL::MouseButtonHeld(int _mouseCode) const
+	bool Input_SDL::MouseButtonHeld(Uint32 _mouseCode) const
 	{
 		for (int i = heldMouseButtons.size() - 1; i >= 0; i--)
 		{
@@ -293,7 +293,7 @@ namespace CSEngine
 		return false;
 	}//Input::MouseButtonHeld
 	//==============================================================================
-	bool Input_SDL::MouseButtonUp(int _mouseCode) const
+	bool Input_SDL::MouseButtonUp(Uint32 _mouseCode) const
 	{
 		for (int i = upMouseButtons.size() - 1; i >= 0; i--)
 		{
@@ -305,7 +305,7 @@ namespace CSEngine
 		return false;
 	}//Input::MouseButtonUp
 	//==============================================================================
-	bool Input_SDL::MouseButtonDown(int _mouseCode) const
+	bool Input_SDL::MouseButtonDown(Uint32 _mouseCode) const
 	{
 		for (int i = downMouseButtons.size() - 1; i >= 0; i--)
 		{
@@ -317,7 +317,7 @@ namespace CSEngine
 		return false;
 	}//Input::MouseButtonDown
 	//==============================================================================
-	bool Input_SDL::ContButtonHeld(int _deviceNumber, int _controllerCode) const
+	bool Input_SDL::ContButtonHeld(Uint32 _deviceNumber, Uint32 _controllerCode) const
 	{
 		if (controllers.size() <= _deviceNumber) return false;
 
@@ -333,7 +333,7 @@ namespace CSEngine
 		return false;
 	}//Input::ContButtonHeld
 	//==============================================================================
-	bool Input_SDL::ContButtonUp(int _deviceNumber, int _controllerCode) const
+	bool Input_SDL::ContButtonUp(Uint32 _deviceNumber, Uint32 _controllerCode) const
 	{
 		if (controllers.size() <= _deviceNumber) return false;
 
@@ -349,7 +349,7 @@ namespace CSEngine
 		return false;
 	}//Input::ContButtonUp
 	//==============================================================================
-	bool Input_SDL::ContButtonDown(int _deviceNumber, int _controllerCode) const
+	bool Input_SDL::ContButtonDown(Uint32 _deviceNumber, Uint32 _controllerCode) const
 	{
 		if (controllers.size() <= _deviceNumber) return false;
 
@@ -365,7 +365,7 @@ namespace CSEngine
 		return false;
 	}//Input::ContButtonDown
 	//==============================================================================
-	float Input_SDL::GetContAnalogueAxis(int _deviceNumber, int _analogueNumber, int _axisNumber) const
+	float Input_SDL::GetContAnalogueAxis(Uint32 _deviceNumber, Uint32 _analogueNumber, Uint32 _axisNumber) const
 	{
 		if (controllers.size() <= _deviceNumber)
 		{

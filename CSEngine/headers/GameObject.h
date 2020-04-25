@@ -9,7 +9,7 @@ namespace CSEngine {
 
 	class Component;
 	class Transform;
-	class Collision3D;
+	struct Collision3D;
 
 	//!Core engine class. All objects in the application manifest as GameObjects.
 	class GameObject :public Object, public std::enable_shared_from_this<GameObject> {

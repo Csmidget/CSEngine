@@ -1,8 +1,6 @@
 #ifndef GAME_ENGINE_MESHLOADER_H
 #define GAME_ENGINE_MESHLOADER_H
 
-
-
 namespace CSEngine {
 	class Mesh;
 

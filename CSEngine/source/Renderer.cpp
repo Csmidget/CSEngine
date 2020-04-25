@@ -49,8 +49,10 @@ namespace CSEngine
 
 		Light::UpdateLight();
 
-		glUniformMatrix4fv(projLoc, 1, 0, glm::value_ptr(Camera::GetMainCamera().lock()->ProjectionMatrix()));
-		glUniformMatrix4fv(viewLoc, 1, 0, glm::value_ptr(Camera::GetMainCamera().lock()->ViewMatrix()));
+		auto camera = Camera::GetMainCamera().lock();
+
+		glUniformMatrix4fv(projLoc, 1, 0, glm::value_ptr(camera->ProjectionMatrix()));
+		glUniformMatrix4fv(viewLoc, 1, 0, glm::value_ptr(camera->ViewMatrix()));
 
 		for (auto gameObject : _objects)
 		{
