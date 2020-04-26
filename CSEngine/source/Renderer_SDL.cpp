@@ -20,6 +20,13 @@ namespace CSEngine
 
 		bool Renderer_SDL::Init()
 		{
+
+			if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER) < 0)
+			{
+				Debug::LogError("Failed to initialise SDL");
+				return false;
+			}
+
 			//Initialization
 
 			std::string programName = "Game Engine";
@@ -74,6 +81,10 @@ namespace CSEngine
 
 			// Destroy our window
 			SDL_DestroyWindow(mainWindow);
+
+			// Close SDL
+			SDL_Quit();
+
 		}//Renderer_SDL::Destroy
 
 		//==============================================================================

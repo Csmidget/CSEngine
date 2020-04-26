@@ -27,6 +27,11 @@ namespace CSEngine {
 
 	private:
 
+		//!Current ticks since program launch
+		unsigned int currentTicks;
+		//!Previous record of current ticks
+		unsigned int lastTicks;
+
 		//!Map from Controller instance to deviceNumber in controller list.
 		DeviceInstanceMap controllerInstances;
 		//!List of active controllers
@@ -71,6 +76,8 @@ namespace CSEngine {
 		//!Removes a controller from the list of active controllers. Called if a Controller is unplugged.
 		void RemoveController(Uint32 _deviceNumber);
 
+		int UpdateDeltaTime() override;
+
 	public:
 		int NumControllers() const override { return controllers.size(); } ;
 
@@ -95,7 +102,7 @@ namespace CSEngine {
 		bool ContButtonDown(Uint32 _deviceNumber, Uint32 _controllerCode) const override;
 
 		float GetContAnalogueAxis(Uint32 _deviceNumber, Uint32 _analogueNumber, Uint32 _axisNumber) const override;
-
+		
 	};
 }
 

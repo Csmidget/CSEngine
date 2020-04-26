@@ -11,8 +11,6 @@ namespace CSEngine
 {
 	std::vector<std::shared_ptr<GameObject>> Application::gameObjects;
 	bool Application::run;
-	unsigned int Application::currentTicks;
-	unsigned int Application::lastTicks;
 	int Application::rdt;
 	float Application::rdts;
 	std::shared_ptr<Renderer> Application::renderer;
@@ -22,12 +20,6 @@ namespace CSEngine
 
 	bool Application::Init(int argc, char* argv[])
 	{
-		if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER) < 0)
-		{
-			Debug::LogError("Failed to initialise SDL");
-			return false;
-		}
-
 		run = true;
 
 		renderer = RendererFactory::CreateRenderer();
@@ -62,15 +54,8 @@ namespace CSEngine
 
 	void Application::RefreshDeltaTime()
 	{
-		currentTicks = SDL_GetTicks();
-		rdt = (currentTicks - lastTicks);
+		rdt = input->UpdateDeltaTime();
 		rdts = (float)rdt / 1000.0f;
-		lastTicks = currentTicks;
-
-		if (rdt < (1.0f / 60.0f))
-		{
-			SDL_Delay((unsigned int)(1000 / 60 - rdts));
-		}
 	}//Application::RefreshDeltaTime
 	//==============================================================================
 
@@ -100,10 +85,6 @@ namespace CSEngine
 		}
 
 		renderer->Destroy();
-
-		// Close SDL
-		SDL_Quit();
-
 	}//Application::Quit
 	//==============================================================================
 

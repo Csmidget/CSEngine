@@ -11,7 +11,6 @@ namespace CSEngine
 
 		switch (_event.window.event)
 		{
-		case SDL_WINDOWEVENT_NONE: type = WINDOWEVENT_RESIZED; break;
 		case SDL_WINDOWEVENT_SHOWN: type = WINDOWEVENT_SHOWN; break;
 		case SDL_WINDOWEVENT_HIDDEN: type = WINDOWEVENT_HIDDEN; break;
 		case SDL_WINDOWEVENT_EXPOSED: type = WINDOWEVENT_EXPOSED; break;

@@ -1,113 +1,102 @@
-#ifndef GAME_ENGINE_KEYCODE_H
-#define GAME_ENGINE_KEYCODE_H
+#ifndef GAME_ENGINE_KEYCODE_SDL_H
+#define GAME_ENGINE_KEYCODE_SDL_H
 
-#include <SDL/SDL.h>
+//This file provides conversions from SDL input codes to Engine input codes.
 
 namespace CSEngine {
 
-	//!Defines codes for Controller input
-	class ControllerCode
+	const std::map<Uint32, Uint32> sdlControllerCodes
 	{
-	public:
-		static const Uint32 CONTA = SDL_CONTROLLER_BUTTON_A;
-		static const Uint32 CONTB = SDL_CONTROLLER_BUTTON_B;
-		static const Uint32 CONTX = SDL_CONTROLLER_BUTTON_X;
-		static const Uint32 CONTY = SDL_CONTROLLER_BUTTON_Y;
-
-		static const Uint32 CONTBACK = SDL_CONTROLLER_BUTTON_BACK;
-		static const Uint32 CONTSTART = SDL_CONTROLLER_BUTTON_START;
-		static const Uint32 CONTGUIDE = SDL_CONTROLLER_BUTTON_GUIDE;
-
-		static const Uint32 CONTDPADUP = SDL_CONTROLLER_BUTTON_DPAD_UP;
-		static const Uint32 CONTDPADDOWN = SDL_CONTROLLER_BUTTON_DPAD_DOWN;
-		static const Uint32 CONTDPADLEFT = SDL_CONTROLLER_BUTTON_DPAD_LEFT;
-		static const Uint32 CONTDPADRIGHT = SDL_CONTROLLER_BUTTON_DPAD_RIGHT;
-
-		static const Uint32 CONTLEFTSHOULDER = SDL_CONTROLLER_BUTTON_LEFTSHOULDER;
-		static const Uint32 CONTRIGHTSHOULDER = SDL_CONTROLLER_BUTTON_RIGHTSHOULDER;
-		static const Uint32 CONTLEFTTRIGGER = SDL_CONTROLLER_AXIS_TRIGGERLEFT;
-		static const Uint32 CONTRIGHTTRIGGER = SDL_CONTROLLER_AXIS_TRIGGERRIGHT;
-
-		static const Uint32 CONTLEFTSTICK = SDL_CONTROLLER_BUTTON_LEFTSTICK;
-		static const Uint32 CONTRIGHTSTICK = SDL_CONTROLLER_BUTTON_RIGHTSTICK;
+		{SDL_CONTROLLER_BUTTON_A,ControllerCode::CONTA},
+		{SDL_CONTROLLER_BUTTON_B,ControllerCode::CONTB},
+		{SDL_CONTROLLER_BUTTON_X,ControllerCode::CONTX},
+		{SDL_CONTROLLER_BUTTON_Y,ControllerCode::CONTY},
+		{SDL_CONTROLLER_BUTTON_BACK,ControllerCode::CONTBACK},
+		{SDL_CONTROLLER_BUTTON_START,ControllerCode::CONTSTART},
+		{SDL_CONTROLLER_BUTTON_GUIDE,ControllerCode::CONTGUIDE},
+		{SDL_CONTROLLER_BUTTON_DPAD_UP,ControllerCode::CONTDPADUP},
+		{SDL_CONTROLLER_BUTTON_DPAD_DOWN,ControllerCode::CONTDPADDOWN},
+		{SDL_CONTROLLER_BUTTON_DPAD_LEFT,ControllerCode::CONTDPADLEFT},
+		{SDL_CONTROLLER_BUTTON_DPAD_RIGHT,ControllerCode::CONTDPADRIGHT},
+		{SDL_CONTROLLER_BUTTON_LEFTSHOULDER,ControllerCode::CONTLEFTSHOULDER},
+		{SDL_CONTROLLER_BUTTON_RIGHTSHOULDER,ControllerCode::CONTRIGHTSHOULDER},
+		{SDL_CONTROLLER_AXIS_TRIGGERLEFT,ControllerCode::CONTA},
+		{SDL_CONTROLLER_AXIS_TRIGGERRIGHT,ControllerCode::CONTA},
+		{SDL_CONTROLLER_BUTTON_LEFTSTICK,ControllerCode::CONTA},
+		{SDL_CONTROLLER_BUTTON_RIGHTSTICK,ControllerCode::CONTA},
+		{SDL_CONTROLLER_BUTTON_A,ControllerCode::CONTA},
+		{SDL_CONTROLLER_BUTTON_A,ControllerCode::CONTA},
+		{SDL_CONTROLLER_BUTTON_A,ControllerCode::CONTA}
 	};
 
-	//!Defines codes for Mouse input
-	class MouseCode
+
+	const std::map<Uint32, Uint32> sdlMouseCodes
 	{
-	public:
-		static const Uint32 MBLEFT = SDL_BUTTON_LEFT;
-		static const Uint32 MBMID = SDL_BUTTON_MIDDLE;
-		static const Uint32 MBRIGHT = SDL_BUTTON_RIGHT;
-		static const Uint32 MBX1 = SDL_BUTTON_X1;
-		static const Uint32 MBX2 = SDL_BUTTON_X2;
+		{SDL_BUTTON_LEFT,MouseCode::MBLEFT},
+		{SDL_BUTTON_MIDDLE,MouseCode::MBMID},
+		{SDL_BUTTON_RIGHT,MouseCode::MBRIGHT},
+		{SDL_BUTTON_X1,MouseCode::MBX1},
+		{SDL_BUTTON_X2,MouseCode::MBX2}
 	};
 
-	//!Defines codes for Keyboard input
-	class KeyCode {
-
-	public:
-		static const Uint32 ESCAPE = SDLK_ESCAPE;
-		static const Uint32 RETURN = SDLK_RETURN;
-		static const Uint32 SPACE = SDLK_SPACE;
-
-		static const Uint32 UP = SDLK_UP;
-		static const Uint32 DOWN = SDLK_DOWN;
-		static const Uint32 LEFT = SDLK_LEFT;
-		static const Uint32 RIGHT = SDLK_RIGHT;
-
-		static const Uint32 KEY0 = SDLK_0;
-		static const Uint32 KEY1 = SDLK_1;
-		static const Uint32 KEY2 = SDLK_2;
-		static const Uint32 KEY3 = SDLK_3;
-		static const Uint32 KEY4 = SDLK_4;
-		static const Uint32 KEY5 = SDLK_5;
-		static const Uint32 KEY6 = SDLK_6;
-		static const Uint32 KEY7 = SDLK_7;
-		static const Uint32 KEY8 = SDLK_8;
-		static const Uint32 KEY9 = SDLK_9;
-
-		static const Uint32 NUM0 = SDLK_KP_0;
-		static const Uint32 NUM00 = SDLK_KP_00;
-		static const Uint32 NUM000 = SDLK_KP_000;
-		static const Uint32 NUM1 = SDLK_KP_1;
-		static const Uint32 NUM2 = SDLK_KP_2;
-		static const Uint32 NUM3 = SDLK_KP_3;
-		static const Uint32 NUM4 = SDLK_KP_4;
-		static const Uint32 NUM5 = SDLK_KP_5;
-		static const Uint32 NUM6 = SDLK_KP_6;
-		static const Uint32 NUM7 = SDLK_KP_7;
-		static const Uint32 NUM8 = SDLK_KP_8;
-		static const Uint32 NUM9 = SDLK_KP_9;
-
-		static const Uint32 A = SDLK_a;
-		static const Uint32 B = SDLK_b;
-		static const Uint32 C = SDLK_c;
-		static const Uint32 D = SDLK_d;
-		static const Uint32 E = SDLK_e;
-		static const Uint32 F = SDLK_f;
-		static const Uint32 G = SDLK_g;
-		static const Uint32 H = SDLK_h;
-		static const Uint32 I = SDLK_i;
-		static const Uint32 J = SDLK_j;
-		static const Uint32 K = SDLK_k;
-		static const Uint32 L = SDLK_l;
-		static const Uint32 M = SDLK_m;
-		static const Uint32 N = SDLK_n;
-		static const Uint32 O = SDLK_o;
-		static const Uint32 P = SDLK_p;
-		static const Uint32 Q = SDLK_q;
-		static const Uint32 R = SDLK_r;
-		static const Uint32 S = SDLK_s;
-		static const Uint32 T = SDLK_t;
-		static const Uint32 U = SDLK_u;
-		static const Uint32 V = SDLK_v;
-		static const Uint32 W = SDLK_w;
-		static const Uint32 X = SDLK_x;
-		static const Uint32 Y = SDLK_y;
-		static const Uint32 Z = SDLK_z;
-	};//KeyCode
-
+	const std::map<Uint32, Uint32> sdlKeyCodes
+	{
+		{SDLK_0,KeyCode::KEY0},
+		{SDLK_1,KeyCode::KEY1},
+		{SDLK_2,KeyCode::KEY2},
+		{SDLK_3,KeyCode::KEY3},
+		{SDLK_4,KeyCode::KEY4},
+		{SDLK_5,KeyCode::KEY5},
+		{SDLK_6,KeyCode::KEY6},
+		{SDLK_7,KeyCode::KEY7},
+		{SDLK_8,KeyCode::KEY8},
+		{SDLK_9,KeyCode::KEY9},
+		{SDLK_a,KeyCode::A},
+		{SDLK_b,KeyCode::B},
+		{SDLK_c,KeyCode::C},
+		{SDLK_d,KeyCode::D},
+		{SDLK_e,KeyCode::E},
+		{SDLK_f,KeyCode::F},
+		{SDLK_g,KeyCode::G},
+		{SDLK_h,KeyCode::H},
+		{SDLK_i,KeyCode::I},
+		{SDLK_j,KeyCode::J},
+		{SDLK_k,KeyCode::K},
+		{SDLK_l,KeyCode::L},
+		{SDLK_m,KeyCode::M},
+		{SDLK_n,KeyCode::N},
+		{SDLK_o,KeyCode::O},
+		{SDLK_p,KeyCode::P},
+		{SDLK_q,KeyCode::Q},
+		{SDLK_r,KeyCode::R},
+		{SDLK_s,KeyCode::S},
+		{SDLK_t,KeyCode::T},
+		{SDLK_u,KeyCode::U},
+		{SDLK_v,KeyCode::V},
+		{SDLK_w,KeyCode::W},
+		{SDLK_x,KeyCode::X},
+		{SDLK_y,KeyCode::Y},
+		{SDLK_z,KeyCode::Z},
+		{SDLK_UP,KeyCode::UP},
+		{SDLK_DOWN,KeyCode::DOWN},
+		{SDLK_LEFT,KeyCode::LEFT},
+		{SDLK_RIGHT,KeyCode::RIGHT},
+		{SDLK_ESCAPE,KeyCode::ESCAPE},
+		{SDLK_RETURN,KeyCode::RETURN},
+		{SDLK_SPACE,KeyCode::SPACE},
+		{SDLK_KP_0,KeyCode::NUM0},
+		{SDLK_KP_00,KeyCode::NUM00},
+		{SDLK_KP_000,KeyCode::NUM000},
+		{SDLK_KP_1,KeyCode::NUM1},
+		{SDLK_KP_2,KeyCode::NUM2},
+		{SDLK_KP_3,KeyCode::NUM3},
+		{SDLK_KP_4,KeyCode::NUM4},
+		{SDLK_KP_5,KeyCode::NUM5},
+		{SDLK_KP_6,KeyCode::NUM6},
+		{SDLK_KP_7,KeyCode::NUM7},
+		{SDLK_KP_8,KeyCode::NUM8},
+		{SDLK_KP_9,KeyCode::NUM9}
+	};
 }
 
 #endif

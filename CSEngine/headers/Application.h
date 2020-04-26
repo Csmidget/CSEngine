@@ -18,11 +18,6 @@ namespace CSEngine {
 		//!Set to false to turn off program
 		static bool run;
 
-		//!Current ticks since program launch
-		static unsigned int currentTicks;
-		//!Previous record of current ticks
-		static unsigned int lastTicks;
-
 		//!Real Delta Time in milliseconds
 		static int rdt;
 		//!Real Delta Time in Seconds 

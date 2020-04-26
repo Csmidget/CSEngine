@@ -110,6 +110,12 @@
     <ClCompile Include="source\Light.cpp">
       <Filter>source\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="source\Renderer_SFML.cpp">
+      <Filter>source\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Input_SFML.cpp">
+      <Filter>source\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -211,6 +217,18 @@
     </ClInclude>
     <ClInclude Include="headers\mathutil.h">
       <Filter>source\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Renderer_SFML.h">
+      <Filter>source\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Input_SFML.h">
+      <Filter>source\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\KeyCode.h">
+      <Filter>source\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\KeyCode_SFML.h">
+      <Filter>source\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

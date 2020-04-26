@@ -184,7 +184,10 @@ xcopy "$(ProjectDir)include\*.*" "$(SolutionDir)include\" /Y /I /E</Command>
     <ClInclude Include="headers\GameObject.h" />
     <ClInclude Include="headers\Input.h" />
     <ClInclude Include="headers\Input_SDL.h" />
+    <ClInclude Include="headers\Input_SFML.h" />
+    <ClInclude Include="headers\KeyCode.h" />
     <ClInclude Include="headers\KeyCode_SDL.h" />
+    <ClInclude Include="headers\KeyCode_SFML.h" />
     <ClInclude Include="headers\Light.h" />
     <ClInclude Include="headers\mathutil.h" />
     <ClInclude Include="headers\Mesh.h" />
@@ -194,6 +197,7 @@ xcopy "$(ProjectDir)include\*.*" "$(SolutionDir)include\" /Y /I /E</Command>
     <ClInclude Include="headers\Object.h" />
     <ClInclude Include="headers\Renderer.h" />
     <ClInclude Include="headers\Renderer_SDL.h" />
+    <ClInclude Include="headers\Renderer_SFML.h" />
     <ClInclude Include="headers\RigidBody3D.h" />
     <ClInclude Include="headers\SphereCollider.h" />
     <ClInclude Include="headers\Transform.h" />
@@ -226,6 +230,7 @@ xcopy "$(ProjectDir)include\*.*" "$(SolutionDir)include\" /Y /I /E</Command>
     <ClCompile Include="source\Game\TableConstrainer.cpp" />
     <ClCompile Include="source\Input.cpp" />
     <ClCompile Include="source\Input_SDL.cpp" />
+    <ClCompile Include="source\Input_SFML.cpp" />
     <ClCompile Include="source\Light.cpp" />
     <ClCompile Include="source\Main.cpp" />
     <ClCompile Include="source\Mesh.cpp" />
@@ -236,6 +241,7 @@ xcopy "$(ProjectDir)include\*.*" "$(SolutionDir)include\" /Y /I /E</Command>
     <ClCompile Include="source\Renderer.cpp" />
     <ClCompile Include="source\RendererFactory.cpp" />
     <ClCompile Include="source\Renderer_SDL.cpp" />
+    <ClCompile Include="source\Renderer_SFML.cpp" />
     <ClCompile Include="source\RigidBody3D.cpp" />
     <ClCompile Include="source\SphereCollider.cpp" />
     <ClCompile Include="source\Transform.cpp" />

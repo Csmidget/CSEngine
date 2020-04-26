@@ -1,17 +1,32 @@
-#include <map>
-
 #include "SDL/SDL.h"
 
 #include "CSEngine_Common.h"
 
 #include "Application.h"
 #include "Renderer.h"
+#include "KeyCode.h"
+#include "KeyCode_SDL.h"
 #include "WindowEvent_SDL.h"
 #include "Input.h"
 #include "Input_SDL.h"
 
 namespace CSEngine
 {
+	//==============================================================================
+	int Input_SDL::UpdateDeltaTime()
+	{
+		currentTicks = SDL_GetTicks();
+		int rdt = (currentTicks - lastTicks);
+		float rdts = (float)rdt / 1000.0f;
+		lastTicks = currentTicks;
+
+		if (rdt < (1.0f / 60.0f))
+		{
+			SDL_Delay((unsigned int)(1000 / 60 - rdts));
+		}
+
+		return rdt;
+	}//Input_SDL::UpdateDeltaTime
 	//==============================================================================
 	void Input_SDL::RefreshEvents()
 	{
@@ -31,7 +46,7 @@ namespace CSEngine
 		}
 
 		SDL_GetMouseState(&mousePosX, &mousePosY);
-	}//Input::RefreshEvents
+	}//Input_SDL::RefreshEvents
 
 	//==============================================================================
 	void Input_SDL::ProcessEvents()
@@ -81,12 +96,14 @@ namespace CSEngine
 				break;
 			}
 		}
-	}
+	}//Input_SDL::ProcessEvents
 	//==============================================================================
 	void Input_SDL::ProcessKeyEvent(SDL_KeyboardEvent &_event)
 	{
+		const Uint32 sdlKeycode = _event.keysym.sym;
+		Uint32 keycode = sdlKeyCodes.at(sdlKeycode);
 
-		if (_event.keysym.sym == KeyCode::ESCAPE)
+		if (keycode == KeyCode::ESCAPE)
 		{
 			Application::Stop();
 		}
@@ -98,105 +115,108 @@ namespace CSEngine
 
 			for (int i = heldKeys.size() - 1; i >= 0; i--)
 			{
-				if (heldKeys[i] == _event.keysym.sym)
+				if (heldKeys[i] == keycode)
 					keyFound = true;
 			}
 			if (!keyFound) {
-				heldKeys.push_back(_event.keysym.sym);
-				downKeys.push_back(_event.keysym.sym);
+				heldKeys.push_back(keycode);
+				downKeys.push_back(keycode);
 			}
 			break;
 
 		case SDL_KEYUP:
 			for (int i = heldKeys.size() - 1; i >= 0; i--)
 			{
-				if (heldKeys[i] == _event.keysym.sym) {
+				if (heldKeys[i] == keycode) {
 					heldKeys.erase(heldKeys.begin() + i);
 					break;
 				}
 			}
-			upKeys.push_back(_event.keysym.sym);
+			upKeys.push_back(keycode);
 			break;
 		}
-	}//Input::ProcessKeyEvent
+	}//Input_SDL::ProcessKeyEvent
 	//==============================================================================
 	void Input_SDL::ProcessMouseButtonEvent(SDL_MouseButtonEvent &_event)
 	{
+		const Uint32 sdlMousecode = _event.button;
+		Uint32 mouseCode = sdlMouseCodes.at(sdlMousecode);
+
 		bool buttonFound = false;
 
 		switch (_event.type)
 		{
 		case SDL_MOUSEBUTTONDOWN:
 			for (int i = heldMouseButtons.size() - 1; i >= 0; i--) {
-				if (heldMouseButtons[i] == _event.button)
+				if (heldMouseButtons[i] == mouseCode)
 					buttonFound = true;
 			}
 			if (!buttonFound) {
-				heldMouseButtons.push_back(_event.button);
-				downMouseButtons.push_back(_event.button);
+				heldMouseButtons.push_back(mouseCode);
+				downMouseButtons.push_back(mouseCode);
 			}
 			break;
 
 		case SDL_MOUSEBUTTONUP:
 			for (int i = heldMouseButtons.size() - 1; i >= 0; i--) {
-				if (heldMouseButtons[i] == _event.button) {
+				if (heldMouseButtons[i] == mouseCode) {
 					heldMouseButtons.erase(heldMouseButtons.begin() + i);
 					break;
 				}
 			}
-			upMouseButtons.push_back(_event.button);
+			upMouseButtons.push_back(mouseCode);
 			break;
 		}
-	}//Input::ProcessMouseButtonEvent
+	}//Input_SDL::ProcessMouseButtonEvent
 
 	//==============================================================================
 	void Input_SDL::ProcessMouseMotionEvent(SDL_MouseMotionEvent &_event)
 	{
 		mouseMoved = true;
-	}//Input::ProcessMouseMotionEvent
+	}//Input_SDL::ProcessMouseMotionEvent
 	//==============================================================================
 	void Input_SDL::ProcessMouseWheelEvent(SDL_MouseWheelEvent &_event)
 	{
 		mouseWheel = _event.y;
-	}//Input ProcessMouseWheelEvent
+	}//Input_SDL ProcessMouseWheelEvent
 	//==============================================================================
 	void Input_SDL::ProcessControllerButtonEvent(SDL_ControllerButtonEvent &_event)
 	{
+		const Uint32 sdlContCode = _event.button;
+		Uint32 contCode = sdlMouseCodes.at(sdlContCode);
+
 		bool buttonFound = false;
 
 		std::shared_ptr<Controller> c = controllers.at(controllerInstances.at(_event.which));
-
+		Debug::Log(_event.which);
 		switch (_event.type)
 		{
 		case SDL_CONTROLLERBUTTONDOWN:
-			Debug::Log(_event.which);
-
 			for (int i = c->heldButtons.size() - 1; i >= 0; i--)
 			{
-				if (c->heldButtons.at(i) == _event.button)
+				if (c->heldButtons.at(i) == contCode)
 					buttonFound = true;
 			}
 			if (!buttonFound)
 			{
-				c->heldButtons.push_back(_event.button);
-				c->downButtons.push_back(_event.button);
+				c->heldButtons.push_back(contCode);
+				c->downButtons.push_back(contCode);
 			}
 			break;
 
 		case SDL_CONTROLLERBUTTONUP:
-			Debug::Log(_event.which);
 			for (int i = c->heldButtons.size() - 1; i >= 0; i--)
 			{
-				if (c->heldButtons[i] == _event.button)
+				if (c->heldButtons[i] == contCode)
 				{
 					c->heldButtons.erase(c->heldButtons.begin() + i);
 					break;
 				}
 			}
-			c->upButtons.push_back(_event.button);
+			c->upButtons.push_back(contCode);
 			break;
 		}
-	}//Input::ProcessJoyButton
+	}//Input_SDL::ProcessJoyButton
 	//==============================================================================
 	void Input_SDL::ProcessControllerAxisEvent(SDL_ControllerAxisEvent &_event)
 	{
@@ -210,7 +230,7 @@ namespace CSEngine
 		else
 			c->analogueAxis[_event.axis] = 0;
 
-	}//Input::ProcessControllerAxis
+	}//Input_SDL::ProcessControllerAxis
 	//==============================================================================
 
 	void Input_SDL::AddController(Uint32 _deviceNumber)
@@ -224,7 +244,7 @@ namespace CSEngine
 			controllers.push_back(cont);
 			Debug::Log("JOYSTICK ADDED: ", cont->name.c_str());
 		}
-	}//Input::AddController
+	}//Input_SDL::AddController
 	//==============================================================================
 	void Input_SDL::RemoveController(Uint32 _deviceNumber)
 	{
@@ -236,7 +256,7 @@ namespace CSEngine
 			if (i->second >= _deviceNumber)
 				controllerInstances.at(i->first)--;
 		}
-	}//Input::RemoveController
+	}//Input_SDL::RemoveController
 	//==============================================================================
 
 	bool Input_SDL::KeyHeld(Uint32 _keyCode) const
@@ -249,7 +269,7 @@ namespace CSEngine
 			}
 		}
 		return false;
-	}//Input::KeyHeld
+	}//Input_SDL::KeyHeld
 	//==============================================================================
 	bool Input_SDL::KeyUp(Uint32 _keyCode) const
 	{
@@ -261,7 +281,7 @@ namespace CSEngine
 			}
 		}
 		return false;
-	}//Input::KeyUp
+	}//Input_SDL::KeyUp
 	//==============================================================================
 	bool Input_SDL::KeyDown(Uint32 _keyCode) const
 	{
@@ -273,13 +293,13 @@ namespace CSEngine
 			}
 		}
 		return false;
-	}//Input::KeyDown
+	}//Input_SDL::KeyDown
 	//==============================================================================
 	void Input_SDL::GetMousePos(int *_x, int *_y) const
 	{
 		*_x = mousePosX;
 		*_y = mousePosY;
-	}//Input::GetMousePos
+	}//Input_SDL::GetMousePos
 	//==============================================================================
 	bool Input_SDL::MouseButtonHeld(Uint32 _mouseCode) const
 	{
@@ -291,7 +311,7 @@ namespace CSEngine
 			}
 		}
 		return false;
-	}//Input::MouseButtonHeld
+	}//Input_SDL::MouseButtonHeld
 	//==============================================================================
 	bool Input_SDL::MouseButtonUp(Uint32 _mouseCode) const
 	{
@@ -303,7 +323,7 @@ namespace CSEngine
 			}
 		}
 		return false;
-	}//Input::MouseButtonUp
+	}//Input_SDL::MouseButtonUp
 	//==============================================================================
 	bool Input_SDL::MouseButtonDown(Uint32 _mouseCode) const
 	{
@@ -315,7 +335,7 @@ namespace CSEngine
 			}
 		}
 		return false;
-	}//Input::MouseButtonDown
+	}//Input_SDL::MouseButtonDown
 	//==============================================================================
 	bool Input_SDL::ContButtonHeld(Uint32 _deviceNumber, Uint32 _controllerCode) const
 	{
@@ -331,7 +351,7 @@ namespace CSEngine
 			}
 		}
 		return false;
-	}//Input::ContButtonHeld
+	}//Input_SDL::ContButtonHeld
 	//==============================================================================
 	bool Input_SDL::ContButtonUp(Uint32 _deviceNumber, Uint32 _controllerCode) const
 	{
@@ -347,7 +367,7 @@ namespace CSEngine
 			}
 		}
 		return false;
-	}//Input::ContButtonUp
+	}//Input_SDL::ContButtonUp
 	//==============================================================================
 	bool Input_SDL::ContButtonDown(Uint32 _deviceNumber, Uint32 _controllerCode) const
 	{
@@ -363,7 +383,7 @@ namespace CSEngine
 			}
 		}
 		return false;
-	}//Input::ContButtonDown
+	}//Input_SDL::ContButtonDown
 	//==============================================================================
 	float Input_SDL::GetContAnalogueAxis(Uint32 _deviceNumber, Uint32 _analogueNumber, Uint32 _axisNumber) const
 	{
@@ -380,6 +400,6 @@ namespace CSEngine
 		}
 
 		return c->analogueAxis[_analogueNumber * 2 + _axisNumber];
-	}
+	}//Input_SDL::GetContAnalogueAxis
 
 }
